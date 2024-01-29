@@ -1,0 +1,179 @@
+name: Postman Test and Allure Report
+on:
+  push:
+    branches:
+      - main
+jobs:
+  run_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install newman and newman-reporter-allure
+        run: |
+          npm install -g newman newman-reporter-allure
+          echo "Newman and newman-reporter-allure installed."
+          
+      - name: Generate and upload Allure Report
+        if: ${{ always() }}
+        id: run-allure
+        working-directory: ./Postman-Collections
+        shell: bash
+        run: |
+          allure generate --output ./allure-report
+          link="./allure-report"
+          echo $link
+          aws s3 sync "$link" "s3://${{ secrets.AWS_S3_BUCKET }}/${{ github.event.repository.name }}/${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}"
+          report_url="http://myallurebucket-us.s3-website-us-east-1.amazonaws.com/${{ github.event.repository.name }}/${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}/index.html"
+          echo "Report URL: $report_url"
+          echo "url=$(echo $report_url)" >> $GITHUB_OUTPUT
+          echo $url
+
+      - name: Failure Slack Report
+        id: slack-failure
+        uses: slackapi/slack-github-action@v1.24.0
+        # https://api.slack.com/apps/<your-app-id>/incoming-webhooks
+        if: ${{ failure() }}
+        with:
+          channel-id: 'C05RG27NJJJ' # slack channel #alerts-test
+          payload: |
+            {
+              "text": "GitHub Action failed",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*Duplo Postman tests failed* :x: There is a problem!"
+                  }
+                },
+                {
+                  "type": "actions",
+                  "elements": [
+                    {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": ":allure_report: Test Report"
+                      },
+                      "url": "${{ steps.run-allure.outputs.url }}"
+                    },
+                    {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": ":github: Github Action Run"
+                      },
+                      "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                    }
+                  ]
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+
+      - name: Success Slack Report
+        id: slack-success
+        uses: slackapi/slack-github-action@v1.24.0
+        # https://api.slack.com/apps/<your-app-id>/incoming-webhooks
+        if: ${{ success() }}
+        with:
+          channel-id: 'C05RG27NJJJ' # slack channel #alerts-test
+          payload: |
+            {
+              "text": "GitHub Action passed",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*Duplo Postman tests passed* :white_check_mark: Hurray!"
+                  }
+                },
+                {
+                  "type": "actions",
+                  "elements": [
+                    {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": ":allure_report: Test Report"
+                      },
+                      "url": "${{ steps.run-allure.outputs.url }}"
+                    },
+                    {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": ":github: Github Action Run"
+                      },
+                      "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                    }
+                  ]
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+      - name: Run Postman tests
+        if: always()
+        continue-on-error: true
+        run: |
+           newman run Postman-Collections/Postman-Collections.json --reporters cli,allure
+           echo "Postman tests run."
+      - name: Get Allure history
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+      - name: Allure report action
+        id: build
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        continue-on-error: true
+        with:
+          allure_results: allure-results
+          gh_pages: gh-pages
+          allure_report: allure-report
+          allure_history: allure-history
+      - name: Wait for Allure report to be generated
+        if: always()
+        continue-on-error: true
+        run: sleep 10
+      # - name: Find latest folder and update Allure Report Title
+      #   run: |
+      #     latest_folder=$(find allure-report -type d -name '[0-9]*' | sort -n | tail -n 1)
+      #     echo "Latest Folder: $latest_folder"
+      #     sed -i 's/<title>Allure Report<\/title>/<title>[Herconomy] - API Quality Readiness<\/title>/' "$latest_folder/index.html"
+      - name: Update Allure Report Widget Title
+        continue-on-error: true
+        if: steps.build.outcome == 'success'
+        run: |
+          # Find the latest folder with numerical values in the allure-history directory
+          latest_folder=$(find allure-history -mindepth 1 -maxdepth 1 -type d -name '[0-9]*' | sort -n | tail -n 1)
+          echo "Latest Folder: $latest_folder"
+          # Check if summary.json exists in the latest folder
+          summary_path="$latest_folder/widgets/summary.json"
+          echo "Summary Path: $summary_path"
+          if [[ -e "$summary_path" ]]; then
+            # Debug output to check the content before and after the sed command
+            cat "$summary_path"  # Print content before
+            # Use sed to update the content within the <h2> element
+            sudo sed -i 's/Allure Report/Duplo - API Quality Readiness/' "$summary_path"
+            cat "$summary_path"  # Print content after
+          else
+            echo "Error: summary.json not found in the latest folder."
+          fi
+      - name: Deploy report to GitHub Pages
+        id: deploy
+        if: always()
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: allure-history
