@@ -1126,53 +1126,169 @@
 									"body": "{\n    \"data\": {\n        \"provider\": {\n            \"bank_code\": \"053\",\n            \"bank_name\": \"Providus\",\n            \"id\": \"providus\",\n            \"default\": true\n        },\n        \"email\": \"alindavdsin@gmail.com\",\n        \"phone_number\": \"08085279945\",\n        \"account_ref\": \"dp_act_e05bf31ed40aee7d330ea4922733cc94\",\n        \"created_at\": \"2021-09-28T20:10:07.000Z\",\n        \"status\": \"active\",\n        \"account_name\": \"MyName new\",\n        \"account_number\": \"9977658630\",\n        \"bvn\": \"39372746283\"\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
 								}
 							]
+						},
+						{
+							"name": "Update account with Invalid provider",
+							"id": "32a8fd98-1bf6-40c8-9184-bc22db80c57e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "dpmlekdno",
+										"value": "{{dpmlekdno}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"account_name\": \"John doe\",\n    \"provider\": \"providus\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{api-gateway-url}}/virtual-accounts/9978475689"
+							},
+							"response": [
+								{
+									"id": "3cd8050a-4222-4925-95eb-4e3c0e566e75",
+									"name": "Update account",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "dpmlekdno",
+												"value": "{{dpmlekdno}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"account_name\": \"MyName new\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{api-gateway-url}}/virtual-accounts/dp_act_e05bf31ed40aee7d330ea4922733cc94"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "x-dns-prefetch-control",
+											"value": "off"
+										},
+										{
+											"key": "expect-ct",
+											"value": "max-age=0"
+										},
+										{
+											"key": "x-frame-options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "strict-transport-security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "x-xss-protection",
+											"value": "0"
+										},
+										{
+											"key": "vary",
+											"value": "Origin"
+										},
+										{
+											"key": "x-ratelimit-limit",
+											"value": "50"
+										},
+										{
+											"key": "x-ratelimit-remaining",
+											"value": "49"
+										},
+										{
+											"key": "x-ratelimit-reset",
+											"value": "60"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "x-cloud-trace-context",
+											"value": "f5e17853ffc07f9d9bde4e818b7dfcc1;o=1"
+										},
+										{
+											"key": "date",
+											"value": "Tue, 28 Sep 2021 20:11:36 GMT"
+										},
+										{
+											"key": "server",
+											"value": "Google Frontend"
+										},
+										{
+											"key": "content-length",
+											"value": "391"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"provider\": {\n            \"bank_code\": \"053\",\n            \"bank_name\": \"Providus\",\n            \"id\": \"providus\",\n            \"default\": true\n        },\n        \"email\": \"alindavdsin@gmail.com\",\n        \"phone_number\": \"08085279945\",\n        \"account_ref\": \"dp_act_e05bf31ed40aee7d330ea4922733cc94\",\n        \"created_at\": \"2021-09-28T20:10:07.000Z\",\n        \"status\": \"active\",\n        \"account_name\": \"MyName new\",\n        \"account_number\": \"9977658630\",\n        \"bvn\": \"39372746283\"\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
+								}
+							]
 						}
 					],
 					"id": "7df353b8-a541-4884-b461-6c4d083fabb1"
 				},
 				{
 					"name": "Get account",
-					"id": "ea8261ed-4930-4416-95c6-3aa3f0d97086",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "dpmlekdno",
-								"value": "{{dpmlekdno}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{api-gateway-url}}/virtual-accounts/act_yFGtXdFwZuPl",
-							"host": [
-								"{{api-gateway-url}}"
-							],
-							"path": [
-								"virtual-accounts",
-								"act_yFGtXdFwZuPl"
-							],
-							"query": [
-								{
-									"key": "page",
-									"value": "1",
-									"disabled": true
-								},
-								{
-									"key": "limit",
-									"value": "1",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": [
+					"item": [
 						{
-							"id": "2acd9978-4b7a-4fbc-81a1-ae47a3d8dd86",
 							"name": "Get account",
-							"originalRequest": {
+							"id": "ea8261ed-4930-4416-95c6-3aa3f0d97086",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
 								"method": "GET",
 								"header": [
 									{
@@ -1182,13 +1298,13 @@
 									}
 								],
 								"url": {
-									"raw": "{{api-gateway-url}}/virtual-accounts/dp_act_e05bf31ed40aee7d330ea4922733cc94",
+									"raw": "{{api-gateway-url}}/virtual-accounts/act_yFGtXdFwZuPl",
 									"host": [
 										"{{api-gateway-url}}"
 									],
 									"path": [
 										"virtual-accounts",
-										"dp_act_e05bf31ed40aee7d330ea4922733cc94"
+										"act_yFGtXdFwZuPl"
 									],
 									"query": [
 										{
@@ -1204,144 +1320,402 @@
 									]
 								}
 							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "Content-Security-Policy",
-									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
-								},
-								{
-									"key": "x-dns-prefetch-control",
-									"value": "off"
-								},
-								{
-									"key": "expect-ct",
-									"value": "max-age=0"
-								},
-								{
-									"key": "x-frame-options",
-									"value": "SAMEORIGIN"
-								},
-								{
-									"key": "strict-transport-security",
-									"value": "max-age=15552000; includeSubDomains"
-								},
-								{
-									"key": "x-download-options",
-									"value": "noopen"
-								},
-								{
-									"key": "x-content-type-options",
-									"value": "nosniff"
-								},
-								{
-									"key": "x-permitted-cross-domain-policies",
-									"value": "none"
-								},
-								{
-									"key": "referrer-policy",
-									"value": "no-referrer"
-								},
-								{
-									"key": "x-xss-protection",
-									"value": "0"
-								},
-								{
-									"key": "vary",
-									"value": "Origin"
-								},
-								{
-									"key": "x-ratelimit-limit",
-									"value": "50"
-								},
-								{
-									"key": "x-ratelimit-remaining",
-									"value": "49"
-								},
-								{
-									"key": "x-ratelimit-reset",
-									"value": "60"
-								},
-								{
-									"key": "access-control-allow-credentials",
-									"value": "true"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "x-cloud-trace-context",
-									"value": "7717394cf408f119af45676d3a79fb62;o=1"
-								},
-								{
-									"key": "date",
-									"value": "Tue, 28 Sep 2021 20:12:41 GMT"
-								},
-								{
-									"key": "server",
-									"value": "Google Frontend"
-								},
-								{
-									"key": "content-length",
-									"value": "373"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
+									"id": "2acd9978-4b7a-4fbc-81a1-ae47a3d8dd86",
+									"name": "Get account",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "dpmlekdno",
+												"value": "{{dpmlekdno}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api-gateway-url}}/virtual-accounts/dp_act_e05bf31ed40aee7d330ea4922733cc94",
+											"host": [
+												"{{api-gateway-url}}"
+											],
+											"path": [
+												"virtual-accounts",
+												"dp_act_e05bf31ed40aee7d330ea4922733cc94"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1",
+													"disabled": true
+												},
+												{
+													"key": "limit",
+													"value": "1",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "x-dns-prefetch-control",
+											"value": "off"
+										},
+										{
+											"key": "expect-ct",
+											"value": "max-age=0"
+										},
+										{
+											"key": "x-frame-options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "strict-transport-security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "x-xss-protection",
+											"value": "0"
+										},
+										{
+											"key": "vary",
+											"value": "Origin"
+										},
+										{
+											"key": "x-ratelimit-limit",
+											"value": "50"
+										},
+										{
+											"key": "x-ratelimit-remaining",
+											"value": "49"
+										},
+										{
+											"key": "x-ratelimit-reset",
+											"value": "60"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "x-cloud-trace-context",
+											"value": "7717394cf408f119af45676d3a79fb62;o=1"
+										},
+										{
+											"key": "date",
+											"value": "Tue, 28 Sep 2021 20:12:41 GMT"
+										},
+										{
+											"key": "server",
+											"value": "Google Frontend"
+										},
+										{
+											"key": "content-length",
+											"value": "373"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"provider\": {\n            \"bank_code\": \"053\",\n            \"bank_name\": \"Providus\",\n            \"id\": \"providus\",\n            \"default\": true\n        },\n        \"email\": \"alindavdsin@gmail.com\",\n        \"phone_number\": \"08085279945\",\n        \"account_ref\": \"dp_act_e05bf31ed40aee7d330ea4922733cc94\",\n        \"created_at\": \"2021-09-28T20:10:07.000Z\",\n        \"status\": \"active\",\n        \"account_name\": \"MyName new\",\n        \"account_number\": \"9977658630\",\n        \"bvn\": \"39372746283\"\n    },\n    \"errors\": {},\n    \"message\": \"\"\n}"
 								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"data\": {\n        \"provider\": {\n            \"bank_code\": \"053\",\n            \"bank_name\": \"Providus\",\n            \"id\": \"providus\",\n            \"default\": true\n        },\n        \"email\": \"alindavdsin@gmail.com\",\n        \"phone_number\": \"08085279945\",\n        \"account_ref\": \"dp_act_e05bf31ed40aee7d330ea4922733cc94\",\n        \"created_at\": \"2021-09-28T20:10:07.000Z\",\n        \"status\": \"active\",\n        \"account_name\": \"MyName new\",\n        \"account_number\": \"9977658630\",\n        \"bvn\": \"39372746283\"\n    },\n    \"errors\": {},\n    \"message\": \"\"\n}"
-						}
-					]
-				},
-				{
-					"name": "Delete account",
-					"id": "82952a74-8c81-4ce8-89e3-02770a7651d9",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "dpmlekdno",
-								"value": "{{dpmlekdno}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{api-gateway-url}}/virtual-accounts/act_yFGtXdFwZuPl",
-							"host": [
-								"{{api-gateway-url}}"
-							],
-							"path": [
-								"virtual-accounts",
-								"act_yFGtXdFwZuPl"
-							],
-							"query": [
+							]
+						},
+						{
+							"name": "Get account with invalid account ID",
+							"id": "7a5f51fc-f742-420b-9560-a61680cd0806",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "dpmlekdno",
+										"value": "{{dpmlekdno}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{api-gateway-url}}/virtual-accounts/act_yFGtXdFwZuPl",
+									"host": [
+										"{{api-gateway-url}}"
+									],
+									"path": [
+										"virtual-accounts",
+										"act_yFGtXdFwZuPl"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
 								{
-									"key": "page",
-									"value": "1",
-									"disabled": true
-								},
-								{
-									"key": "limit",
-									"value": "1",
-									"disabled": true
+									"id": "64199275-7b4e-44ad-a265-2bf586395180",
+									"name": "Get account",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "dpmlekdno",
+												"value": "{{dpmlekdno}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api-gateway-url}}/virtual-accounts/dp_act_e05bf31ed40aee7d330ea4922733cc94",
+											"host": [
+												"{{api-gateway-url}}"
+											],
+											"path": [
+												"virtual-accounts",
+												"dp_act_e05bf31ed40aee7d330ea4922733cc94"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1",
+													"disabled": true
+												},
+												{
+													"key": "limit",
+													"value": "1",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "x-dns-prefetch-control",
+											"value": "off"
+										},
+										{
+											"key": "expect-ct",
+											"value": "max-age=0"
+										},
+										{
+											"key": "x-frame-options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "strict-transport-security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "x-xss-protection",
+											"value": "0"
+										},
+										{
+											"key": "vary",
+											"value": "Origin"
+										},
+										{
+											"key": "x-ratelimit-limit",
+											"value": "50"
+										},
+										{
+											"key": "x-ratelimit-remaining",
+											"value": "49"
+										},
+										{
+											"key": "x-ratelimit-reset",
+											"value": "60"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "x-cloud-trace-context",
+											"value": "7717394cf408f119af45676d3a79fb62;o=1"
+										},
+										{
+											"key": "date",
+											"value": "Tue, 28 Sep 2021 20:12:41 GMT"
+										},
+										{
+											"key": "server",
+											"value": "Google Frontend"
+										},
+										{
+											"key": "content-length",
+											"value": "373"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"provider\": {\n            \"bank_code\": \"053\",\n            \"bank_name\": \"Providus\",\n            \"id\": \"providus\",\n            \"default\": true\n        },\n        \"email\": \"alindavdsin@gmail.com\",\n        \"phone_number\": \"08085279945\",\n        \"account_ref\": \"dp_act_e05bf31ed40aee7d330ea4922733cc94\",\n        \"created_at\": \"2021-09-28T20:10:07.000Z\",\n        \"status\": \"active\",\n        \"account_name\": \"MyName new\",\n        \"account_number\": \"9977658630\",\n        \"bvn\": \"39372746283\"\n    },\n    \"errors\": {},\n    \"message\": \"\"\n}"
 								}
 							]
 						}
-					},
-					"response": []
+					],
+					"id": "cee505a7-ab5a-449f-8eff-a710aa8040eb"
+				},
+				{
+					"name": "Delete Account",
+					"item": [
+						{
+							"name": "Delete account",
+							"id": "82952a74-8c81-4ce8-89e3-02770a7651d9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "dpmlekdno",
+										"value": "{{dpmlekdno}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{api-gateway-url}}/virtual-accounts/act_yFGtXdFwZuPl",
+									"host": [
+										"{{api-gateway-url}}"
+									],
+									"path": [
+										"virtual-accounts",
+										"act_yFGtXdFwZuPl"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete account with invalid account ID",
+							"id": "887f6aca-08e1-4a7f-9505-e7c28d862356",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "dpmlekdno",
+										"value": "{{dpmlekdno}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{api-gateway-url}}/virtual-accounts/act_yFGtXdFwZuPl",
+									"host": [
+										"{{api-gateway-url}}"
+									],
+									"path": [
+										"virtual-accounts",
+										"act_yFGtXdFwZuPl"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "1eaf14d1-4d26-4bda-9452-e302fe671b31"
 				},
 				{
 					"name": "Get accounts",
