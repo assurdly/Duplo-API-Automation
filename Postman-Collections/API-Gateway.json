@@ -10,48 +10,826 @@
 			"name": "Virtual Accounts",
 			"item": [
 				{
-					"name": "create account",
-					"id": "3852187a-b879-42f7-9691-521f746e7f12",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "dp_test_b8fd9f3f397e01b225c0c76c99fa87cad0393d51f069e7228b736c8de557867dead1a36a34a182d9262666ca2adb2bb9711f09d4c0c5623cf7b6d5a5bdbee734686c1e014357a715f6f9f63c177cbb7d5caebb6f46eaaa1da9065c4901ee403158f327c6f7e960b198d74f5d5e55dae68a42c6db58cae872cb8fbf1a24c3c48f"
-							}
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "dpmlekdno",
-								"value": "{{dpmlekdno}}",
-								"type": "text",
-								"disabled": true
-							},
-							{
-								"key": "dp_source",
-								"value": "dplive",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\", \n    \"first_name\": \"Dano\",\n    \"last_name\": \"Daboli\",\n    \"phone_number\": \"08078279945\",\n    \"email\": \"paksingle@yopmail.com\",\n    \"bvn\": \"39372046283\",\n    \"is_permanent\": false,\n    \"account_prefix\": true,\n    \"purpose\": \"Testing purpose\",\n    \"preferred_banks\": [\n        {\n            \"bank_code\": \"111\",\n            \"bank_name\": \"Wema Bank\",\n            \"id\": \"wema\"\n        }\n    ],\n    \"fallback_bank\": true,\n    \"single_use\": true,\n    \"amount\": 3000,\n    \"metadata\": \"{}\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{api-gateway-url}}/virtual-accounts"
-					},
-					"response": [
+					"name": "Create account",
+					"item": [
 						{
-							"id": "ad704464-1353-49dc-958d-e8bfaf9075b3",
 							"name": "create account",
-							"originalRequest": {
+							"id": "3852187a-b879-42f7-9691-521f746e7f12",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "dp_test_b8fd9f3f397e01b225c0c76c99fa87cad0393d51f069e7228b736c8de557867dead1a36a34a182d9262666ca2adb2bb9711f09d4c0c5623cf7b6d5a5bdbee734686c1e014357a715f6f9f63c177cbb7d5caebb6f46eaaa1da9065c4901ee403158f327c6f7e960b198d74f5d5e55dae68a42c6db58cae872cb8fbf1a24c3c48f"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "dpmlekdno",
+										"value": "{{dpmlekdno}}",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "dp_source",
+										"value": "dplive",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\", \n    \"first_name\": \"Dano\",\n    \"last_name\": \"Daboli\",\n    \"phone_number\": \"08078279945\",\n    \"email\": \"paksingle@yopmail.com\",\n    \"bvn\": \"39372046283\",\n    \"is_permanent\": false,\n    \"account_prefix\": true,\n    \"purpose\": \"Testing purpose\",\n    \"preferred_banks\": [\n        {\n            \"bank_code\": \"111\",\n            \"bank_name\": \"Wema Bank\",\n            \"id\": \"wema\"\n        }\n    ],\n    \"fallback_bank\": true,\n    \"single_use\": true,\n    \"amount\": 3000,\n    \"metadata\": \"{}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{api-gateway-url}}/virtual-accounts"
+							},
+							"response": [
+								{
+									"id": "ad704464-1353-49dc-958d-e8bfaf9075b3",
+									"name": "create account",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "dpmlekdno",
+												"value": "{{dpmlekdno}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"first_name\": \"David\",\n    \"last_name\": \"Daniel\",\n    \"phone_number\": \"08085279945\",\n    \"email\": \"alindavdsin@gmail.com\",\n    \"bvn\": \"39372746283\",\n    \"is_permanent\": true,\n    \"preferred_banks\": [{\n        \"bank_code\": \"033\",\n        \"bank_name\": \"Fidelity Bank\",\n        \"id\": \"fidelity\"\n        }],\n    \"fallback_bank\": true,\n    \"metadata\": {}\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{api-gateway-url}}/virtual-accounts"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "x-dns-prefetch-control",
+											"value": "off"
+										},
+										{
+											"key": "expect-ct",
+											"value": "max-age=0"
+										},
+										{
+											"key": "x-frame-options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "strict-transport-security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "x-xss-protection",
+											"value": "0"
+										},
+										{
+											"key": "vary",
+											"value": "Origin"
+										},
+										{
+											"key": "x-ratelimit-limit",
+											"value": "50"
+										},
+										{
+											"key": "x-ratelimit-remaining",
+											"value": "49"
+										},
+										{
+											"key": "x-ratelimit-reset",
+											"value": "60"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "x-cloud-trace-context",
+											"value": "037243dde13dfd2ed6c23547660d9f96;o=1"
+										},
+										{
+											"key": "date",
+											"value": "Tue, 28 Sep 2021 20:10:07 GMT"
+										},
+										{
+											"key": "server",
+											"value": "Google Frontend"
+										},
+										{
+											"key": "content-length",
+											"value": "384"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"account_ref\": \"dp_act_e05bf31ed40aee7d330ea4922733cc94\",\n        \"account_number\": \"9977658630\",\n        \"is_permanent\": true,\n        \"email\": \"alindavdsin@gmail.com\",\n        \"status\": \"active\",\n        \"provider\": {\n            \"bank_code\": \"053\",\n            \"bank_name\": \"Providus\",\n            \"id\": \"providus\",\n            \"default\": true\n        },\n        \"created_at\": \"2021-09-28T20:10:07.000Z\",\n        \"account_name\": \"MERCHANT(David Daniel)\"\n    },\n    \"errors\": {},\n    \"message\": \"Account created successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "create account with invalid business ID",
+							"id": "aebce953-58fa-4b05-9d69-e8703693e771",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "dp_test_b8fd9f3f397e01b225c0c76c99fa87cad0393d51f069e7228b736c8de557867dead1a36a34a182d9262666ca2adb2bb9711f09d4c0c5623cf7b6d5a5bdbee734686c1e014357a715f6f9f63c177cbb7d5caebb6f46eaaa1da9065c4901ee403158f327c6f7e960b198d74f5d5e55dae68a42c6db58cae872cb8fbf1a24c3c48f"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "dpmlekdno",
+										"value": "{{dpmlekdno}}",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "dp_source",
+										"value": "dplive",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\", \n    \"first_name\": \"Dano\",\n    \"last_name\": \"Daboli\",\n    \"phone_number\": \"08078279945\",\n    \"email\": \"paksingle@yopmail.com\",\n    \"bvn\": \"39372046283\",\n    \"is_permanent\": false,\n    \"account_prefix\": true,\n    \"purpose\": \"Testing purpose\",\n    \"preferred_banks\": [\n        {\n            \"bank_code\": \"111\",\n            \"bank_name\": \"Wema Bank\",\n            \"id\": \"wema\"\n        }\n    ],\n    \"fallback_bank\": true,\n    \"single_use\": true,\n    \"amount\": 3000,\n    \"metadata\": \"{}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{api-gateway-url}}/virtual-accounts"
+							},
+							"response": [
+								{
+									"id": "e9d43b91-f0cf-4a15-ab32-84052376921f",
+									"name": "create account",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "dpmlekdno",
+												"value": "{{dpmlekdno}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"first_name\": \"David\",\n    \"last_name\": \"Daniel\",\n    \"phone_number\": \"08085279945\",\n    \"email\": \"alindavdsin@gmail.com\",\n    \"bvn\": \"39372746283\",\n    \"is_permanent\": true,\n    \"preferred_banks\": [{\n        \"bank_code\": \"033\",\n        \"bank_name\": \"Fidelity Bank\",\n        \"id\": \"fidelity\"\n        }],\n    \"fallback_bank\": true,\n    \"metadata\": {}\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{api-gateway-url}}/virtual-accounts"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "x-dns-prefetch-control",
+											"value": "off"
+										},
+										{
+											"key": "expect-ct",
+											"value": "max-age=0"
+										},
+										{
+											"key": "x-frame-options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "strict-transport-security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "x-xss-protection",
+											"value": "0"
+										},
+										{
+											"key": "vary",
+											"value": "Origin"
+										},
+										{
+											"key": "x-ratelimit-limit",
+											"value": "50"
+										},
+										{
+											"key": "x-ratelimit-remaining",
+											"value": "49"
+										},
+										{
+											"key": "x-ratelimit-reset",
+											"value": "60"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "x-cloud-trace-context",
+											"value": "037243dde13dfd2ed6c23547660d9f96;o=1"
+										},
+										{
+											"key": "date",
+											"value": "Tue, 28 Sep 2021 20:10:07 GMT"
+										},
+										{
+											"key": "server",
+											"value": "Google Frontend"
+										},
+										{
+											"key": "content-length",
+											"value": "384"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"account_ref\": \"dp_act_e05bf31ed40aee7d330ea4922733cc94\",\n        \"account_number\": \"9977658630\",\n        \"is_permanent\": true,\n        \"email\": \"alindavdsin@gmail.com\",\n        \"status\": \"active\",\n        \"provider\": {\n            \"bank_code\": \"053\",\n            \"bank_name\": \"Providus\",\n            \"id\": \"providus\",\n            \"default\": true\n        },\n        \"created_at\": \"2021-09-28T20:10:07.000Z\",\n        \"account_name\": \"MERCHANT(David Daniel)\"\n    },\n    \"errors\": {},\n    \"message\": \"Account created successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "create account with invalid email",
+							"id": "1730a3d5-1163-42a1-95ac-78e932dfb0dd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "dp_test_b8fd9f3f397e01b225c0c76c99fa87cad0393d51f069e7228b736c8de557867dead1a36a34a182d9262666ca2adb2bb9711f09d4c0c5623cf7b6d5a5bdbee734686c1e014357a715f6f9f63c177cbb7d5caebb6f46eaaa1da9065c4901ee403158f327c6f7e960b198d74f5d5e55dae68a42c6db58cae872cb8fbf1a24c3c48f"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "dpmlekdno",
+										"value": "{{dpmlekdno}}",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "dp_source",
+										"value": "dplive",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\", \n    \"first_name\": \"Dano\",\n    \"last_name\": \"Daboli\",\n    \"phone_number\": \"08078279945\",\n    \"email\": \"paksingle@yopmail.com\",\n    \"bvn\": \"39372046283\",\n    \"is_permanent\": false,\n    \"account_prefix\": true,\n    \"purpose\": \"Testing purpose\",\n    \"preferred_banks\": [\n        {\n            \"bank_code\": \"111\",\n            \"bank_name\": \"Wema Bank\",\n            \"id\": \"wema\"\n        }\n    ],\n    \"fallback_bank\": true,\n    \"single_use\": true,\n    \"amount\": 3000,\n    \"metadata\": \"{}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{api-gateway-url}}/virtual-accounts"
+							},
+							"response": [
+								{
+									"id": "9d9ba973-3eca-4cdf-90d3-d4551843bcd5",
+									"name": "create account",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "dpmlekdno",
+												"value": "{{dpmlekdno}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"first_name\": \"David\",\n    \"last_name\": \"Daniel\",\n    \"phone_number\": \"08085279945\",\n    \"email\": \"alindavdsin@gmail.com\",\n    \"bvn\": \"39372746283\",\n    \"is_permanent\": true,\n    \"preferred_banks\": [{\n        \"bank_code\": \"033\",\n        \"bank_name\": \"Fidelity Bank\",\n        \"id\": \"fidelity\"\n        }],\n    \"fallback_bank\": true,\n    \"metadata\": {}\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{api-gateway-url}}/virtual-accounts"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "x-dns-prefetch-control",
+											"value": "off"
+										},
+										{
+											"key": "expect-ct",
+											"value": "max-age=0"
+										},
+										{
+											"key": "x-frame-options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "strict-transport-security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "x-xss-protection",
+											"value": "0"
+										},
+										{
+											"key": "vary",
+											"value": "Origin"
+										},
+										{
+											"key": "x-ratelimit-limit",
+											"value": "50"
+										},
+										{
+											"key": "x-ratelimit-remaining",
+											"value": "49"
+										},
+										{
+											"key": "x-ratelimit-reset",
+											"value": "60"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "x-cloud-trace-context",
+											"value": "037243dde13dfd2ed6c23547660d9f96;o=1"
+										},
+										{
+											"key": "date",
+											"value": "Tue, 28 Sep 2021 20:10:07 GMT"
+										},
+										{
+											"key": "server",
+											"value": "Google Frontend"
+										},
+										{
+											"key": "content-length",
+											"value": "384"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"account_ref\": \"dp_act_e05bf31ed40aee7d330ea4922733cc94\",\n        \"account_number\": \"9977658630\",\n        \"is_permanent\": true,\n        \"email\": \"alindavdsin@gmail.com\",\n        \"status\": \"active\",\n        \"provider\": {\n            \"bank_code\": \"053\",\n            \"bank_name\": \"Providus\",\n            \"id\": \"providus\",\n            \"default\": true\n        },\n        \"created_at\": \"2021-09-28T20:10:07.000Z\",\n        \"account_name\": \"MERCHANT(David Daniel)\"\n    },\n    \"errors\": {},\n    \"message\": \"Account created successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "create account with invalid phone number",
+							"id": "708f59e2-d19f-45de-bcfc-858bef790da6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "dp_test_b8fd9f3f397e01b225c0c76c99fa87cad0393d51f069e7228b736c8de557867dead1a36a34a182d9262666ca2adb2bb9711f09d4c0c5623cf7b6d5a5bdbee734686c1e014357a715f6f9f63c177cbb7d5caebb6f46eaaa1da9065c4901ee403158f327c6f7e960b198d74f5d5e55dae68a42c6db58cae872cb8fbf1a24c3c48f"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "dpmlekdno",
+										"value": "{{dpmlekdno}}",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "dp_source",
+										"value": "dplive",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\", \n    \"first_name\": \"Dano\",\n    \"last_name\": \"Daboli\",\n    \"phone_number\": \"08078279945\",\n    \"email\": \"paksingle@yopmail.com\",\n    \"bvn\": \"39372046283\",\n    \"is_permanent\": false,\n    \"account_prefix\": true,\n    \"purpose\": \"Testing purpose\",\n    \"preferred_banks\": [\n        {\n            \"bank_code\": \"111\",\n            \"bank_name\": \"Wema Bank\",\n            \"id\": \"wema\"\n        }\n    ],\n    \"fallback_bank\": true,\n    \"single_use\": true,\n    \"amount\": 3000,\n    \"metadata\": \"{}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{api-gateway-url}}/virtual-accounts"
+							},
+							"response": [
+								{
+									"id": "39b26777-0ac4-44c9-a9be-9ca9236d96f2",
+									"name": "create account",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "dpmlekdno",
+												"value": "{{dpmlekdno}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"first_name\": \"David\",\n    \"last_name\": \"Daniel\",\n    \"phone_number\": \"08085279945\",\n    \"email\": \"alindavdsin@gmail.com\",\n    \"bvn\": \"39372746283\",\n    \"is_permanent\": true,\n    \"preferred_banks\": [{\n        \"bank_code\": \"033\",\n        \"bank_name\": \"Fidelity Bank\",\n        \"id\": \"fidelity\"\n        }],\n    \"fallback_bank\": true,\n    \"metadata\": {}\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{api-gateway-url}}/virtual-accounts"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "x-dns-prefetch-control",
+											"value": "off"
+										},
+										{
+											"key": "expect-ct",
+											"value": "max-age=0"
+										},
+										{
+											"key": "x-frame-options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "strict-transport-security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "x-xss-protection",
+											"value": "0"
+										},
+										{
+											"key": "vary",
+											"value": "Origin"
+										},
+										{
+											"key": "x-ratelimit-limit",
+											"value": "50"
+										},
+										{
+											"key": "x-ratelimit-remaining",
+											"value": "49"
+										},
+										{
+											"key": "x-ratelimit-reset",
+											"value": "60"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "x-cloud-trace-context",
+											"value": "037243dde13dfd2ed6c23547660d9f96;o=1"
+										},
+										{
+											"key": "date",
+											"value": "Tue, 28 Sep 2021 20:10:07 GMT"
+										},
+										{
+											"key": "server",
+											"value": "Google Frontend"
+										},
+										{
+											"key": "content-length",
+											"value": "384"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"account_ref\": \"dp_act_e05bf31ed40aee7d330ea4922733cc94\",\n        \"account_number\": \"9977658630\",\n        \"is_permanent\": true,\n        \"email\": \"alindavdsin@gmail.com\",\n        \"status\": \"active\",\n        \"provider\": {\n            \"bank_code\": \"053\",\n            \"bank_name\": \"Providus\",\n            \"id\": \"providus\",\n            \"default\": true\n        },\n        \"created_at\": \"2021-09-28T20:10:07.000Z\",\n        \"account_name\": \"MERCHANT(David Daniel)\"\n    },\n    \"errors\": {},\n    \"message\": \"Account created successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "create account with invalid bvn",
+							"id": "bdefbdf3-98b3-4b75-827f-bd754a0e5312",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "dp_test_b8fd9f3f397e01b225c0c76c99fa87cad0393d51f069e7228b736c8de557867dead1a36a34a182d9262666ca2adb2bb9711f09d4c0c5623cf7b6d5a5bdbee734686c1e014357a715f6f9f63c177cbb7d5caebb6f46eaaa1da9065c4901ee403158f327c6f7e960b198d74f5d5e55dae68a42c6db58cae872cb8fbf1a24c3c48f"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "dpmlekdno",
+										"value": "{{dpmlekdno}}",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "dp_source",
+										"value": "dplive",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\", \n    \"first_name\": \"Dano\",\n    \"last_name\": \"Daboli\",\n    \"phone_number\": \"08078279945\",\n    \"email\": \"paksingle@yopmail.com\",\n    \"bvn\": \"39372046283\",\n    \"is_permanent\": false,\n    \"account_prefix\": true,\n    \"purpose\": \"Testing purpose\",\n    \"preferred_banks\": [\n        {\n            \"bank_code\": \"111\",\n            \"bank_name\": \"Wema Bank\",\n            \"id\": \"wema\"\n        }\n    ],\n    \"fallback_bank\": true,\n    \"single_use\": true,\n    \"amount\": 3000,\n    \"metadata\": \"{}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{api-gateway-url}}/virtual-accounts"
+							},
+							"response": [
+								{
+									"id": "cc32a932-5a76-4f77-92f4-fea02fb84333",
+									"name": "create account",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "dpmlekdno",
+												"value": "{{dpmlekdno}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"first_name\": \"David\",\n    \"last_name\": \"Daniel\",\n    \"phone_number\": \"08085279945\",\n    \"email\": \"alindavdsin@gmail.com\",\n    \"bvn\": \"39372746283\",\n    \"is_permanent\": true,\n    \"preferred_banks\": [{\n        \"bank_code\": \"033\",\n        \"bank_name\": \"Fidelity Bank\",\n        \"id\": \"fidelity\"\n        }],\n    \"fallback_bank\": true,\n    \"metadata\": {}\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{api-gateway-url}}/virtual-accounts"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "x-dns-prefetch-control",
+											"value": "off"
+										},
+										{
+											"key": "expect-ct",
+											"value": "max-age=0"
+										},
+										{
+											"key": "x-frame-options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "strict-transport-security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "x-xss-protection",
+											"value": "0"
+										},
+										{
+											"key": "vary",
+											"value": "Origin"
+										},
+										{
+											"key": "x-ratelimit-limit",
+											"value": "50"
+										},
+										{
+											"key": "x-ratelimit-remaining",
+											"value": "49"
+										},
+										{
+											"key": "x-ratelimit-reset",
+											"value": "60"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "x-cloud-trace-context",
+											"value": "037243dde13dfd2ed6c23547660d9f96;o=1"
+										},
+										{
+											"key": "date",
+											"value": "Tue, 28 Sep 2021 20:10:07 GMT"
+										},
+										{
+											"key": "server",
+											"value": "Google Frontend"
+										},
+										{
+											"key": "content-length",
+											"value": "384"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"account_ref\": \"dp_act_e05bf31ed40aee7d330ea4922733cc94\",\n        \"account_number\": \"9977658630\",\n        \"is_permanent\": true,\n        \"email\": \"alindavdsin@gmail.com\",\n        \"status\": \"active\",\n        \"provider\": {\n            \"bank_code\": \"053\",\n            \"bank_name\": \"Providus\",\n            \"id\": \"providus\",\n            \"default\": true\n        },\n        \"created_at\": \"2021-09-28T20:10:07.000Z\",\n        \"account_name\": \"MERCHANT(David Daniel)\"\n    },\n    \"errors\": {},\n    \"message\": \"Account created successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "create account Copy",
+							"id": "d384a22b-076b-4066-9fdd-c4055303e0e6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "dp_test_856879df3e6ecdb14a918e24bba6d480e0564a4eabfdba938fc23b820ac905e59a667f44925c80d30057d44bf5526247e9edb2bb2ad7e43bd461ac46eded3349795af9402cef67d26f14364aa29f68d234379f23b63c610bb22d33faa634475c097c66c0424d7cb0db7c172f23822af0"
+									}
+								},
 								"method": "POST",
 								"header": [
 									{
@@ -62,300 +840,151 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"first_name\": \"David\",\n    \"last_name\": \"Daniel\",\n    \"phone_number\": \"08085279945\",\n    \"email\": \"alindavdsin@gmail.com\",\n    \"bvn\": \"39372746283\",\n    \"is_permanent\": true,\n    \"preferred_banks\": [{\n        \"bank_code\": \"033\",\n        \"bank_name\": \"Fidelity Bank\",\n        \"id\": \"fidelity\"\n        }],\n    \"fallback_bank\": true,\n    \"metadata\": {}\n}",
+									"raw": "{\n    \"business_id\": \"{{business_id}}\", \n    \"first_name\": \"Pat\",\n    \"last_name\": \"Daniel\",\n    \"phone_number\": \"08085279945\",\n    \"email\": \"patwiksingle@yopmail.com\",\n    \"bvn\": \"39372746283\",\n    \"is_permanent\": false,\n    \"account_prefix\": true,\n    \"preferred_banks\": [\n        {\n            \"bank_code\": \"111\",\n            \"bank_name\": \"Wema Bank\",\n            \"id\": \"wema\"\n        }\n    ],\n    \"fallback_bank\": true,\n    \"single_use\": true,\n    \"metadata\": {}\n}",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "{{api-gateway-url}}/virtual-accounts"
+								"url": "https://api.staging.tryduplo.com/v1/virtual-accounts"
 							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "Content-Security-Policy",
-									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
-								},
-								{
-									"key": "x-dns-prefetch-control",
-									"value": "off"
-								},
-								{
-									"key": "expect-ct",
-									"value": "max-age=0"
-								},
-								{
-									"key": "x-frame-options",
-									"value": "SAMEORIGIN"
-								},
-								{
-									"key": "strict-transport-security",
-									"value": "max-age=15552000; includeSubDomains"
-								},
-								{
-									"key": "x-download-options",
-									"value": "noopen"
-								},
-								{
-									"key": "x-content-type-options",
-									"value": "nosniff"
-								},
-								{
-									"key": "x-permitted-cross-domain-policies",
-									"value": "none"
-								},
-								{
-									"key": "referrer-policy",
-									"value": "no-referrer"
-								},
-								{
-									"key": "x-xss-protection",
-									"value": "0"
-								},
-								{
-									"key": "vary",
-									"value": "Origin"
-								},
-								{
-									"key": "x-ratelimit-limit",
-									"value": "50"
-								},
-								{
-									"key": "x-ratelimit-remaining",
-									"value": "49"
-								},
-								{
-									"key": "x-ratelimit-reset",
-									"value": "60"
-								},
-								{
-									"key": "access-control-allow-credentials",
-									"value": "true"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "x-cloud-trace-context",
-									"value": "037243dde13dfd2ed6c23547660d9f96;o=1"
-								},
-								{
-									"key": "date",
-									"value": "Tue, 28 Sep 2021 20:10:07 GMT"
-								},
-								{
-									"key": "server",
-									"value": "Google Frontend"
-								},
-								{
-									"key": "content-length",
-									"value": "384"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"data\": {\n        \"account_ref\": \"dp_act_e05bf31ed40aee7d330ea4922733cc94\",\n        \"account_number\": \"9977658630\",\n        \"is_permanent\": true,\n        \"email\": \"alindavdsin@gmail.com\",\n        \"status\": \"active\",\n        \"provider\": {\n            \"bank_code\": \"053\",\n            \"bank_name\": \"Providus\",\n            \"id\": \"providus\",\n            \"default\": true\n        },\n        \"created_at\": \"2021-09-28T20:10:07.000Z\",\n        \"account_name\": \"MERCHANT(David Daniel)\"\n    },\n    \"errors\": {},\n    \"message\": \"Account created successfully\"\n}"
-						}
-					]
-				},
-				{
-					"name": "create account Copy",
-					"id": "d384a22b-076b-4066-9fdd-c4055303e0e6",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "dp_test_856879df3e6ecdb14a918e24bba6d480e0564a4eabfdba938fc23b820ac905e59a667f44925c80d30057d44bf5526247e9edb2bb2ad7e43bd461ac46eded3349795af9402cef67d26f14364aa29f68d234379f23b63c610bb22d33faa634475c097c66c0424d7cb0db7c172f23822af0"
-							}
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "dpmlekdno",
-								"value": "{{dpmlekdno}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"business_id\": \"{{business_id}}\", \n    \"first_name\": \"Pat\",\n    \"last_name\": \"Daniel\",\n    \"phone_number\": \"08085279945\",\n    \"email\": \"patwiksingle@yopmail.com\",\n    \"bvn\": \"39372746283\",\n    \"is_permanent\": false,\n    \"account_prefix\": true,\n    \"preferred_banks\": [\n        {\n            \"bank_code\": \"111\",\n            \"bank_name\": \"Wema Bank\",\n            \"id\": \"wema\"\n        }\n    ],\n    \"fallback_bank\": true,\n    \"single_use\": true,\n    \"metadata\": {}\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "https://api.staging.tryduplo.com/v1/virtual-accounts"
-					},
-					"response": [
-						{
-							"id": "ff533f9d-d911-4200-952a-1fc903972d15",
-							"name": "create account",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "dpmlekdno",
-										"value": "{{dpmlekdno}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"first_name\": \"David\",\n    \"last_name\": \"Daniel\",\n    \"phone_number\": \"08085279945\",\n    \"email\": \"alindavdsin@gmail.com\",\n    \"bvn\": \"39372746283\",\n    \"is_permanent\": true,\n    \"preferred_banks\": [{\n        \"bank_code\": \"033\",\n        \"bank_name\": \"Fidelity Bank\",\n        \"id\": \"fidelity\"\n        }],\n    \"fallback_bank\": true,\n    \"metadata\": {}\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+									"id": "ff533f9d-d911-4200-952a-1fc903972d15",
+									"name": "create account",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "dpmlekdno",
+												"value": "{{dpmlekdno}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"first_name\": \"David\",\n    \"last_name\": \"Daniel\",\n    \"phone_number\": \"08085279945\",\n    \"email\": \"alindavdsin@gmail.com\",\n    \"bvn\": \"39372746283\",\n    \"is_permanent\": true,\n    \"preferred_banks\": [{\n        \"bank_code\": \"033\",\n        \"bank_name\": \"Fidelity Bank\",\n        \"id\": \"fidelity\"\n        }],\n    \"fallback_bank\": true,\n    \"metadata\": {}\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{api-gateway-url}}/virtual-accounts"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "x-dns-prefetch-control",
+											"value": "off"
+										},
+										{
+											"key": "expect-ct",
+											"value": "max-age=0"
+										},
+										{
+											"key": "x-frame-options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "strict-transport-security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "x-xss-protection",
+											"value": "0"
+										},
+										{
+											"key": "vary",
+											"value": "Origin"
+										},
+										{
+											"key": "x-ratelimit-limit",
+											"value": "50"
+										},
+										{
+											"key": "x-ratelimit-remaining",
+											"value": "49"
+										},
+										{
+											"key": "x-ratelimit-reset",
+											"value": "60"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "x-cloud-trace-context",
+											"value": "037243dde13dfd2ed6c23547660d9f96;o=1"
+										},
+										{
+											"key": "date",
+											"value": "Tue, 28 Sep 2021 20:10:07 GMT"
+										},
+										{
+											"key": "server",
+											"value": "Google Frontend"
+										},
+										{
+											"key": "content-length",
+											"value": "384"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
 										}
-									}
-								},
-								"url": "{{api-gateway-url}}/virtual-accounts"
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Security-Policy",
-									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
-								},
-								{
-									"key": "x-dns-prefetch-control",
-									"value": "off"
-								},
-								{
-									"key": "expect-ct",
-									"value": "max-age=0"
-								},
-								{
-									"key": "x-frame-options",
-									"value": "SAMEORIGIN"
-								},
-								{
-									"key": "strict-transport-security",
-									"value": "max-age=15552000; includeSubDomains"
-								},
-								{
-									"key": "x-download-options",
-									"value": "noopen"
-								},
-								{
-									"key": "x-content-type-options",
-									"value": "nosniff"
-								},
-								{
-									"key": "x-permitted-cross-domain-policies",
-									"value": "none"
-								},
-								{
-									"key": "referrer-policy",
-									"value": "no-referrer"
-								},
-								{
-									"key": "x-xss-protection",
-									"value": "0"
-								},
-								{
-									"key": "vary",
-									"value": "Origin"
-								},
-								{
-									"key": "x-ratelimit-limit",
-									"value": "50"
-								},
-								{
-									"key": "x-ratelimit-remaining",
-									"value": "49"
-								},
-								{
-									"key": "x-ratelimit-reset",
-									"value": "60"
-								},
-								{
-									"key": "access-control-allow-credentials",
-									"value": "true"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "x-cloud-trace-context",
-									"value": "037243dde13dfd2ed6c23547660d9f96;o=1"
-								},
-								{
-									"key": "date",
-									"value": "Tue, 28 Sep 2021 20:10:07 GMT"
-								},
-								{
-									"key": "server",
-									"value": "Google Frontend"
-								},
-								{
-									"key": "content-length",
-									"value": "384"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"account_ref\": \"dp_act_e05bf31ed40aee7d330ea4922733cc94\",\n        \"account_number\": \"9977658630\",\n        \"is_permanent\": true,\n        \"email\": \"alindavdsin@gmail.com\",\n        \"status\": \"active\",\n        \"provider\": {\n            \"bank_code\": \"053\",\n            \"bank_name\": \"Providus\",\n            \"id\": \"providus\",\n            \"default\": true\n        },\n        \"created_at\": \"2021-09-28T20:10:07.000Z\",\n        \"account_name\": \"MERCHANT(David Daniel)\"\n    },\n    \"errors\": {},\n    \"message\": \"Account created successfully\"\n}"
 								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"data\": {\n        \"account_ref\": \"dp_act_e05bf31ed40aee7d330ea4922733cc94\",\n        \"account_number\": \"9977658630\",\n        \"is_permanent\": true,\n        \"email\": \"alindavdsin@gmail.com\",\n        \"status\": \"active\",\n        \"provider\": {\n            \"bank_code\": \"053\",\n            \"bank_name\": \"Providus\",\n            \"id\": \"providus\",\n            \"default\": true\n        },\n        \"created_at\": \"2021-09-28T20:10:07.000Z\",\n        \"account_name\": \"MERCHANT(David Daniel)\"\n    },\n    \"errors\": {},\n    \"message\": \"Account created successfully\"\n}"
+							]
 						}
-					]
+					],
+					"id": "e68364b8-81f6-4e67-8019-1cf67268f9f2"
 				},
 				{
-					"name": "Update account",
-					"id": "8f60af0f-1c49-45e8-aab6-f4861ebc0169",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "dpmlekdno",
-								"value": "{{dpmlekdno}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"account_name\": \"John doe\",\n    \"provider\": \"providus\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{api-gateway-url}}/virtual-accounts/9978475689"
-					},
-					"response": [
+					"name": "Update Account",
+					"item": [
 						{
-							"id": "52c61522-8aa5-4154-a152-0fda1e5cd202",
 							"name": "Update account",
-							"originalRequest": {
+							"id": "8f60af0f-1c49-45e8-aab6-f4861ebc0169",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
 								"method": "PATCH",
 								"header": [
 									{
@@ -366,113 +995,140 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"account_name\": \"MyName new\"\n}",
+									"raw": "{\n    \"account_name\": \"John doe\",\n    \"provider\": \"providus\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "{{api-gateway-url}}/virtual-accounts/dp_act_e05bf31ed40aee7d330ea4922733cc94"
+								"url": "{{api-gateway-url}}/virtual-accounts/9978475689"
 							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "Content-Security-Policy",
-									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
-								},
-								{
-									"key": "x-dns-prefetch-control",
-									"value": "off"
-								},
-								{
-									"key": "expect-ct",
-									"value": "max-age=0"
-								},
-								{
-									"key": "x-frame-options",
-									"value": "SAMEORIGIN"
-								},
-								{
-									"key": "strict-transport-security",
-									"value": "max-age=15552000; includeSubDomains"
-								},
-								{
-									"key": "x-download-options",
-									"value": "noopen"
-								},
-								{
-									"key": "x-content-type-options",
-									"value": "nosniff"
-								},
-								{
-									"key": "x-permitted-cross-domain-policies",
-									"value": "none"
-								},
-								{
-									"key": "referrer-policy",
-									"value": "no-referrer"
-								},
-								{
-									"key": "x-xss-protection",
-									"value": "0"
-								},
-								{
-									"key": "vary",
-									"value": "Origin"
-								},
-								{
-									"key": "x-ratelimit-limit",
-									"value": "50"
-								},
-								{
-									"key": "x-ratelimit-remaining",
-									"value": "49"
-								},
-								{
-									"key": "x-ratelimit-reset",
-									"value": "60"
-								},
-								{
-									"key": "access-control-allow-credentials",
-									"value": "true"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "x-cloud-trace-context",
-									"value": "f5e17853ffc07f9d9bde4e818b7dfcc1;o=1"
-								},
-								{
-									"key": "date",
-									"value": "Tue, 28 Sep 2021 20:11:36 GMT"
-								},
-								{
-									"key": "server",
-									"value": "Google Frontend"
-								},
-								{
-									"key": "content-length",
-									"value": "391"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
+									"id": "52c61522-8aa5-4154-a152-0fda1e5cd202",
+									"name": "Update account",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "dpmlekdno",
+												"value": "{{dpmlekdno}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"account_name\": \"MyName new\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{api-gateway-url}}/virtual-accounts/dp_act_e05bf31ed40aee7d330ea4922733cc94"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "x-dns-prefetch-control",
+											"value": "off"
+										},
+										{
+											"key": "expect-ct",
+											"value": "max-age=0"
+										},
+										{
+											"key": "x-frame-options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "strict-transport-security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "x-xss-protection",
+											"value": "0"
+										},
+										{
+											"key": "vary",
+											"value": "Origin"
+										},
+										{
+											"key": "x-ratelimit-limit",
+											"value": "50"
+										},
+										{
+											"key": "x-ratelimit-remaining",
+											"value": "49"
+										},
+										{
+											"key": "x-ratelimit-reset",
+											"value": "60"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "x-cloud-trace-context",
+											"value": "f5e17853ffc07f9d9bde4e818b7dfcc1;o=1"
+										},
+										{
+											"key": "date",
+											"value": "Tue, 28 Sep 2021 20:11:36 GMT"
+										},
+										{
+											"key": "server",
+											"value": "Google Frontend"
+										},
+										{
+											"key": "content-length",
+											"value": "391"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"provider\": {\n            \"bank_code\": \"053\",\n            \"bank_name\": \"Providus\",\n            \"id\": \"providus\",\n            \"default\": true\n        },\n        \"email\": \"alindavdsin@gmail.com\",\n        \"phone_number\": \"08085279945\",\n        \"account_ref\": \"dp_act_e05bf31ed40aee7d330ea4922733cc94\",\n        \"created_at\": \"2021-09-28T20:10:07.000Z\",\n        \"status\": \"active\",\n        \"account_name\": \"MyName new\",\n        \"account_number\": \"9977658630\",\n        \"bvn\": \"39372746283\"\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
 								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"data\": {\n        \"provider\": {\n            \"bank_code\": \"053\",\n            \"bank_name\": \"Providus\",\n            \"id\": \"providus\",\n            \"default\": true\n        },\n        \"email\": \"alindavdsin@gmail.com\",\n        \"phone_number\": \"08085279945\",\n        \"account_ref\": \"dp_act_e05bf31ed40aee7d330ea4922733cc94\",\n        \"created_at\": \"2021-09-28T20:10:07.000Z\",\n        \"status\": \"active\",\n        \"account_name\": \"MyName new\",\n        \"account_number\": \"9977658630\",\n        \"bvn\": \"39372746283\"\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
+							]
 						}
-					]
+					],
+					"id": "7df353b8-a541-4884-b461-6c4d083fabb1"
 				},
 				{
 					"name": "Get account",
