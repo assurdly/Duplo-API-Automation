@@ -7164,5 +7164,11 @@
 				]
 			}
 		}
+	],
+	"variable": [
+		{
+			"key": "api-gateway-url",
+			"value": "https://app-api.staging.tryduplo.com/v1/"
+		}
 	]
 }
