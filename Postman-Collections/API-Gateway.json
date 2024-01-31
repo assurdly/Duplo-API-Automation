@@ -2416,14 +2416,14 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "dp_live_856879df3e6ecdb14a918e24bba6d480e0564a4eabfdba938fc23b820ac905e54bac25a71dbcdef66c97b8c72ca7e16cf03a576857261f2f16f5335ca5024620b14268823a7d78922cfdd97cefc61050139fd92a7a0c5840e016050552ccadbbec642d2ff8d35a09225c7ec4fd1e347b"
+										"token": "sk_test_gmbq9kxqr6bc9otiuk10n5tgzotkoiiq0vagf4y"
 									}
 								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"first_name\": \"Stamp\",\n    \"last_name\": \"Duty\",\n    \"email\": \"stampduty@yopmail.com\",\n    \"phone_number\": \"08052290968\",\n    \"business_id\": \"c3d686e2-f611-4c95-ae54-53a435f29514\",\n    \"bvn\": \"\",\n    \"expand\": true\n}",
+									"raw": "{\n    \"first_name\": \"Stamp\",\n    \"last_name\": \"Duty\",\n    \"email\": \"stampduty@yopmail.com\",\n    \"phone_number\": \"08052290968\",\n    \"business_id\": \"e22609f0-827b-49a2-8ef4-dc393fde7070\",\n    \"bvn\": \"\",\n    \"expand\": true\n}",
 									"options": {
 										"raw": {
 											"language": "json"
