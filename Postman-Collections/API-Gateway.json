@@ -4133,6 +4133,32 @@
 								},
 								{
 									"name": "add recipient with invalid bank code",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "0dc48717-c0ef-4cd1-badf-6ef88cb85a5d",
+												"exec": [
+													"pm.test(\"Response status code is 400\", function () {",
+													"    pm.response.to.have.status(400);",
+													"});",
+													"",
+													"pm.test(\"Response is an object with data and errors properties, and message property is a string\", function () {",
+													"    var jsonData = pm.response.json();",
+													"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'errors', 'message');",
+													"    pm.expect(jsonData.message).to.be.a('string');",
+													"});",
+													"",
+													"pm.test(\"Data and errors in the response should not be empty\", function () {",
+													"    var jsonData = pm.response.json();",
+													"    pm.expect(jsonData.data).to.not.be.empty;",
+													"    pm.expect(jsonData.errors).to.not.be.empty;",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"id": "3347de12-d5df-49b8-a095-2bba81d276a9",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -4148,14 +4174,14 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"bank_code\": \"077\",\n    \"account_name\": \"Jamie Fox\",\n    \"account_number\": \"0666003264\",\n    \"email\": \"jamefox@yopmail.com\",\n    \"business_id\": \"7e7e0728-74a7-41ce-8a05-310e3e2eba4c\"\n}",
+											"raw": "{\n    \"bank_code\": \"077\",\n    \"account_name\": \"Jamie Fox\",\n    \"account_number\": \"0694002924\",\n    \"email\": \"jamefox@yopmail.com\",\n    \"business_id\": \"e22609f0-827b-49a2-8ef4-dc393fde7070\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
 												}
 											}
 										},
-										"url": "{{api-gateway-url}}/recipients"
+										"url": "{{api-gateway-url}}recipients"
 									},
 									"response": []
 								},
@@ -4189,6 +4215,32 @@
 								},
 								{
 									"name": "add recipient with invalid bank account_number",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "b78d0619-23fd-4927-951c-5e1a02023536",
+												"exec": [
+													"pm.test(\"Response status code is 400\", function () {",
+													"    pm.response.to.have.status(400);",
+													"});",
+													"",
+													"pm.test(\"Response is an object with data and errors properties\", function () {",
+													"    var jsonData = pm.response.json();",
+													"    pm.expect(jsonData).to.be.an('object').that.has.property('data');",
+													"    pm.expect(jsonData).to.be.an('object').that.has.property('errors');",
+													"});",
+													"",
+													"pm.test(\"Data and errors should not be empty\", function () {",
+													"    var jsonData = pm.response.json();",
+													"    pm.expect(jsonData.data).to.not.be.empty;",
+													"    pm.expect(jsonData.errors).to.not.be.empty;",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"id": "76f6bb43-dbb4-472a-ac95-325a23b3497e",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -4204,19 +4256,41 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"bank_code\": \"077\",\n    \"account_name\": \"Jamie Fox\",\n    \"account_number\": \"0666003264\",\n    \"email\": \"jamefox@yopmail.com\",\n    \"business_id\": \"7e7e0728-74a7-41ce-8a05-310e3e2eba4c\"\n}",
+											"raw": "{\n    \"bank_code\": \"044\",\n    \"account_name\": \"Jamie Fox\",\n    \"account_number\": \"0666003264\",\n    \"email\": \"jamefox@yopmail.com\",\n    \"business_id\": \"e22609f0-827b-49a2-8ef4-dc393fde7070\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
 												}
 											}
 										},
-										"url": "{{api-gateway-url}}/recipients"
+										"url": "{{api-gateway-url}}recipients"
 									},
 									"response": []
 								},
 								{
 									"name": "add recipient with invalid email",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "e53ed55f-5762-4838-b5d8-4a1ec2248154",
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {",
+													"    pm.response.to.have.status(400);",
+													"});",
+													"",
+													"pm.test(\"Response is an object with data property\", function () {",
+													"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('data');",
+													"});",
+													"",
+													"pm.test(\"Response contains errors property with email field\", function () {",
+													"    pm.expect(pm.response.json().errors).to.have.property('email');",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"id": "c5836b55-ed1d-460d-8dbf-f36f292ad2ad",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -4232,14 +4306,14 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"bank_code\": \"077\",\n    \"account_name\": \"Jamie Fox\",\n    \"account_number\": \"0666003264\",\n    \"email\": \"jamefox@yopmail.com\",\n    \"business_id\": \"7e7e0728-74a7-41ce-8a05-310e3e2eba4c\"\n}",
+											"raw": "{\n    \"bank_code\": \"044\",\n    \"account_name\": \"Jamie Fox\",\n    \"account_number\": \"0694002924\",\n    \"email\": \"jamefox@.com\",\n    \"business_id\": \"e22609f0-827b-49a2-8ef4-dc393fde7070\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
 												}
 											}
 										},
-										"url": "{{api-gateway-url}}/recipients"
+										"url": "{{api-gateway-url}}recipients"
 									},
 									"response": []
 								},
