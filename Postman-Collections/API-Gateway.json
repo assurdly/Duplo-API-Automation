@@ -3996,42 +3996,86 @@
 							"id": "f4225f18-2652-43c0-9019-da22539da832"
 						},
 						{
-							"name": "fetch recipients",
-							"id": "48200e79-0fb7-4116-8dd5-9be8f6d5745f",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "dp_live_856879df3e6ecdb14a918e24bba6d480e0564a4eabfdba938fc23b820ac905e54bac25a71dbcdef66c97b8c72ca7e16cf03a576857261f2f16f5335ca5024620b14268823a7d78922cfdd97cefc61050139fd92a7a0c5840e016050552ccadbbec642d2ff8d35a09225c7ec4fd1e347b"
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{api-gateway-url}}recipients/?business_id=986acd67-b306-4642-87aa-99ba512b2601",
-									"host": [
-										"{{api-gateway-url}}recipients"
-									],
-									"path": [
-										""
-									],
-									"query": [
-										{
-											"key": "",
-											"value": null,
-											"disabled": true
+							"name": "Fetch Recipients",
+							"item": [
+								{
+									"name": "fetch recipients",
+									"id": "48200e79-0fb7-4116-8dd5-9be8f6d5745f",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "dp_live_856879df3e6ecdb14a918e24bba6d480e0564a4eabfdba938fc23b820ac905e54bac25a71dbcdef66c97b8c72ca7e16cf03a576857261f2f16f5335ca5024620b14268823a7d78922cfdd97cefc61050139fd92a7a0c5840e016050552ccadbbec642d2ff8d35a09225c7ec4fd1e347b"
+											}
 										},
-										{
-											"key": "business_id",
-											"value": "986acd67-b306-4642-87aa-99ba512b2601"
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{api-gateway-url}}recipients/?business_id=986acd67-b306-4642-87aa-99ba512b2601",
+											"host": [
+												"{{api-gateway-url}}recipients"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												},
+												{
+													"key": "business_id",
+													"value": "986acd67-b306-4642-87aa-99ba512b2601"
+												}
+											]
 										}
-									]
+									},
+									"response": []
+								},
+								{
+									"name": "fetch recipients with invalid business_id",
+									"id": "644d142e-2226-4d18-9a84-9e0234020291",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "dp_live_856879df3e6ecdb14a918e24bba6d480e0564a4eabfdba938fc23b820ac905e54bac25a71dbcdef66c97b8c72ca7e16cf03a576857261f2f16f5335ca5024620b14268823a7d78922cfdd97cefc61050139fd92a7a0c5840e016050552ccadbbec642d2ff8d35a09225c7ec4fd1e347b"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{api-gateway-url}}recipients/?business_id=986acd67-b306-4642-87aa-99ba512b2601",
+											"host": [
+												"{{api-gateway-url}}recipients"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												},
+												{
+													"key": "business_id",
+													"value": "986acd67-b306-4642-87aa-99ba512b2601"
+												}
+											]
+										}
+									},
+									"response": []
 								}
-							},
-							"response": []
+							],
+							"id": "d84ebbd3-e14d-458d-b9b1-c4862a2438cb"
 						},
 						{
 							"name": "recipients summary",
