@@ -4065,6 +4065,46 @@
 							"item": [
 								{
 									"name": "add recipient",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "f3c34b4a-ecef-4d6d-a916-88928a7c4111",
+												"exec": [
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});",
+													"",
+													"pm.test(\"Response is an object with data property\", function () {",
+													"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('data');",
+													"});",
+													"",
+													"pm.test(\"Response data object has required properties\", function () {",
+													"    var data = pm.response.json().data;",
+													"    pm.expect(data).to.have.property('type');",
+													"    pm.expect(data).to.have.property('status');",
+													"    pm.expect(data).to.have.property('is_active');",
+													"    pm.expect(data).to.have.property('bank_code');",
+													"    pm.expect(data).to.have.property('bank_name');",
+													"    pm.expect(data).to.have.property('account_name');",
+													"    pm.expect(data).to.have.property('account_number');",
+													"    pm.expect(data).to.have.property('email');",
+													"    pm.expect(data).to.have.property('business_id');",
+													"    pm.expect(data).to.have.property('recipient_ref');",
+													"});",
+													"",
+													"pm.test(\"Errors property is an empty object\", function () {",
+													"    pm.expect(pm.response.json().errors).to.eql({});",
+													"});",
+													"",
+													"pm.test(\"Message property is an empty string\", function () {",
+													"    pm.expect(pm.response.json().message).to.be.a('string').and.to.not.be.empty;",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"id": "22752d72-524c-4904-a60c-d0dc352a4c9c",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -4080,14 +4120,14 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"bank_code\": \"077\",\n    \"account_name\": \"Jamie Fox\",\n    \"account_number\": \"0666003264\",\n    \"email\": \"jamefox@yopmail.com\",\n    \"business_id\": \"7e7e0728-74a7-41ce-8a05-310e3e2eba4c\"\n}",
+											"raw": "{\n    \"bank_code\": \"044\",\n    \"account_name\": \"Stamp Duty\",\n    \"account_number\": \"0694002924\",\n    \"email\": \"stampduty@yopmail.com\",\n    \"business_id\": \"e22609f0-827b-49a2-8ef4-dc393fde7070\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
 												}
 											}
 										},
-										"url": "{{api-gateway-url}}/recipients"
+										"url": "{{api-gateway-url}}recipients"
 									},
 									"response": []
 								},
@@ -7787,7 +7827,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "dp_test_b8fd9f3f397e01b225c0c76c99fa87cad0393d51f069e7228b736c8de557867dead1a36a34a182d9262666ca2adb2bb9711f09d4c0c5623cf7b6d5a5bdbee734686c1e014357a715f6f9f63c177cbb7d5caebb6f46eaaa1da9065c4901ee403158f327c6f7e960b198d74f5d5e55dae68a42c6db58cae872cb8fbf1a24c3c48f"
+								"token": "sk_test_gmbq9kxqr6bc9otiuk10n5tgzotkoiiq0vagf4y"
 							}
 						},
 						"method": "POST",
@@ -7801,7 +7841,7 @@
 								}
 							}
 						},
-						"url": "{{api-gateway-url}}/merchants/utilities/banks/verify"
+						"url": "{{api-gateway-url}}merchants/utilities/banks/verify"
 					},
 					"response": [
 						{
