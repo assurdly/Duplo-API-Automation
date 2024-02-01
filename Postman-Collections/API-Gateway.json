@@ -4513,6 +4513,55 @@
 								},
 								{
 									"name": "fetch recipient with business_id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "d478a53e-3eeb-4a9c-99c9-2639a0680c07",
+												"exec": [
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});",
+													"",
+													"pm.test(\"Response is an object with data property\", function () {",
+													"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('data');",
+													"});",
+													"",
+													"pm.test(\"Data property has is_active set to true\", function () {",
+													"    pm.expect(pm.response.json().data.is_active).to.be.true;",
+													"});",
+													"",
+													"pm.test(\"Data property has is_invite_sent set to true\", function () {",
+													"    pm.expect(pm.response.json().data.is_invite_sent).to.be.false;",
+													"});",
+													"",
+													"pm.test(\"Data property has email_confirm set to true\", function () {",
+													"    pm.expect(pm.response.json().data.email_confirm).to.be.false;",
+													"});",
+													"",
+													"pm.test(\"Data property has an array of transactions\", function () {",
+													"    pm.expect(pm.response.json().data.transactions).to.be.an('array');",
+													"});",
+													"",
+													"pm.test(\"Data property has properties _id, bank_code, bank_name, account_name, account_number, email, business_id, recipient_ref, created_at, updated_at, and __v\", function () {",
+													"    var dataProperties = [\"_id\", \"bank_code\", \"bank_name\", \"account_name\", \"account_number\", \"email\", \"business_id\", \"recipient_ref\", \"created_at\", \"updated_at\", \"__v\"];",
+													"    dataProperties.forEach(function(property) {",
+													"        pm.expect(pm.response.json().data).to.have.property(property);",
+													"    });",
+													"});",
+													"",
+													"pm.test(\"Errors property is an empty object\", function () {",
+													"    pm.expect(pm.response.json().errors).to.eql({});",
+													"});",
+													"",
+													"pm.test(\"Message property is an empty string\", function () {",
+													"    pm.expect(pm.response.json().message).to.not.be.empty;",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"id": "dc52a408-e97a-456d-bce1-064ecfb08b7d",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
