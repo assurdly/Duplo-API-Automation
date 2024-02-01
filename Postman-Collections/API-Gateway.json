@@ -4319,6 +4319,26 @@
 								},
 								{
 									"name": "add recipient with invalid business_id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "f10b4be3-7a39-4b20-8f56-3699d60200bf",
+												"exec": [
+													"pm.test(\"Response status code is 400\", function () {",
+													"    pm.response.to.have.status(400);",
+													"});",
+													"",
+													"pm.test(\"Response and errors should not be empty\", function () {",
+													"    var jsonData = pm.response.json();",
+													"    pm.expect(jsonData.data).to.not.be.empty;",
+													"    pm.expect(jsonData.errors).to.not.be.empty;",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"id": "d274255c-8b0b-4308-b8ed-f6dbeddb4578",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -4334,14 +4354,14 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"bank_code\": \"077\",\n    \"account_name\": \"Jamie Fox\",\n    \"account_number\": \"0666003264\",\n    \"email\": \"jamefox@yopmail.com\",\n    \"business_id\": \"7e7e0728-74a7-41ce-8a05-310e3e2eba4c\"\n}",
+											"raw": "{\n    \"bank_code\": \"044\",\n    \"account_name\": \"Stamp Duty\",\n    \"account_number\": \"0694002924\",\n    \"email\": \"jamefox@yopmail.com\",\n    \"business_id\": \"e22609f0-827b-49a2-8ef4-dc393fde7075\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
 												}
 											}
 										},
-										"url": "{{api-gateway-url}}/recipients"
+										"url": "{{api-gateway-url}}recipients"
 									},
 									"response": []
 								}
@@ -4353,6 +4373,102 @@
 							"item": [
 								{
 									"name": "fetch recipient",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "90d3a85a-8ca2-468b-b5a7-499b8730bd39",
+												"exec": [
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});",
+													"",
+													"pm.test(\"Response is an object with data property\", function () {",
+													"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('data');",
+													"});",
+													"",
+													"pm.test(\"Data property contains is_active as a boolean\", function () {",
+													"    var data = pm.response.json().data;",
+													"    pm.expect(data.is_active).to.be.a('boolean');",
+													"});",
+													"",
+													"pm.test(\"Data property contains is_invite_sent as a boolean\", function () {",
+													"    var data = pm.response.json().data;",
+													"    pm.expect(data.is_invite_sent).to.be.a('boolean');",
+													"});",
+													"",
+													"pm.test(\"Data property contains email_confirm as a boolean\", function () {",
+													"    var data = pm.response.json().data;",
+													"    pm.expect(data.email_confirm).to.be.a('boolean');",
+													"});",
+													"",
+													"pm.test(\"Data property contains transactions as an array\", function () {",
+													"    var data = pm.response.json().data;",
+													"    pm.expect(data.transactions).to.be.an('array');",
+													"});",
+													"",
+													"pm.test(\"Data property contains _id as a string\", function () {",
+													"    var data = pm.response.json().data;",
+													"    pm.expect(data._id).to.be.a('string');",
+													"});",
+													"",
+													"pm.test(\"Data property contains bank_code as a string\", function () {",
+													"    var data = pm.response.json().data;",
+													"    pm.expect(data.bank_code).to.be.a('string');",
+													"});",
+													"",
+													"pm.test(\"Data property contains account_name as a string\", function () {",
+													"    var data = pm.response.json().data;",
+													"    pm.expect(data.account_name).to.be.a('string');",
+													"});",
+													"",
+													"pm.test(\"Data property contains account_number as a string\", function () {",
+													"    var data = pm.response.json().data;",
+													"    pm.expect(data.account_number).to.be.a('string');",
+													"});",
+													"",
+													"pm.test(\"Data property contains email as a string\", function () {",
+													"    var data = pm.response.json().data;",
+													"    pm.expect(data.email).to.be.a('string');",
+													"});",
+													"",
+													"pm.test(\"Data property contains business_id as a string\", function () {",
+													"    var data = pm.response.json().data;",
+													"    pm.expect(data.business_id).to.be.a('string');",
+													"});",
+													"",
+													"pm.test(\"Data property contains recipient_ref as a string\", function () {",
+													"    var data = pm.response.json().data;",
+													"    pm.expect(data.recipient_ref).to.be.a('string');",
+													"});",
+													"",
+													"pm.test(\"Data property contains created_at as a string\", function () {",
+													"    var data = pm.response.json().data;",
+													"    pm.expect(data.created_at).to.be.a('string');",
+													"});",
+													"",
+													"pm.test(\"Data property contains updated_at as a string\", function () {",
+													"    var data = pm.response.json().data;",
+													"    pm.expect(data.updated_at).to.be.a('string');",
+													"});",
+													"",
+													"pm.test(\"Data property contains __v as a number\", function () {",
+													"    var data = pm.response.json().data;",
+													"    pm.expect(data.__v).to.be.a('number');",
+													"});",
+													"",
+													"pm.test(\"Errors property is an object\", function () {",
+													"    pm.expect(pm.response.json().errors).to.be.an('object');",
+													"});",
+													"",
+													"pm.test(\"Message property is a string\", function () {",
+													"    pm.expect(pm.response.json().message).to.be.a('string');",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"id": "a66320ed-847b-433c-968f-11f6c95ff5e5",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -4383,14 +4499,12 @@
 											],
 											"variable": [
 												{
-													"id": "7dd2244f-32e1-468b-b0fe-a550dd9a86f5",
 													"key": "business_id",
-													"value": "986acd67-b306-4642-87aa-99ba512b2601"
+													"value": "e22609f0-827b-49a2-8ef4-dc393fde7070"
 												},
 												{
-													"id": "9b331ad6-9738-4bdf-9ba8-bd13707fab40",
 													"key": "recipient_ref",
-													"value": "rec_svxsfsoIsqjh"
+													"value": "rec_VM1nsy8TtWgI"
 												}
 											]
 										}
@@ -4425,18 +4539,22 @@
 												{
 													"key": "expand",
 													"value": "true"
+												},
+												{
+													"key": "business_id",
+													"value": "e22609f0-827b-49a2-8ef4-dc393fde7070",
+													"type": "text",
+													"disabled": true
 												}
 											],
 											"variable": [
 												{
-													"id": "7dd2244f-32e1-468b-b0fe-a550dd9a86f5",
 													"key": "business_id",
-													"value": "986acd67-b306-4642-87aa-99ba512b2601"
+													"value": "e22609f0-827b-49a2-8ef4-dc393fde7070"
 												},
 												{
-													"id": "9b331ad6-9738-4bdf-9ba8-bd13707fab40",
 													"key": "recipient_ref",
-													"value": "rec_svxsfsoIsqjh"
+													"value": "rec_VM1nsy8TtWgI"
 												}
 											]
 										}
