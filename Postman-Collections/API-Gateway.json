@@ -2407,6 +2407,11 @@
 					"name": "Customers",
 					"item": [
 						{
+							"name": "New Folder",
+							"item": [],
+							"id": "a53c4ef7-85f4-4f49-a9f6-6ee1e6f87834"
+						},
+						{
 							"name": "create customer",
 							"id": "cbd97e48-f407-40a3-9b41-3754424094ad",
 							"protocolProfileBehavior": {
@@ -2922,7 +2927,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{api-gateway-url}}wallets/customers/:customer_ref?business_id=986acd67-b306-4642-87aa-99ba512b2601&expand=true",
+									"raw": "{{api-gateway-url}}wallets/customers/:customer_ref?business_id=e22609f0-827b-49a2-8ef4-dc393fde7070&expand=true",
 									"host": [
 										"{{api-gateway-url}}wallets"
 									],
@@ -2933,7 +2938,7 @@
 									"query": [
 										{
 											"key": "business_id",
-											"value": "986acd67-b306-4642-87aa-99ba512b2601"
+											"value": "e22609f0-827b-49a2-8ef4-dc393fde7070"
 										},
 										{
 											"key": "expand",
@@ -2942,9 +2947,8 @@
 									],
 									"variable": [
 										{
-											"id": "de25c390-b539-4b68-8b46-9bd6319eafda",
 											"key": "customer_ref",
-											"value": "cus_YiqclZBWbPFM"
+											"value": "cus_tqx6uZd8KeNl"
 										}
 									]
 								}
@@ -2952,6 +2956,301 @@
 							"response": [
 								{
 									"id": "9468308b-beb0-40c3-918c-7617cd22b46a",
+									"name": "fetch customer success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "dpmlekdno",
+												"value": "{{dpmlekdno}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{url}}customers/7e7e0728-74a7-41ce-8a05-310e3e2eba4c/cus_GnXkWKAlEOtw?expand=true",
+											"host": [
+												"{{url}}customers"
+											],
+											"path": [
+												"7e7e0728-74a7-41ce-8a05-310e3e2eba4c",
+												"cus_GnXkWKAlEOtw"
+											],
+											"query": [
+												{
+													"key": "expand",
+													"value": "true"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-DNS-Prefetch-Control",
+											"value": "off"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "vary",
+											"value": "Origin"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "content-length",
+											"value": "813"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 10 Jun 2022 13:37:41 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"wallets\": [\n            {\n                \"ledger_balance\": 0,\n                \"available_balance\": 0,\n                \"opening_balance\": 0,\n                \"closing_balance\": 0,\n                \"is_master\": false,\n                \"bank_accounts\": [\n                    \"62a3445036ac31000dbdd48e\"\n                ],\n                \"status\": \"Active\",\n                \"notes\": [],\n                \"business_id\": \"7e7e0728-74a7-41ce-8a05-310e3e2eba4c\",\n                \"wallet_ref\": \"wal_U3s4yWggsch7\",\n                \"created_at\": \"2022-06-10T13:17:03.000Z\",\n                \"email\": \"jamefox@yopmail.com\",\n                \"currency\": \"NGN\",\n                \"metadata\": \"{}\",\n                \"updated_at\": \"2022-06-10T13:17:13.911Z\",\n                \"customer\": \"62a3444d281662cd39d7f0f3\"\n            }\n        ],\n        \"_id\": \"62a3444d281662cd39d7f0f3\",\n        \"first_name\": \"Jammie\",\n        \"last_name\": \"Fox\",\n        \"email\": \"jamefox@yopmail.com\",\n        \"phone_number\": \"08051740868\",\n        \"business_id\": \"7e7e0728-74a7-41ce-8a05-310e3e2eba4c\",\n        \"customer_ref\": \"cus_GnXkWKAlEOtw\",\n        \"created_at\": \"2022-06-10T13:17:01.322Z\",\n        \"updated_at\": \"2022-06-10T13:17:13.741Z\",\n        \"__v\": 1\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
+								}
+							]
+						},
+						{
+							"name": "fetch customer with invalid business_id",
+							"id": "a312ad1a-9278-4311-99c3-b6fca708999a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "dp_live_856879df3e6ecdb14a918e24bba6d480e0564a4eabfdba938fc23b820ac905e54bac25a71dbcdef66c97b8c72ca7e16cf03a576857261f2f16f5335ca5024620b14268823a7d78922cfdd97cefc61050139fd92a7a0c5840e016050552ccadbbec642d2ff8d35a09225c7ec4fd1e347b"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api-gateway-url}}wallets/customers/:customer_ref?business_id=e22609f0-827b-49a2-8ef4-dc393fde7072&expand=true",
+									"host": [
+										"{{api-gateway-url}}wallets"
+									],
+									"path": [
+										"customers",
+										":customer_ref"
+									],
+									"query": [
+										{
+											"key": "business_id",
+											"value": "e22609f0-827b-49a2-8ef4-dc393fde7072"
+										},
+										{
+											"key": "expand",
+											"value": "true"
+										}
+									],
+									"variable": [
+										{
+											"id": "fd571df4-f81d-44d0-a2e1-5f86c1698b1d",
+											"key": "customer_ref",
+											"value": "cus_tqx6uZd8KeNl"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "cb3d5385-f035-4815-9ef0-516e190cf79e",
+									"name": "fetch customer success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "dpmlekdno",
+												"value": "{{dpmlekdno}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{url}}customers/7e7e0728-74a7-41ce-8a05-310e3e2eba4c/cus_GnXkWKAlEOtw?expand=true",
+											"host": [
+												"{{url}}customers"
+											],
+											"path": [
+												"7e7e0728-74a7-41ce-8a05-310e3e2eba4c",
+												"cus_GnXkWKAlEOtw"
+											],
+											"query": [
+												{
+													"key": "expand",
+													"value": "true"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-DNS-Prefetch-Control",
+											"value": "off"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "vary",
+											"value": "Origin"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "content-length",
+											"value": "813"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 10 Jun 2022 13:37:41 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"wallets\": [\n            {\n                \"ledger_balance\": 0,\n                \"available_balance\": 0,\n                \"opening_balance\": 0,\n                \"closing_balance\": 0,\n                \"is_master\": false,\n                \"bank_accounts\": [\n                    \"62a3445036ac31000dbdd48e\"\n                ],\n                \"status\": \"Active\",\n                \"notes\": [],\n                \"business_id\": \"7e7e0728-74a7-41ce-8a05-310e3e2eba4c\",\n                \"wallet_ref\": \"wal_U3s4yWggsch7\",\n                \"created_at\": \"2022-06-10T13:17:03.000Z\",\n                \"email\": \"jamefox@yopmail.com\",\n                \"currency\": \"NGN\",\n                \"metadata\": \"{}\",\n                \"updated_at\": \"2022-06-10T13:17:13.911Z\",\n                \"customer\": \"62a3444d281662cd39d7f0f3\"\n            }\n        ],\n        \"_id\": \"62a3444d281662cd39d7f0f3\",\n        \"first_name\": \"Jammie\",\n        \"last_name\": \"Fox\",\n        \"email\": \"jamefox@yopmail.com\",\n        \"phone_number\": \"08051740868\",\n        \"business_id\": \"7e7e0728-74a7-41ce-8a05-310e3e2eba4c\",\n        \"customer_ref\": \"cus_GnXkWKAlEOtw\",\n        \"created_at\": \"2022-06-10T13:17:01.322Z\",\n        \"updated_at\": \"2022-06-10T13:17:13.741Z\",\n        \"__v\": 1\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
+								}
+							]
+						},
+						{
+							"name": "fetch customer with invalid customer_ref",
+							"id": "52df95db-55a4-4d97-861a-358b13d851f9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "dp_live_856879df3e6ecdb14a918e24bba6d480e0564a4eabfdba938fc23b820ac905e54bac25a71dbcdef66c97b8c72ca7e16cf03a576857261f2f16f5335ca5024620b14268823a7d78922cfdd97cefc61050139fd92a7a0c5840e016050552ccadbbec642d2ff8d35a09225c7ec4fd1e347b"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api-gateway-url}}wallets/customers/:customer_ref?business_id=e22609f0-827b-49a2-8ef4-dc393fde7072&expand=true",
+									"host": [
+										"{{api-gateway-url}}wallets"
+									],
+									"path": [
+										"customers",
+										":customer_ref"
+									],
+									"query": [
+										{
+											"key": "business_id",
+											"value": "e22609f0-827b-49a2-8ef4-dc393fde7072"
+										},
+										{
+											"key": "expand",
+											"value": "true"
+										}
+									],
+									"variable": [
+										{
+											"key": "customer_ref",
+											"value": "cus_tqx6uZd8KeN2"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "0fb80388-b1bf-4215-a5a9-0789d0f5b234",
 									"name": "fetch customer success",
 									"originalRequest": {
 										"method": "GET",
@@ -3099,6 +3398,149 @@
 							"response": [
 								{
 									"id": "eaca7792-d87e-4de5-b36a-0c32d188834c",
+									"name": "fetch customers success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "dpmlekdno",
+												"value": "{{dpmlekdno}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{url}}customers?business_id=7e7e0728-74a7-41ce-8a05-310e3e2eba4c",
+											"host": [
+												"{{url}}customers"
+											],
+											"query": [
+												{
+													"key": "business_id",
+													"value": "7e7e0728-74a7-41ce-8a05-310e3e2eba4c"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-DNS-Prefetch-Control",
+											"value": "off"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "vary",
+											"value": "Origin"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "content-length",
+											"value": "2455"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 10 Jun 2022 13:46:36 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"data\": [\n            {\n                \"wallets\": [\n                    {\n                        \"ledger_balance\": 0,\n                        \"available_balance\": 0,\n                        \"opening_balance\": 0,\n                        \"closing_balance\": 0,\n                        \"is_master\": false,\n                        \"bank_accounts\": [\n                            \"62a3445036ac31000dbdd48e\"\n                        ],\n                        \"status\": \"Active\",\n                        \"notes\": [],\n                        \"business_id\": \"7e7e0728-74a7-41ce-8a05-310e3e2eba4c\",\n                        \"wallet_ref\": \"wal_U3s4yWggsch7\",\n                        \"created_at\": \"2022-06-10T13:17:03.000Z\",\n                        \"email\": \"jamefox@yopmail.com\",\n                        \"currency\": \"NGN\",\n                        \"metadata\": \"{}\",\n                        \"updated_at\": \"2022-06-10T13:17:13.911Z\",\n                        \"customer\": \"62a3444d281662cd39d7f0f3\"\n                    }\n                ],\n                \"first_name\": \"Jammie\",\n                \"last_name\": \"Fox\",\n                \"email\": \"jamefox@yopmail.com\",\n                \"phone_number\": \"08051740868\",\n                \"business_id\": \"7e7e0728-74a7-41ce-8a05-310e3e2eba4c\",\n                \"customer_ref\": \"cus_GnXkWKAlEOtw\",\n                \"created_at\": \"2022-06-10T13:17:01.322Z\"\n            },\n            {\n                \"wallets\": [\n                    {\n                        \"ledger_balance\": 0,\n                        \"available_balance\": 0,\n                        \"opening_balance\": 0,\n                        \"closing_balance\": 0,\n                        \"is_master\": false,\n                        \"bank_accounts\": [\n                            \"62a343b236ac31000dbdd48c\"\n                        ],\n                        \"status\": \"Active\",\n                        \"notes\": [],\n                        \"business_id\": \"7e7e0728-74a7-41ce-8a05-310e3e2eba4c\",\n                        \"wallet_ref\": \"wal_gMvtFkOV28qI\",\n                        \"created_at\": \"2022-06-10T13:14:25.000Z\",\n                        \"email\": \"tanmaore@yopmail.com\",\n                        \"currency\": \"NGN\",\n                        \"metadata\": \"{}\",\n                        \"updated_at\": \"2022-06-10T13:14:42.503Z\",\n                        \"customer\": \"62a34392763d65ccc919a35a\"\n                    }\n                ],\n                \"first_name\": \"Tanni\",\n                \"last_name\": \"Manore\",\n                \"email\": \"tanmaore@yopmail.com\",\n                \"phone_number\": \"08051740168\",\n                \"business_id\": \"7e7e0728-74a7-41ce-8a05-310e3e2eba4c\",\n                \"customer_ref\": \"cus_t1ayXmvNkZDC\",\n                \"created_at\": \"2022-06-10T13:13:54.124Z\"\n            },\n            {\n                \"wallets\": [\n                    {\n                        \"ledger_balance\": 0,\n                        \"available_balance\": 0,\n                        \"opening_balance\": 0,\n                        \"closing_balance\": 0,\n                        \"is_master\": false,\n                        \"bank_accounts\": [\n                            \"62a33ebeb2301b000daed7e8\"\n                        ],\n                        \"status\": \"Active\",\n                        \"notes\": [],\n                        \"business_id\": \"7e7e0728-74a7-41ce-8a05-310e3e2eba4c\",\n                        \"wallet_ref\": \"wal_DEysdb05tJld\",\n                        \"created_at\": \"2022-06-10T12:53:17.000Z\",\n                        \"email\": \"adamugruba@yopmail.com\",\n                        \"currency\": \"NGN\",\n                        \"metadata\": \"{}\",\n                        \"updated_at\": \"2022-06-10T12:53:57.178Z\",\n                        \"customer\": \"62a33ebb68ce55cbc4f9e95b\"\n                    }\n                ],\n                \"first_name\": \"Adamu\",\n                \"last_name\": \"Garuba\",\n                \"email\": \"adamugruba@yopmail.com\",\n                \"phone_number\": \"08031740168\",\n                \"business_id\": \"7e7e0728-74a7-41ce-8a05-310e3e2eba4c\",\n                \"customer_ref\": \"cus_JWIMsWXb7jKE\",\n                \"created_at\": \"2022-06-10T12:53:15.183Z\"\n            },\n            {\n                \"wallets\": [],\n                \"first_name\": \"Gbajami\",\n                \"last_name\": \"Sunday\",\n                \"email\": \"gbsunday@yopmail.com\",\n                \"phone_number\": \"080918401687\",\n                \"business_id\": \"7e7e0728-74a7-41ce-8a05-310e3e2eba4c\",\n                \"customer_ref\": \"cus_PO16IsgUKVE6\",\n                \"created_at\": \"2022-06-10T12:43:11.292Z\"\n            }\n        ],\n        \"meta\": {\n            \"page\": 1,\n            \"limit\": 10,\n            \"previousPage\": false,\n            \"nextPage\": false,\n            \"pageCount\": 1,\n            \"total\": 4\n        }\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
+								}
+							]
+						},
+						{
+							"name": "fetch customers with invalid business_id",
+							"id": "381e4e47-7a69-45aa-bdad-b5833f119bb5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "dp_live_856879df3e6ecdb14a918e24bba6d480e0564a4eabfdba938fc23b820ac905e54bac25a71dbcdef66c97b8c72ca7e16cf03a576857261f2f16f5335ca5024620b14268823a7d78922cfdd97cefc61050139fd92a7a0c5840e016050552ccadbbec642d2ff8d35a09225c7ec4fd1e347b"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "dpmlekdno",
+										"value": "{{dpmlekdno}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{api-gateway-url}}wallets/customers?business_id=986acd67-b306-4642-87aa-99ba512b2604",
+									"host": [
+										"{{api-gateway-url}}wallets"
+									],
+									"path": [
+										"customers"
+									],
+									"query": [
+										{
+											"key": "business_id",
+											"value": "986acd67-b306-4642-87aa-99ba512b2604"
+										},
+										{
+											"key": "search_term",
+											"value": "denis",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "e0fdcd99-f681-48b2-92f6-4729f1a283c6",
 									"name": "fetch customers success",
 									"originalRequest": {
 										"method": "GET",
