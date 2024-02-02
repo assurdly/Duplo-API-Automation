@@ -8571,6 +8571,62 @@
 							"item": [
 								{
 									"name": "Fetch Business Invoices",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "79039da4-b0bd-4a47-b9dd-1b796b4e666c",
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});",
+													"",
+													"pm.test(\"Response is an object with data property\", function () {",
+													"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('data');",
+													"});",
+													"",
+													"pm.test(\"Each element in the data array has an id, title, recipient, due_date, items, shipping_fee, discount, tax, note, status, created_at, update_at, business_id, account, payment, public_id, invoice_number, total_invoice_amount, recipient_name, invoice_balance, recipient_data, delivery_status, reason_for_cancelling, for_checkout, and checkout_type\", function () {",
+													"    pm.response.json().data.data.forEach(function(invoice) {",
+													"        pm.expect(invoice).to.have.property('id');",
+													"        pm.expect(invoice).to.have.property('title');",
+													"        pm.expect(invoice).to.have.property('recipient');",
+													"        pm.expect(invoice).to.have.property('due_date');",
+													"        pm.expect(invoice).to.have.property('items');",
+													"        pm.expect(invoice).to.have.property('shipping_fee');",
+													"        pm.expect(invoice).to.have.property('discount');",
+													"        pm.expect(invoice).to.have.property('tax');",
+													"        pm.expect(invoice).to.have.property('note');",
+													"        pm.expect(invoice).to.have.property('status');",
+													"        pm.expect(invoice).to.have.property('created_at');",
+													"        pm.expect(invoice).to.have.property('update_at');",
+													"        pm.expect(invoice).to.have.property('business_id');",
+													"        pm.expect(invoice).to.have.property('account');",
+													"        pm.expect(invoice).to.have.property('payment');",
+													"        pm.expect(invoice).to.have.property('public_id');",
+													"        pm.expect(invoice).to.have.property('invoice_number');",
+													"        pm.expect(invoice).to.have.property('total_invoice_amount');",
+													"        pm.expect(invoice).to.have.property('recipient_name');",
+													"        pm.expect(invoice).to.have.property('invoice_balance');",
+													"        pm.expect(invoice).to.have.property('recipient_data');",
+													"        pm.expect(invoice).to.have.property('delivery_status');",
+													"        pm.expect(invoice).to.have.property('reason_for_cancelling');",
+													"        pm.expect(invoice).to.have.property('for_checkout');",
+													"        pm.expect(invoice).to.have.property('checkout_type');",
+													"    });",
+													"});",
+													"",
+													"pm.test(\"Response has meta property with page, limit, previousPage, nextPage, pageCount, and total\", function () {",
+													"    pm.expect(pm.response.json().data).to.have.property('meta').that.is.an('object').that.has.all.keys('page', 'limit', 'previousPage', 'nextPage', 'pageCount', 'total');",
+													"});",
+													"",
+													"pm.test(\"Response has additional_data property with paid_invoices, unpaid_invoices, overdue_invoices, and all_invoices\", function () {",
+													"    pm.expect(pm.response.json().data).to.have.property('additional_data').that.is.an('object').that.has.all.keys('paid_invoices', 'unpaid_invoices', 'overdue_invoices', 'all_invoices');",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"id": "ac7becf0-c8d2-47cc-a498-49d98a910521",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -8706,6 +8762,32 @@
 								},
 								{
 									"name": "Fetch Business Invoices with invalid business_id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "79775240-e49b-4b02-a692-bdd188395d39",
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {",
+													"    pm.response.to.have.status(400);",
+													"});",
+													"",
+													"pm.test(\"Response is an object with data property\", function () {",
+													"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('data');",
+													"});",
+													"",
+													"pm.test(\"Response is an object with errors property\", function () {",
+													"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('errors');",
+													"});",
+													"",
+													"pm.test(\"Response is an object with message property\", function () {",
+													"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('message');",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"id": "9bd8d6d5-9cc6-4430-8717-f5a1c300c9f0",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -8714,7 +8796,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{api-gateway-url}}merchants/invoice?business_id=e22609f0-827b-49a2-8ef4-dc393fde7070",
+											"raw": "{{api-gateway-url}}merchants/invoice?business_id=e22609f0-827b-49a2-8ef4-dc393fde7077",
 											"host": [
 												"{{api-gateway-url}}merchants"
 											],
@@ -8734,7 +8816,7 @@
 												},
 												{
 													"key": "business_id",
-													"value": "e22609f0-827b-49a2-8ef4-dc393fde7070"
+													"value": "e22609f0-827b-49a2-8ef4-dc393fde7077"
 												}
 											]
 										}
