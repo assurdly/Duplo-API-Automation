@@ -7126,36 +7126,14 @@
 					"item": [
 						{
 							"name": "Create Invoice",
-							"id": "50602937-6725-4072-a2ec-bf5da40a90e6",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "dpmlekdno",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\", \n    \"recipient\": \"cus_7mbxz90f49TA\",\n    \"due_date\": \"2023-02-24\",\n    \"items\": [\n        {\n            \"name\": \"Broom\",\n            \"quantity\": \"50\",\n            \"unit_price\": \"100\"\n        },\n        {\n            \"name\": \"toothpaste\",\n            \"quantity\": \"20\",\n            \"unit_price\": \"100\"\n        }\n    ],\n    \"shipping_fee\": \"100\",\n    \"discount\": {\n        \"type\": \"amount\",\n        \"value\": \"500\"\n    },\n    \"tax\": {\n        \"type\": \"percentage\",\n        \"value\": 10,\n        \"description\": \"sample description t\"\n    },\n    \"note\": \"sample note for creating this invoice for another test\",\n    \"status\": \"invoice\",\n    \"amount\": \"200\",\n    \"for_checkout\": true\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{api-gateway-url}}merchants/invoice"
-							},
-							"response": [
+							"item": [
 								{
-									"id": "87095569-3f7d-4f59-bbe1-e883e52900e9",
-									"name": "Create Invoice Success",
-									"originalRequest": {
+									"name": "Create Invoice",
+									"id": "50602937-6725-4072-a2ec-bf5da40a90e6",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
 										"method": "POST",
 										"header": [
 											{
@@ -7167,514 +7145,584 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"business_id\": \"80efed51-96fc-43c7-9075-9f78877d26bc\",\n    \"invoice_number\": \"78689936947\",\n    \"recipient\": \"wal_ZKmo7StVZMrZ\",\n    \"due_date\": \"2022-05-25\",\n    \"items\": [\n        {\n            \"name\": \"sample name\",\n            \"quantity\": \"15\",\n            \"unit_price\": \"500.70\"\n        },\n        {\n            \"name\": \"sample name 2\",\n            \"quantity\": \"31\",\n            \"unit_price\": \"100.60\"\n        }\n    ],\n    \"shipping_fee\": \"670.90\",\n    \"discount\": {\n        \"type\": \"amount\",\n        \"value\": \"400.50\"\n    },\n    \"tax\": {\n        \"type\": \"percentage\",\n        \"value\": 10.20,\n        \"description\": \"sample description\"\n    },\n    \"note\": \"sample note\",\n    \"status\": \"draft\"\n}",
+											"raw": "{\n    \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\", \n    \"recipient\": \"cus_7mbxz90f49TA\",\n    \"due_date\": \"2023-02-24\",\n    \"items\": [\n        {\n            \"name\": \"Broom\",\n            \"quantity\": \"50\",\n            \"unit_price\": \"100\"\n        },\n        {\n            \"name\": \"toothpaste\",\n            \"quantity\": \"20\",\n            \"unit_price\": \"100\"\n        }\n    ],\n    \"shipping_fee\": \"100\",\n    \"discount\": {\n        \"type\": \"amount\",\n        \"value\": \"500\"\n    },\n    \"tax\": {\n        \"type\": \"percentage\",\n        \"value\": 10,\n        \"description\": \"sample description t\"\n    },\n    \"note\": \"sample note for creating this invoice for another test\",\n    \"status\": \"invoice\",\n    \"amount\": \"200\",\n    \"for_checkout\": true\n}",
 											"options": {
 												"raw": {
 													"language": "json"
 												}
 											}
 										},
-										"url": "{{app-gateway}}merchants/invoice"
+										"url": "{{api-gateway-url}}merchants/invoice"
 									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": null,
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"data\": {\n        \"id\": \"c1f9df9b-8dd3-4b43-aee9-ecc5525d27a2\",\n        \"invoice_number\": \"78689936947\",\n        \"title\": \"Invoice for Mwenda Deno\",\n        \"recipient\": \"wal_ZKmo7StVZMrZ\",\n        \"due_date\": \"2022-05-25T00:00:00.000Z\",\n        \"items\": [\n            {\n                \"name\": \"sample name\",\n                \"total\": 7510.5,\n                \"quantity\": 15,\n                \"unit_price\": 500.7\n            },\n            {\n                \"name\": \"sample name 2\",\n                \"total\": 3118.6,\n                \"quantity\": 31,\n                \"unit_price\": 100.6\n            }\n        ],\n        \"shipping_fee\": 670.9,\n        \"discount\": {\n            \"type\": \"amount\",\n            \"value\": 400.5\n        },\n        \"tax\": {\n            \"type\": \"percentage\",\n            \"value\": 10.2,\n            \"description\": \"sample description\"\n        },\n        \"note\": \"sample note\",\n        \"status\": \"draft\",\n        \"public_id\": \"oXFpXwUQIwoF8zOabzKLjEHv4kZTydNb\",\n        \"account\": {\n            \"provider\": {\n                \"id\": \"wema\",\n                \"default\": true,\n                \"prefixes\": [\n                    \"222\",\n                    \"919\",\n                    \"888\"\n                ],\n                \"bank_code\": \"111\",\n                \"bank_name\": \"Wema Bank\",\n                \"is_prefix\": true,\n                \"credentials\": {}\n            },\n            \"account_ref\": \"act_MR1sJ8bh2YlK\",\n            \"account_number\": \"8880000363\"\n        },\n        \"payment\": null,\n        \"created_at\": \"2022-05-25T15:19:05.650Z\",\n        \"update_at\": \"2022-05-25T15:19:05.651Z\",\n        \"business_id\": \"80efed51-96fc-43c7-9075-9f78877d26bc\"\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
-								},
-								{
-									"id": "f1b0a046-8cbd-45ea-8dfb-f898dfd76228",
-									"name": "Create Invoice Failed",
-									"originalRequest": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "dpmlekdno",
-												"value": "",
-												"type": "text",
-												"disabled": true
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"business_id\": \"80efed51-96fc-43c7-9075-9f78877d26bc\",\n    \"invoice_number\": \"78689936947\",\n    \"recipient\": \"wal_ZKmo7StVZMrZ\",\n    \"due_date\": \"2022-05-25\",\n    \"items\": [\n        {\n            \"name\": \"sample name\",\n            \"quantity\": \"15\",\n            \"unit_price\": \"500.70\"\n        },\n        {\n            \"name\": \"sample name 2\",\n            \"quantity\": \"31\",\n            \"unit_price\": \"100.60\"\n        }\n    ],\n    \"shipping_fee\": \"670.90\",\n    \"discount\": {\n        \"type\": \"amount\",\n        \"value\": \"400.50\"\n    },\n    \"tax\": {\n        \"type\": \"percentage\",\n        \"value\": 10.20,\n        \"description\": \"sample description\"\n    },\n    \"note\": \"sample note\",\n    \"status\": \"draft\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{app-gateway}}merchants/invoice"
-									},
-									"status": "Bad Request",
-									"code": 400,
-									"_postman_previewlanguage": "json",
-									"header": null,
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"data\": {},\n    \"errors\": {},\n    \"message\": \"Invoice with given invoice number already exists\"\n}"
-								}
-							]
-						},
-						{
-							"name": "Fetch Invoice By Public ID",
-							"id": "17e85665-eb46-4ebf-85ed-9aa3cf4471eb",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": "{{api-gateway-url}}merchants/invoice/3X2FeJRVAJP2ln1s4FxbiBRV9GRCFSgK"
-							},
-							"response": [
-								{
-									"id": "6ad2e082-1a47-4e09-a759-be7792bf03eb",
-									"name": "Fetch Invoice Success",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": "{{app-gateway}}merchants/invoice/PznDTY52G6esjiDq6LJvCDhZ2n5ePmJr"
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": null,
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"data\": {\n        \"id\": \"c1f9df9b-8dd3-4b43-aee9-ecc5525d27a2\",\n        \"invoice_number\": \"78689936947\",\n        \"title\": \"Invoice for Mwenda Deno\",\n        \"recipient\": \"wal_ZKmo7StVZMrZ\",\n        \"due_date\": \"2022-05-25T00:00:00.000Z\",\n        \"items\": [\n            {\n                \"name\": \"sample name\",\n                \"total\": 7510.5,\n                \"quantity\": 15,\n                \"unit_price\": 500.7\n            },\n            {\n                \"name\": \"sample name 2\",\n                \"total\": 3118.6,\n                \"quantity\": 31,\n                \"unit_price\": 100.6\n            }\n        ],\n        \"shipping_fee\": 670.9,\n        \"discount\": {\n            \"type\": \"amount\",\n            \"value\": 400.5\n        },\n        \"tax\": {\n            \"type\": \"percentage\",\n            \"value\": 10.2,\n            \"description\": \"sample description\"\n        },\n        \"note\": \"sample note\",\n        \"status\": \"draft\",\n        \"public_id\": \"oXFpXwUQIwoF8zOabzKLjEHv4kZTydNb\",\n        \"account\": {\n            \"provider\": {\n                \"id\": \"wema\",\n                \"default\": true,\n                \"prefixes\": [\n                    \"222\",\n                    \"919\",\n                    \"888\"\n                ],\n                \"bank_code\": \"111\",\n                \"bank_name\": \"Wema Bank\",\n                \"is_prefix\": true,\n                \"credentials\": {}\n            },\n            \"account_ref\": \"act_MR1sJ8bh2YlK\",\n            \"account_number\": \"8880000363\"\n        },\n        \"payment\": null,\n        \"created_at\": \"2022-05-25T15:19:05.650Z\",\n        \"update_at\": \"2022-05-25T15:19:05.651Z\",\n        \"business_id\": \"80efed51-96fc-43c7-9075-9f78877d26bc\"\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
-								},
-								{
-									"id": "5fb1be85-4ec8-424c-bed7-23d44de1a381",
-									"name": "Fetch Invoice Error",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": "{{app-gateway}}merchants/invoice/PznDTY52G6esjiDq6LJvCDhZ2n5ePmJr"
-									},
-									"code": 400,
-									"_postman_previewlanguage": "json",
-									"header": null,
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"data\": {},\n    \"errors\": {},\n    \"message\": \"Invoice with given public ID does not exist\"\n}"
-								}
-							]
-						},
-						{
-							"name": "Edit Invoice",
-							"id": "6d6f1177-3083-4d5d-afc7-2b5d900480eb",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\"business_id\": \"45ee9f61-dd52-4f51-bccb-8e594a711760\",\n\"invoice_id\": \"396c513a-658d-4225-b367-7e121c88e87a\",\n \"invoice_number\": \"00000000012\", \n \"due_date\": \"2022-06-011\",\n \"items\": [\n    {\n    \"name\": \"Rice\",\n    \"quantity\": \"10\",\n    \"unit_price\": \"500\"\n    },\n    {\n    \"name\": \"Tomato\",\n    \"quantity\": \"10\",\n    \"unit_price\": \"100\"\n    }\n ],\n    \"shipping_fee\": \"100\",\n    \"discount\": {\n    \"type\": \"percentage\", \n    \"value\": \"10\" \n    },\n    \"tax\": {\n    \"description\" : \"Sample description\", \n    \"type\": \"amount\", \n    \"value\": \"10\"\n    },\n \"note\": \"A sample detailed note to ensure that the customer can make payment\", \n \"status\": \"invoice\"\n\n }",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{app-gateway}}merchants/invoice"
-							},
-							"response": [
-								{
-									"id": "bbcdf8ed-33cb-4f2f-a4de-52cae0a66043",
-									"name": "Edit Invoice Failed",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": []
-									},
-									"status": "Bad Request",
-									"code": 400,
-									"_postman_previewlanguage": "json",
-									"header": null,
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"data\": {},\n    \"errors\": {\n        \"title\": \"title is not allowed\",\n        \"recipient\": \"recipient is not allowed\"\n    },\n    \"message\": \"Invalid requests\"\n}"
-								},
-								{
-									"id": "a3dabe3e-a7d1-4765-8c4c-1ea4702864ea",
-									"name": "Edit Invoice Success",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": []
-									},
-									"_postman_previewlanguage": null,
-									"header": null,
-									"cookie": [],
-									"responseTime": null,
-									"body": null
-								}
-							]
-						},
-						{
-							"name": "Edit Draft Invoice",
-							"id": "c54a7c8e-f820-4015-b896-b8ce1b62f545",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"business_id\": \"80efed51-96fc-43c7-9075-9f78877d26bc\",\n    \"invoice_id\": \"7e39a65d-1009-40c5-ae60-b0ea57440a4c\",\n    \"invoice_number\": \"69691297835\",\n    \"recipient\": \"cus_Ml1o1ErokflR\",\n    \"title\": \"Another Tesst\",\n    \"status\": \"invoice\",\n    \"due_date\": \"2022-09-23\",\n    \"items\": [\n            {\n                \"name\": \"edited sample name\",\n                \"total\": 7510.5,\n                \"quantity\": 15,\n                \"unit_price\": 500.7\n            },\n            {\n                \"name\": \"edited sample name 2\",\n                \"total\": 3118.6,\n                \"quantity\": 31,\n                \"unit_price\": 100.6\n            },\n            {\n                \"name\": \"edited sample name 3\",\n                \"total\": 600.6,\n                \"quantity\": 2,\n                \"unit_price\": 20\n            }\n        ]\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{api-gateway-url}}merchants/invoice/draft"
-							},
-							"response": [
-								{
-									"id": "a2171779-a12c-4254-8614-e951e89f5255",
-									"name": "Edit Invoice Failed",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": []
-									},
-									"status": "Bad Request",
-									"code": 400,
-									"_postman_previewlanguage": "json",
-									"header": null,
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"data\": {},\n    \"errors\": {\n        \"title\": \"title is not allowed\",\n        \"recipient\": \"recipient is not allowed\"\n    },\n    \"message\": \"Invalid requests\"\n}"
-								},
-								{
-									"id": "39e0ca2a-6eab-4102-b294-7125ee8bfcb0",
-									"name": "Edit Invoice Success",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": []
-									},
-									"_postman_previewlanguage": null,
-									"header": null,
-									"cookie": [],
-									"responseTime": null,
-									"body": null
-								}
-							]
-						},
-						{
-							"name": "Resend Invoice",
-							"id": "82792fdf-1e1c-4ce4-a55f-638d65431f34",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"invoice_id\": \"ff22a2b0-afdc-48ce-949b-4ccf0c700e6e\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{api-gateway-url}}merchants/invoice/resend"
-							},
-							"response": [
-								{
-									"id": "8826c4d4-60c6-4eb1-9309-668db42860b2",
-									"name": "Resend Invoice Success",
-									"originalRequest": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"invoice_id\": \"52324b80-613c-4580-807f-21419a60dbe7\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{app-gateway}}merchants/invoice/resend"
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": null,
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"data\": {},\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
-								},
-								{
-									"id": "cfe483f9-9089-48f6-9804-48e9c5ce1345",
-									"name": "Resend Invoice Failed",
-									"originalRequest": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"invoice_id\": \"52324b80-613c-4580-807f-21419a60dbe7\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{app-gateway}}merchants/invoice/resend"
-									},
-									"status": "Bad Request",
-									"code": 400,
-									"_postman_previewlanguage": "json",
-									"header": null,
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"data\": {},\n    \"errors\": {},\n    \"message\": \"Invoice with given invoice ID does not exist\"\n}"
-								}
-							]
-						},
-						{
-							"name": "Fetch Business Invoices",
-							"id": "ac7becf0-c8d2-47cc-a498-49d98a910521",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{api-gateway-url}}merchants/invoice?business_id=8ed10fcc-1e1c-4ad1-9ed8-e870d6543349",
-									"host": [
-										"{{api-gateway-url}}merchants"
-									],
-									"path": [
-										"invoice"
-									],
-									"query": [
+									"response": [
 										{
-											"key": "per_page",
-											"value": "10",
-											"disabled": true
+											"id": "87095569-3f7d-4f59-bbe1-e883e52900e9",
+											"name": "Create Invoice Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "dpmlekdno",
+														"value": "",
+														"type": "text",
+														"disabled": true
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"business_id\": \"80efed51-96fc-43c7-9075-9f78877d26bc\",\n    \"invoice_number\": \"78689936947\",\n    \"recipient\": \"wal_ZKmo7StVZMrZ\",\n    \"due_date\": \"2022-05-25\",\n    \"items\": [\n        {\n            \"name\": \"sample name\",\n            \"quantity\": \"15\",\n            \"unit_price\": \"500.70\"\n        },\n        {\n            \"name\": \"sample name 2\",\n            \"quantity\": \"31\",\n            \"unit_price\": \"100.60\"\n        }\n    ],\n    \"shipping_fee\": \"670.90\",\n    \"discount\": {\n        \"type\": \"amount\",\n        \"value\": \"400.50\"\n    },\n    \"tax\": {\n        \"type\": \"percentage\",\n        \"value\": 10.20,\n        \"description\": \"sample description\"\n    },\n    \"note\": \"sample note\",\n    \"status\": \"draft\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{app-gateway}}merchants/invoice"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"data\": {\n        \"id\": \"c1f9df9b-8dd3-4b43-aee9-ecc5525d27a2\",\n        \"invoice_number\": \"78689936947\",\n        \"title\": \"Invoice for Mwenda Deno\",\n        \"recipient\": \"wal_ZKmo7StVZMrZ\",\n        \"due_date\": \"2022-05-25T00:00:00.000Z\",\n        \"items\": [\n            {\n                \"name\": \"sample name\",\n                \"total\": 7510.5,\n                \"quantity\": 15,\n                \"unit_price\": 500.7\n            },\n            {\n                \"name\": \"sample name 2\",\n                \"total\": 3118.6,\n                \"quantity\": 31,\n                \"unit_price\": 100.6\n            }\n        ],\n        \"shipping_fee\": 670.9,\n        \"discount\": {\n            \"type\": \"amount\",\n            \"value\": 400.5\n        },\n        \"tax\": {\n            \"type\": \"percentage\",\n            \"value\": 10.2,\n            \"description\": \"sample description\"\n        },\n        \"note\": \"sample note\",\n        \"status\": \"draft\",\n        \"public_id\": \"oXFpXwUQIwoF8zOabzKLjEHv4kZTydNb\",\n        \"account\": {\n            \"provider\": {\n                \"id\": \"wema\",\n                \"default\": true,\n                \"prefixes\": [\n                    \"222\",\n                    \"919\",\n                    \"888\"\n                ],\n                \"bank_code\": \"111\",\n                \"bank_name\": \"Wema Bank\",\n                \"is_prefix\": true,\n                \"credentials\": {}\n            },\n            \"account_ref\": \"act_MR1sJ8bh2YlK\",\n            \"account_number\": \"8880000363\"\n        },\n        \"payment\": null,\n        \"created_at\": \"2022-05-25T15:19:05.650Z\",\n        \"update_at\": \"2022-05-25T15:19:05.651Z\",\n        \"business_id\": \"80efed51-96fc-43c7-9075-9f78877d26bc\"\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
 										},
 										{
-											"key": "search_term",
-											"value": "100",
-											"disabled": true
-										},
-										{
-											"key": "business_id",
-											"value": "8ed10fcc-1e1c-4ad1-9ed8-e870d6543349"
+											"id": "f1b0a046-8cbd-45ea-8dfb-f898dfd76228",
+											"name": "Create Invoice Failed",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "dpmlekdno",
+														"value": "",
+														"type": "text",
+														"disabled": true
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"business_id\": \"80efed51-96fc-43c7-9075-9f78877d26bc\",\n    \"invoice_number\": \"78689936947\",\n    \"recipient\": \"wal_ZKmo7StVZMrZ\",\n    \"due_date\": \"2022-05-25\",\n    \"items\": [\n        {\n            \"name\": \"sample name\",\n            \"quantity\": \"15\",\n            \"unit_price\": \"500.70\"\n        },\n        {\n            \"name\": \"sample name 2\",\n            \"quantity\": \"31\",\n            \"unit_price\": \"100.60\"\n        }\n    ],\n    \"shipping_fee\": \"670.90\",\n    \"discount\": {\n        \"type\": \"amount\",\n        \"value\": \"400.50\"\n    },\n    \"tax\": {\n        \"type\": \"percentage\",\n        \"value\": 10.20,\n        \"description\": \"sample description\"\n    },\n    \"note\": \"sample note\",\n    \"status\": \"draft\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{app-gateway}}merchants/invoice"
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"data\": {},\n    \"errors\": {},\n    \"message\": \"Invoice with given invoice number already exists\"\n}"
 										}
 									]
 								}
-							},
-							"response": [
+							],
+							"id": "bfc95c8d-f4c2-47d9-becb-82d5f7ccb22e"
+						},
+						{
+							"name": "Fetch Invoice",
+							"item": [
 								{
-									"id": "1236347a-dba0-419b-b138-f04a4f3557fa",
-									"name": "Fetch Business Invoices Success",
-									"originalRequest": {
+									"name": "Fetch Invoice By Public ID",
+									"id": "17e85665-eb46-4ebf-85ed-9aa3cf4471eb",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{api-gateway-url}}merchants/invoice/3X2FeJRVAJP2ln1s4FxbiBRV9GRCFSgK"
+									},
+									"response": [
+										{
+											"id": "6ad2e082-1a47-4e09-a759-be7792bf03eb",
+											"name": "Fetch Invoice Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{app-gateway}}merchants/invoice/PznDTY52G6esjiDq6LJvCDhZ2n5ePmJr"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"data\": {\n        \"id\": \"c1f9df9b-8dd3-4b43-aee9-ecc5525d27a2\",\n        \"invoice_number\": \"78689936947\",\n        \"title\": \"Invoice for Mwenda Deno\",\n        \"recipient\": \"wal_ZKmo7StVZMrZ\",\n        \"due_date\": \"2022-05-25T00:00:00.000Z\",\n        \"items\": [\n            {\n                \"name\": \"sample name\",\n                \"total\": 7510.5,\n                \"quantity\": 15,\n                \"unit_price\": 500.7\n            },\n            {\n                \"name\": \"sample name 2\",\n                \"total\": 3118.6,\n                \"quantity\": 31,\n                \"unit_price\": 100.6\n            }\n        ],\n        \"shipping_fee\": 670.9,\n        \"discount\": {\n            \"type\": \"amount\",\n            \"value\": 400.5\n        },\n        \"tax\": {\n            \"type\": \"percentage\",\n            \"value\": 10.2,\n            \"description\": \"sample description\"\n        },\n        \"note\": \"sample note\",\n        \"status\": \"draft\",\n        \"public_id\": \"oXFpXwUQIwoF8zOabzKLjEHv4kZTydNb\",\n        \"account\": {\n            \"provider\": {\n                \"id\": \"wema\",\n                \"default\": true,\n                \"prefixes\": [\n                    \"222\",\n                    \"919\",\n                    \"888\"\n                ],\n                \"bank_code\": \"111\",\n                \"bank_name\": \"Wema Bank\",\n                \"is_prefix\": true,\n                \"credentials\": {}\n            },\n            \"account_ref\": \"act_MR1sJ8bh2YlK\",\n            \"account_number\": \"8880000363\"\n        },\n        \"payment\": null,\n        \"created_at\": \"2022-05-25T15:19:05.650Z\",\n        \"update_at\": \"2022-05-25T15:19:05.651Z\",\n        \"business_id\": \"80efed51-96fc-43c7-9075-9f78877d26bc\"\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
+										},
+										{
+											"id": "5fb1be85-4ec8-424c-bed7-23d44de1a381",
+											"name": "Fetch Invoice Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{app-gateway}}merchants/invoice/PznDTY52G6esjiDq6LJvCDhZ2n5ePmJr"
+											},
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"data\": {},\n    \"errors\": {},\n    \"message\": \"Invoice with given public ID does not exist\"\n}"
+										}
+									]
+								}
+							],
+							"id": "8c9cc240-04a5-4546-962d-77e8c1a0cdef"
+						},
+						{
+							"name": "Edit Invoice",
+							"item": [
+								{
+									"name": "Edit Invoice",
+									"id": "6d6f1177-3083-4d5d-afc7-2b5d900480eb",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\"business_id\": \"45ee9f61-dd52-4f51-bccb-8e594a711760\",\n\"invoice_id\": \"396c513a-658d-4225-b367-7e121c88e87a\",\n \"invoice_number\": \"00000000012\", \n \"due_date\": \"2022-06-011\",\n \"items\": [\n    {\n    \"name\": \"Rice\",\n    \"quantity\": \"10\",\n    \"unit_price\": \"500\"\n    },\n    {\n    \"name\": \"Tomato\",\n    \"quantity\": \"10\",\n    \"unit_price\": \"100\"\n    }\n ],\n    \"shipping_fee\": \"100\",\n    \"discount\": {\n    \"type\": \"percentage\", \n    \"value\": \"10\" \n    },\n    \"tax\": {\n    \"description\" : \"Sample description\", \n    \"type\": \"amount\", \n    \"value\": \"10\"\n    },\n \"note\": \"A sample detailed note to ensure that the customer can make payment\", \n \"status\": \"invoice\"\n\n }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{app-gateway}}merchants/invoice"
+									},
+									"response": [
+										{
+											"id": "bbcdf8ed-33cb-4f2f-a4de-52cae0a66043",
+											"name": "Edit Invoice Failed",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": []
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"data\": {},\n    \"errors\": {\n        \"title\": \"title is not allowed\",\n        \"recipient\": \"recipient is not allowed\"\n    },\n    \"message\": \"Invalid requests\"\n}"
+										},
+										{
+											"id": "a3dabe3e-a7d1-4765-8c4c-1ea4702864ea",
+											"name": "Edit Invoice Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": []
+											},
+											"_postman_previewlanguage": null,
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": null
+										}
+									]
+								}
+							],
+							"id": "655b25a6-c197-4fc6-8e5d-d7dc7f0573ba"
+						},
+						{
+							"name": "Edit Draft",
+							"item": [
+								{
+									"name": "Edit Draft Invoice",
+									"id": "c54a7c8e-f820-4015-b896-b8ce1b62f545",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"business_id\": \"80efed51-96fc-43c7-9075-9f78877d26bc\",\n    \"invoice_id\": \"7e39a65d-1009-40c5-ae60-b0ea57440a4c\",\n    \"invoice_number\": \"69691297835\",\n    \"recipient\": \"cus_Ml1o1ErokflR\",\n    \"title\": \"Another Tesst\",\n    \"status\": \"invoice\",\n    \"due_date\": \"2022-09-23\",\n    \"items\": [\n            {\n                \"name\": \"edited sample name\",\n                \"total\": 7510.5,\n                \"quantity\": 15,\n                \"unit_price\": 500.7\n            },\n            {\n                \"name\": \"edited sample name 2\",\n                \"total\": 3118.6,\n                \"quantity\": 31,\n                \"unit_price\": 100.6\n            },\n            {\n                \"name\": \"edited sample name 3\",\n                \"total\": 600.6,\n                \"quantity\": 2,\n                \"unit_price\": 20\n            }\n        ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{api-gateway-url}}merchants/invoice/draft"
+									},
+									"response": [
+										{
+											"id": "a2171779-a12c-4254-8614-e951e89f5255",
+											"name": "Edit Invoice Failed",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": []
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"data\": {},\n    \"errors\": {\n        \"title\": \"title is not allowed\",\n        \"recipient\": \"recipient is not allowed\"\n    },\n    \"message\": \"Invalid requests\"\n}"
+										},
+										{
+											"id": "39e0ca2a-6eab-4102-b294-7125ee8bfcb0",
+											"name": "Edit Invoice Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": []
+											},
+											"_postman_previewlanguage": null,
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": null
+										}
+									]
+								}
+							],
+							"id": "6670074b-f1a8-4c59-911c-a3a13e60228c"
+						},
+						{
+							"name": "Resend Invoice",
+							"item": [
+								{
+									"name": "Resend Invoice",
+									"id": "82792fdf-1e1c-4ce4-a55f-638d65431f34",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"invoice_id\": \"ff22a2b0-afdc-48ce-949b-4ccf0c700e6e\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{api-gateway-url}}merchants/invoice/resend"
+									},
+									"response": [
+										{
+											"id": "8826c4d4-60c6-4eb1-9309-668db42860b2",
+											"name": "Resend Invoice Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"invoice_id\": \"52324b80-613c-4580-807f-21419a60dbe7\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{app-gateway}}merchants/invoice/resend"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"data\": {},\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
+										},
+										{
+											"id": "cfe483f9-9089-48f6-9804-48e9c5ce1345",
+											"name": "Resend Invoice Failed",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"invoice_id\": \"52324b80-613c-4580-807f-21419a60dbe7\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{app-gateway}}merchants/invoice/resend"
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"data\": {},\n    \"errors\": {},\n    \"message\": \"Invoice with given invoice ID does not exist\"\n}"
+										}
+									]
+								}
+							],
+							"id": "b4c2b177-6b5d-49c3-bc38-83c9c1c39f2c"
+						},
+						{
+							"name": "Fetch Business Invoices",
+							"item": [
+								{
+									"name": "Fetch Business Invoices",
+									"id": "ac7becf0-c8d2-47cc-a498-49d98a910521",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{app-gateway}}merchants/invoice?business_id=80efed51-96fc-43c7-9075-9f78877d26bc&per_page=20&page=1&invoice_status=draft&payment_status=unpaid&search_term",
+											"raw": "{{api-gateway-url}}merchants/invoice?business_id=8ed10fcc-1e1c-4ad1-9ed8-e870d6543349",
 											"host": [
-												"{{app-gateway}}merchants"
+												"{{api-gateway-url}}merchants"
 											],
 											"path": [
 												"invoice"
 											],
 											"query": [
 												{
-													"key": "business_id",
-													"value": "80efed51-96fc-43c7-9075-9f78877d26bc"
-												},
-												{
 													"key": "per_page",
-													"value": "20"
-												},
-												{
-													"key": "page",
-													"value": "1"
-												},
-												{
-													"key": "invoice_status",
-													"value": "draft"
-												},
-												{
-													"key": "payment_status",
-													"value": "unpaid"
+													"value": "10",
+													"disabled": true
 												},
 												{
 													"key": "search_term",
-													"value": null,
-													"type": "text"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": null,
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"data\": {\n        \"data\": [\n            {\n                \"id\": \"4667e90c-4397-42a8-9d28-811d6989c6d6\",\n                \"invoice_number\": \"77679939988\",\n                \"title\": \"Invoice for Mwenda Deno\",\n                \"recipient\": \"wal_ZKmo7StVZMrZ\",\n                \"due_date\": \"2022-05-25T00:00:00.000Z\",\n                \"items\": [\n                    {\n                        \"name\": \"sample name\",\n                        \"total\": 7510.5,\n                        \"quantity\": 15,\n                        \"unit_price\": 500.7\n                    },\n                    {\n                        \"name\": \"sample name 2\",\n                        \"total\": 3118.6,\n                        \"quantity\": 31,\n                        \"unit_price\": 100.6\n                    }\n                ],\n                \"shipping_fee\": 670.9,\n                \"discount\": {\n                    \"type\": \"amount\",\n                    \"value\": 400.5\n                },\n                \"tax\": {\n                    \"type\": \"percentage\",\n                    \"value\": 10.2,\n                    \"description\": \"sample description\"\n                },\n                \"total_invoice_amount\": \"12011.249\",\n                \"note\": \"sample note\",\n                \"status\": \"draft\",\n                \"public_id\": \"r3w3qCNflepgTMFKcZy3CD1SMvczPOFY\",\n                \"account\": {\n                    \"provider\": {\n                        \"id\": \"wema\",\n                        \"default\": true,\n                        \"prefixes\": [\n                            \"222\",\n                            \"919\",\n                            \"888\"\n                        ],\n                        \"bank_code\": \"111\",\n                        \"bank_name\": \"Wema Bank\",\n                        \"is_prefix\": true,\n                        \"credentials\": {}\n                    },\n                    \"account_ref\": \"act_FUSOZ6fXri30\",\n                    \"account_number\": \"8880000369\"\n                },\n                \"payment\": {\n                    \"reason\": null,\n                    \"status\": \"UNPAID\"\n                },\n                \"created_at\": \"2022-05-25T19:21:28.959Z\",\n                \"update_at\": \"2022-05-25T19:21:28.960Z\",\n                \"business_id\": \"80efed51-96fc-43c7-9075-9f78877d26bc\"\n            },\n            {\n                \"id\": \"52324b80-613c-4580-807f-21419a60dbe7\",\n                \"invoice_number\": \"77983439988\",\n                \"title\": \"Invoice for Mwenda Deno\",\n                \"recipient\": \"wal_ZKmo7StVZMrZ\",\n                \"due_date\": \"2022-05-25T00:00:00.000Z\",\n                \"items\": [\n                    {\n                        \"name\": \"sample name\",\n                        \"total\": 7510.5,\n                        \"quantity\": 15,\n                        \"unit_price\": 500.7\n                    },\n                    {\n                        \"name\": \"sample name 2\",\n                        \"total\": 3118.6,\n                        \"quantity\": 31,\n                        \"unit_price\": 100.6\n                    }\n                ],\n                \"shipping_fee\": 670.9,\n                \"discount\": {\n                    \"type\": \"amount\",\n                    \"value\": 400.5\n                },\n                \"tax\": {\n                    \"type\": \"percentage\",\n                    \"value\": 10.2,\n                    \"description\": \"sample description\"\n                },\n                \"total_invoice_amount\": \"12011.249\",\n                \"note\": \"sample note\",\n                \"status\": \"draft\",\n                \"public_id\": \"52rlwCoKk4Z6fopespD3tHn4CIAzLZ7C\",\n                \"account\": {\n                    \"provider\": {\n                        \"id\": \"wema\",\n                        \"default\": true,\n                        \"prefixes\": [\n                            \"222\",\n                            \"919\",\n                            \"888\"\n                        ],\n                        \"bank_code\": \"111\",\n                        \"bank_name\": \"Wema Bank\",\n                        \"is_prefix\": true,\n                        \"credentials\": {}\n                    },\n                    \"account_ref\": \"act_Sses4KYxTH0d\",\n                    \"account_number\": \"8880000375\"\n                },\n                \"payment\": {\n                    \"reason\": null,\n                    \"status\": \"UNPAID\"\n                },\n                \"created_at\": \"2022-05-25T19:48:16.556Z\",\n                \"update_at\": \"2022-05-25T19:48:16.564Z\",\n                \"business_id\": \"80efed51-96fc-43c7-9075-9f78877d26bc\"\n            },\n            {\n                \"id\": \"9facfd94-bca4-4c57-abd7-206cedc04c34\",\n                \"invoice_number\": \"77689239988\",\n                \"title\": \"Invoice for Mwenda Deno\",\n                \"recipient\": \"wal_ZKmo7StVZMrZ\",\n                \"due_date\": \"2022-05-25T00:00:00.000Z\",\n                \"items\": [\n                    {\n                        \"name\": \"sample name\",\n                        \"total\": 7510.5,\n                        \"quantity\": 15,\n                        \"unit_price\": 500.7\n                    },\n                    {\n                        \"name\": \"sample name 2\",\n                        \"total\": 3118.6,\n                        \"quantity\": 31,\n                        \"unit_price\": 100.6\n                    }\n                ],\n                \"shipping_fee\": 670.9,\n                \"discount\": {\n                    \"type\": \"amount\",\n                    \"value\": 400.5\n                },\n                \"tax\": {\n                    \"type\": \"percentage\",\n                    \"value\": 10.2,\n                    \"description\": \"sample description\"\n                },\n                \"total_invoice_amount\": \"12011.249\",\n                \"note\": \"sample note\",\n                \"status\": \"draft\",\n                \"public_id\": \"BJR3rQKNWMXKmsEp5oltTDV6pmiARpy7\",\n                \"account\": {\n                    \"provider\": {\n                        \"id\": \"wema\",\n                        \"default\": true,\n                        \"prefixes\": [\n                            \"222\",\n                            \"919\",\n                            \"888\"\n                        ],\n                        \"bank_code\": \"111\",\n                        \"bank_name\": \"Wema Bank\",\n                        \"is_prefix\": true,\n                        \"credentials\": {}\n                    },\n                    \"account_ref\": \"act_WaK8RT4HWWbi\",\n                    \"account_number\": \"8880000370\"\n                },\n                \"payment\": {\n                    \"reason\": null,\n                    \"status\": \"UNPAID\"\n                },\n                \"created_at\": \"2022-05-25T19:28:32.292Z\",\n                \"update_at\": \"2022-05-25T19:28:32.293Z\",\n                \"business_id\": \"80efed51-96fc-43c7-9075-9f78877d26bc\"\n            },\n            {\n                \"id\": \"c4d74ac8-bac3-4cc4-9ba9-d3137f942629\",\n                \"invoice_number\": \"78979939988\",\n                \"title\": \"Invoice for Mwenda Deno\",\n                \"recipient\": \"wal_ZKmo7StVZMrZ\",\n                \"due_date\": \"2022-05-25T00:00:00.000Z\",\n                \"items\": [\n                    {\n                        \"name\": \"sample name\",\n                        \"total\": 7510.5,\n                        \"quantity\": 15,\n                        \"unit_price\": 500.7\n                    },\n                    {\n                        \"name\": \"sample name 2\",\n                        \"total\": 3118.6,\n                        \"quantity\": 31,\n                        \"unit_price\": 100.6\n                    }\n                ],\n                \"shipping_fee\": 670.9,\n                \"discount\": {\n                    \"type\": \"amount\",\n                    \"value\": 400.5\n                },\n                \"tax\": {\n                    \"type\": \"percentage\",\n                    \"value\": 10.2,\n                    \"description\": \"sample description\"\n                },\n                \"total_invoice_amount\": \"12011.249\",\n                \"note\": \"sample note\",\n                \"status\": \"draft\",\n                \"public_id\": \"cKf5HSfSZxGjCdgdUDCXsiuTeGaCohMJ\",\n                \"account\": {\n                    \"provider\": {\n                        \"id\": \"wema\",\n                        \"default\": true,\n                        \"prefixes\": [\n                            \"222\",\n                            \"919\",\n                            \"888\"\n                        ],\n                        \"bank_code\": \"111\",\n                        \"bank_name\": \"Wema Bank\",\n                        \"is_prefix\": true,\n                        \"credentials\": {}\n                    },\n                    \"account_ref\": \"act_uOCMH7P0qcck\",\n                    \"account_number\": \"8880000367\"\n                },\n                \"payment\": {\n                    \"reason\": null,\n                    \"status\": \"UNPAID\"\n                },\n                \"created_at\": \"2022-05-25T19:17:24.597Z\",\n                \"update_at\": \"2022-05-25T19:17:24.598Z\",\n                \"business_id\": \"80efed51-96fc-43c7-9075-9f78877d26bc\"\n            },\n            {\n                \"id\": \"e569bc28-26b8-419c-b972-9c6dc48ad737\",\n                \"invoice_number\": \"78979936388\",\n                \"title\": \"Invoice for Mwenda Deno\",\n                \"recipient\": \"wal_ZKmo7StVZMrZ\",\n                \"due_date\": \"2022-05-25T00:00:00.000Z\",\n                \"items\": [\n                    {\n                        \"name\": \"sample name\",\n                        \"total\": 7510.5,\n                        \"quantity\": 15,\n                        \"unit_price\": 500.7\n                    },\n                    {\n                        \"name\": \"sample name 2\",\n                        \"total\": 3118.6,\n                        \"quantity\": 31,\n                        \"unit_price\": 100.6\n                    }\n                ],\n                \"shipping_fee\": 670.9,\n                \"discount\": {\n                    \"type\": \"amount\",\n                    \"value\": 400.5\n                },\n                \"tax\": {\n                    \"type\": \"percentage\",\n                    \"value\": 10.2,\n                    \"description\": \"sample description\"\n                },\n                \"total_invoice_amount\": \"12011.249\",\n                \"note\": \"sample note\",\n                \"status\": \"draft\",\n                \"public_id\": \"sRDGrQIVGC6WxSXMAyfesnDEcswpKjRp\",\n                \"account\": {\n                    \"provider\": {\n                        \"id\": \"wema\",\n                        \"default\": true,\n                        \"prefixes\": [\n                            \"222\",\n                            \"919\",\n                            \"888\"\n                        ],\n                        \"bank_code\": \"111\",\n                        \"bank_name\": \"Wema Bank\",\n                        \"is_prefix\": true,\n                        \"credentials\": {}\n                    },\n                    \"account_ref\": \"act_AbwChOY5s41r\",\n                    \"account_number\": \"8880000366\"\n                },\n                \"payment\": {\n                    \"reason\": null,\n                    \"status\": \"UNPAID\"\n                },\n                \"created_at\": \"2022-05-25T19:03:26.623Z\",\n                \"update_at\": \"2022-05-25T19:03:26.633Z\",\n                \"business_id\": \"80efed51-96fc-43c7-9075-9f78877d26bc\"\n            },\n            {\n                \"id\": \"ec07d5ef-9e9d-4b83-b5ac-d73f5f86e75b\",\n                \"invoice_number\": \"78779939988\",\n                \"title\": \"Invoice for Mwenda Deno\",\n                \"recipient\": \"wal_ZKmo7StVZMrZ\",\n                \"due_date\": \"2022-05-25T00:00:00.000Z\",\n                \"items\": [\n                    {\n                        \"name\": \"sample name\",\n                        \"total\": 7510.5,\n                        \"quantity\": 15,\n                        \"unit_price\": 500.7\n                    },\n                    {\n                        \"name\": \"sample name 2\",\n                        \"total\": 3118.6,\n                        \"quantity\": 31,\n                        \"unit_price\": 100.6\n                    }\n                ],\n                \"shipping_fee\": 670.9,\n                \"discount\": {\n                    \"type\": \"amount\",\n                    \"value\": 400.5\n                },\n                \"tax\": {\n                    \"type\": \"percentage\",\n                    \"value\": 10.2,\n                    \"description\": \"sample description\"\n                },\n                \"total_invoice_amount\": \"12011.249\",\n                \"note\": \"sample note\",\n                \"status\": \"draft\",\n                \"public_id\": \"bekBHSZwtXmUfIxtiuPtHlbvBQky7msw\",\n                \"account\": {\n                    \"provider\": {\n                        \"id\": \"wema\",\n                        \"default\": true,\n                        \"prefixes\": [\n                            \"222\",\n                            \"919\",\n                            \"888\"\n                        ],\n                        \"bank_code\": \"111\",\n                        \"bank_name\": \"Wema Bank\",\n                        \"is_prefix\": true,\n                        \"credentials\": {}\n                    },\n                    \"account_ref\": \"act_vlOkGxRjKKoB\",\n                    \"account_number\": \"8880000368\"\n                },\n                \"payment\": {\n                    \"reason\": null,\n                    \"status\": \"UNPAID\"\n                },\n                \"created_at\": \"2022-05-25T19:19:11.954Z\",\n                \"update_at\": \"2022-05-25T19:19:11.955Z\",\n                \"business_id\": \"80efed51-96fc-43c7-9075-9f78877d26bc\"\n            }\n        ],\n        \"meta\": {\n            \"page\": 1,\n            \"limit\": 20,\n            \"previousPage\": false,\n            \"nextPage\": false,\n            \"pageCount\": 1,\n            \"total\": 6\n        },\n        \"additional_data\": {\n            \"paid_invoices\": {\n                \"amount\": \"12011.25\",\n                \"count\": 2\n            },\n            \"unpaid_invoices\": {\n                \"amount\": \"72067.49\",\n                \"count\": 6\n            },\n            \"overdue_invoices\": {\n                \"amount\": \"72067.49\",\n                \"count\": 6\n            },\n            \"all_invoices\": {\n                \"amount\": \"264247.48\",\n                \"count\": 23\n            }\n        }\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
-								},
-								{
-									"id": "67bb8698-e2fc-417d-bf93-02f3b3ef8449",
-									"name": "Fetch Business Invoices Failed",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{app-gateway}}merchants/invoice?business_id=80efed51-96fc-43c7-9075-9f78877d26bc&per_page=20&page=1&invoice_status=draft&payment_status=unpaid",
-											"host": [
-												"{{app-gateway}}merchants"
-											],
-											"path": [
-												"invoice"
-											],
-											"query": [
+													"value": "100",
+													"disabled": true
+												},
 												{
 													"key": "business_id",
-													"value": "80efed51-96fc-43c7-9075-9f78877d26bc"
-												},
-												{
-													"key": "per_page",
-													"value": "20"
-												},
-												{
-													"key": "page",
-													"value": "1"
-												},
-												{
-													"key": "invoice_status",
-													"value": "draft"
-												},
-												{
-													"key": "payment_status",
-													"value": "unpaid"
+													"value": "8ed10fcc-1e1c-4ad1-9ed8-e870d6543349"
 												}
 											]
 										}
 									},
-									"status": "Bad Request",
-									"code": 400,
-									"_postman_previewlanguage": "json",
-									"header": null,
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"data\": {},\n    \"errors\": {\n        \"invoice_status\": \"Invoice Status must be one of [invoice, draft]\"\n    },\n    \"message\": \"Invalid requests\"\n}"
+									"response": [
+										{
+											"id": "1236347a-dba0-419b-b138-f04a4f3557fa",
+											"name": "Fetch Business Invoices Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{app-gateway}}merchants/invoice?business_id=80efed51-96fc-43c7-9075-9f78877d26bc&per_page=20&page=1&invoice_status=draft&payment_status=unpaid&search_term",
+													"host": [
+														"{{app-gateway}}merchants"
+													],
+													"path": [
+														"invoice"
+													],
+													"query": [
+														{
+															"key": "business_id",
+															"value": "80efed51-96fc-43c7-9075-9f78877d26bc"
+														},
+														{
+															"key": "per_page",
+															"value": "20"
+														},
+														{
+															"key": "page",
+															"value": "1"
+														},
+														{
+															"key": "invoice_status",
+															"value": "draft"
+														},
+														{
+															"key": "payment_status",
+															"value": "unpaid"
+														},
+														{
+															"key": "search_term",
+															"value": null,
+															"type": "text"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"data\": {\n        \"data\": [\n            {\n                \"id\": \"4667e90c-4397-42a8-9d28-811d6989c6d6\",\n                \"invoice_number\": \"77679939988\",\n                \"title\": \"Invoice for Mwenda Deno\",\n                \"recipient\": \"wal_ZKmo7StVZMrZ\",\n                \"due_date\": \"2022-05-25T00:00:00.000Z\",\n                \"items\": [\n                    {\n                        \"name\": \"sample name\",\n                        \"total\": 7510.5,\n                        \"quantity\": 15,\n                        \"unit_price\": 500.7\n                    },\n                    {\n                        \"name\": \"sample name 2\",\n                        \"total\": 3118.6,\n                        \"quantity\": 31,\n                        \"unit_price\": 100.6\n                    }\n                ],\n                \"shipping_fee\": 670.9,\n                \"discount\": {\n                    \"type\": \"amount\",\n                    \"value\": 400.5\n                },\n                \"tax\": {\n                    \"type\": \"percentage\",\n                    \"value\": 10.2,\n                    \"description\": \"sample description\"\n                },\n                \"total_invoice_amount\": \"12011.249\",\n                \"note\": \"sample note\",\n                \"status\": \"draft\",\n                \"public_id\": \"r3w3qCNflepgTMFKcZy3CD1SMvczPOFY\",\n                \"account\": {\n                    \"provider\": {\n                        \"id\": \"wema\",\n                        \"default\": true,\n                        \"prefixes\": [\n                            \"222\",\n                            \"919\",\n                            \"888\"\n                        ],\n                        \"bank_code\": \"111\",\n                        \"bank_name\": \"Wema Bank\",\n                        \"is_prefix\": true,\n                        \"credentials\": {}\n                    },\n                    \"account_ref\": \"act_FUSOZ6fXri30\",\n                    \"account_number\": \"8880000369\"\n                },\n                \"payment\": {\n                    \"reason\": null,\n                    \"status\": \"UNPAID\"\n                },\n                \"created_at\": \"2022-05-25T19:21:28.959Z\",\n                \"update_at\": \"2022-05-25T19:21:28.960Z\",\n                \"business_id\": \"80efed51-96fc-43c7-9075-9f78877d26bc\"\n            },\n            {\n                \"id\": \"52324b80-613c-4580-807f-21419a60dbe7\",\n                \"invoice_number\": \"77983439988\",\n                \"title\": \"Invoice for Mwenda Deno\",\n                \"recipient\": \"wal_ZKmo7StVZMrZ\",\n                \"due_date\": \"2022-05-25T00:00:00.000Z\",\n                \"items\": [\n                    {\n                        \"name\": \"sample name\",\n                        \"total\": 7510.5,\n                        \"quantity\": 15,\n                        \"unit_price\": 500.7\n                    },\n                    {\n                        \"name\": \"sample name 2\",\n                        \"total\": 3118.6,\n                        \"quantity\": 31,\n                        \"unit_price\": 100.6\n                    }\n                ],\n                \"shipping_fee\": 670.9,\n                \"discount\": {\n                    \"type\": \"amount\",\n                    \"value\": 400.5\n                },\n                \"tax\": {\n                    \"type\": \"percentage\",\n                    \"value\": 10.2,\n                    \"description\": \"sample description\"\n                },\n                \"total_invoice_amount\": \"12011.249\",\n                \"note\": \"sample note\",\n                \"status\": \"draft\",\n                \"public_id\": \"52rlwCoKk4Z6fopespD3tHn4CIAzLZ7C\",\n                \"account\": {\n                    \"provider\": {\n                        \"id\": \"wema\",\n                        \"default\": true,\n                        \"prefixes\": [\n                            \"222\",\n                            \"919\",\n                            \"888\"\n                        ],\n                        \"bank_code\": \"111\",\n                        \"bank_name\": \"Wema Bank\",\n                        \"is_prefix\": true,\n                        \"credentials\": {}\n                    },\n                    \"account_ref\": \"act_Sses4KYxTH0d\",\n                    \"account_number\": \"8880000375\"\n                },\n                \"payment\": {\n                    \"reason\": null,\n                    \"status\": \"UNPAID\"\n                },\n                \"created_at\": \"2022-05-25T19:48:16.556Z\",\n                \"update_at\": \"2022-05-25T19:48:16.564Z\",\n                \"business_id\": \"80efed51-96fc-43c7-9075-9f78877d26bc\"\n            },\n            {\n                \"id\": \"9facfd94-bca4-4c57-abd7-206cedc04c34\",\n                \"invoice_number\": \"77689239988\",\n                \"title\": \"Invoice for Mwenda Deno\",\n                \"recipient\": \"wal_ZKmo7StVZMrZ\",\n                \"due_date\": \"2022-05-25T00:00:00.000Z\",\n                \"items\": [\n                    {\n                        \"name\": \"sample name\",\n                        \"total\": 7510.5,\n                        \"quantity\": 15,\n                        \"unit_price\": 500.7\n                    },\n                    {\n                        \"name\": \"sample name 2\",\n                        \"total\": 3118.6,\n                        \"quantity\": 31,\n                        \"unit_price\": 100.6\n                    }\n                ],\n                \"shipping_fee\": 670.9,\n                \"discount\": {\n                    \"type\": \"amount\",\n                    \"value\": 400.5\n                },\n                \"tax\": {\n                    \"type\": \"percentage\",\n                    \"value\": 10.2,\n                    \"description\": \"sample description\"\n                },\n                \"total_invoice_amount\": \"12011.249\",\n                \"note\": \"sample note\",\n                \"status\": \"draft\",\n                \"public_id\": \"BJR3rQKNWMXKmsEp5oltTDV6pmiARpy7\",\n                \"account\": {\n                    \"provider\": {\n                        \"id\": \"wema\",\n                        \"default\": true,\n                        \"prefixes\": [\n                            \"222\",\n                            \"919\",\n                            \"888\"\n                        ],\n                        \"bank_code\": \"111\",\n                        \"bank_name\": \"Wema Bank\",\n                        \"is_prefix\": true,\n                        \"credentials\": {}\n                    },\n                    \"account_ref\": \"act_WaK8RT4HWWbi\",\n                    \"account_number\": \"8880000370\"\n                },\n                \"payment\": {\n                    \"reason\": null,\n                    \"status\": \"UNPAID\"\n                },\n                \"created_at\": \"2022-05-25T19:28:32.292Z\",\n                \"update_at\": \"2022-05-25T19:28:32.293Z\",\n                \"business_id\": \"80efed51-96fc-43c7-9075-9f78877d26bc\"\n            },\n            {\n                \"id\": \"c4d74ac8-bac3-4cc4-9ba9-d3137f942629\",\n                \"invoice_number\": \"78979939988\",\n                \"title\": \"Invoice for Mwenda Deno\",\n                \"recipient\": \"wal_ZKmo7StVZMrZ\",\n                \"due_date\": \"2022-05-25T00:00:00.000Z\",\n                \"items\": [\n                    {\n                        \"name\": \"sample name\",\n                        \"total\": 7510.5,\n                        \"quantity\": 15,\n                        \"unit_price\": 500.7\n                    },\n                    {\n                        \"name\": \"sample name 2\",\n                        \"total\": 3118.6,\n                        \"quantity\": 31,\n                        \"unit_price\": 100.6\n                    }\n                ],\n                \"shipping_fee\": 670.9,\n                \"discount\": {\n                    \"type\": \"amount\",\n                    \"value\": 400.5\n                },\n                \"tax\": {\n                    \"type\": \"percentage\",\n                    \"value\": 10.2,\n                    \"description\": \"sample description\"\n                },\n                \"total_invoice_amount\": \"12011.249\",\n                \"note\": \"sample note\",\n                \"status\": \"draft\",\n                \"public_id\": \"cKf5HSfSZxGjCdgdUDCXsiuTeGaCohMJ\",\n                \"account\": {\n                    \"provider\": {\n                        \"id\": \"wema\",\n                        \"default\": true,\n                        \"prefixes\": [\n                            \"222\",\n                            \"919\",\n                            \"888\"\n                        ],\n                        \"bank_code\": \"111\",\n                        \"bank_name\": \"Wema Bank\",\n                        \"is_prefix\": true,\n                        \"credentials\": {}\n                    },\n                    \"account_ref\": \"act_uOCMH7P0qcck\",\n                    \"account_number\": \"8880000367\"\n                },\n                \"payment\": {\n                    \"reason\": null,\n                    \"status\": \"UNPAID\"\n                },\n                \"created_at\": \"2022-05-25T19:17:24.597Z\",\n                \"update_at\": \"2022-05-25T19:17:24.598Z\",\n                \"business_id\": \"80efed51-96fc-43c7-9075-9f78877d26bc\"\n            },\n            {\n                \"id\": \"e569bc28-26b8-419c-b972-9c6dc48ad737\",\n                \"invoice_number\": \"78979936388\",\n                \"title\": \"Invoice for Mwenda Deno\",\n                \"recipient\": \"wal_ZKmo7StVZMrZ\",\n                \"due_date\": \"2022-05-25T00:00:00.000Z\",\n                \"items\": [\n                    {\n                        \"name\": \"sample name\",\n                        \"total\": 7510.5,\n                        \"quantity\": 15,\n                        \"unit_price\": 500.7\n                    },\n                    {\n                        \"name\": \"sample name 2\",\n                        \"total\": 3118.6,\n                        \"quantity\": 31,\n                        \"unit_price\": 100.6\n                    }\n                ],\n                \"shipping_fee\": 670.9,\n                \"discount\": {\n                    \"type\": \"amount\",\n                    \"value\": 400.5\n                },\n                \"tax\": {\n                    \"type\": \"percentage\",\n                    \"value\": 10.2,\n                    \"description\": \"sample description\"\n                },\n                \"total_invoice_amount\": \"12011.249\",\n                \"note\": \"sample note\",\n                \"status\": \"draft\",\n                \"public_id\": \"sRDGrQIVGC6WxSXMAyfesnDEcswpKjRp\",\n                \"account\": {\n                    \"provider\": {\n                        \"id\": \"wema\",\n                        \"default\": true,\n                        \"prefixes\": [\n                            \"222\",\n                            \"919\",\n                            \"888\"\n                        ],\n                        \"bank_code\": \"111\",\n                        \"bank_name\": \"Wema Bank\",\n                        \"is_prefix\": true,\n                        \"credentials\": {}\n                    },\n                    \"account_ref\": \"act_AbwChOY5s41r\",\n                    \"account_number\": \"8880000366\"\n                },\n                \"payment\": {\n                    \"reason\": null,\n                    \"status\": \"UNPAID\"\n                },\n                \"created_at\": \"2022-05-25T19:03:26.623Z\",\n                \"update_at\": \"2022-05-25T19:03:26.633Z\",\n                \"business_id\": \"80efed51-96fc-43c7-9075-9f78877d26bc\"\n            },\n            {\n                \"id\": \"ec07d5ef-9e9d-4b83-b5ac-d73f5f86e75b\",\n                \"invoice_number\": \"78779939988\",\n                \"title\": \"Invoice for Mwenda Deno\",\n                \"recipient\": \"wal_ZKmo7StVZMrZ\",\n                \"due_date\": \"2022-05-25T00:00:00.000Z\",\n                \"items\": [\n                    {\n                        \"name\": \"sample name\",\n                        \"total\": 7510.5,\n                        \"quantity\": 15,\n                        \"unit_price\": 500.7\n                    },\n                    {\n                        \"name\": \"sample name 2\",\n                        \"total\": 3118.6,\n                        \"quantity\": 31,\n                        \"unit_price\": 100.6\n                    }\n                ],\n                \"shipping_fee\": 670.9,\n                \"discount\": {\n                    \"type\": \"amount\",\n                    \"value\": 400.5\n                },\n                \"tax\": {\n                    \"type\": \"percentage\",\n                    \"value\": 10.2,\n                    \"description\": \"sample description\"\n                },\n                \"total_invoice_amount\": \"12011.249\",\n                \"note\": \"sample note\",\n                \"status\": \"draft\",\n                \"public_id\": \"bekBHSZwtXmUfIxtiuPtHlbvBQky7msw\",\n                \"account\": {\n                    \"provider\": {\n                        \"id\": \"wema\",\n                        \"default\": true,\n                        \"prefixes\": [\n                            \"222\",\n                            \"919\",\n                            \"888\"\n                        ],\n                        \"bank_code\": \"111\",\n                        \"bank_name\": \"Wema Bank\",\n                        \"is_prefix\": true,\n                        \"credentials\": {}\n                    },\n                    \"account_ref\": \"act_vlOkGxRjKKoB\",\n                    \"account_number\": \"8880000368\"\n                },\n                \"payment\": {\n                    \"reason\": null,\n                    \"status\": \"UNPAID\"\n                },\n                \"created_at\": \"2022-05-25T19:19:11.954Z\",\n                \"update_at\": \"2022-05-25T19:19:11.955Z\",\n                \"business_id\": \"80efed51-96fc-43c7-9075-9f78877d26bc\"\n            }\n        ],\n        \"meta\": {\n            \"page\": 1,\n            \"limit\": 20,\n            \"previousPage\": false,\n            \"nextPage\": false,\n            \"pageCount\": 1,\n            \"total\": 6\n        },\n        \"additional_data\": {\n            \"paid_invoices\": {\n                \"amount\": \"12011.25\",\n                \"count\": 2\n            },\n            \"unpaid_invoices\": {\n                \"amount\": \"72067.49\",\n                \"count\": 6\n            },\n            \"overdue_invoices\": {\n                \"amount\": \"72067.49\",\n                \"count\": 6\n            },\n            \"all_invoices\": {\n                \"amount\": \"264247.48\",\n                \"count\": 23\n            }\n        }\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
+										},
+										{
+											"id": "67bb8698-e2fc-417d-bf93-02f3b3ef8449",
+											"name": "Fetch Business Invoices Failed",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{app-gateway}}merchants/invoice?business_id=80efed51-96fc-43c7-9075-9f78877d26bc&per_page=20&page=1&invoice_status=draft&payment_status=unpaid",
+													"host": [
+														"{{app-gateway}}merchants"
+													],
+													"path": [
+														"invoice"
+													],
+													"query": [
+														{
+															"key": "business_id",
+															"value": "80efed51-96fc-43c7-9075-9f78877d26bc"
+														},
+														{
+															"key": "per_page",
+															"value": "20"
+														},
+														{
+															"key": "page",
+															"value": "1"
+														},
+														{
+															"key": "invoice_status",
+															"value": "draft"
+														},
+														{
+															"key": "payment_status",
+															"value": "unpaid"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"data\": {},\n    \"errors\": {\n        \"invoice_status\": \"Invoice Status must be one of [invoice, draft]\"\n    },\n    \"message\": \"Invalid requests\"\n}"
+										}
+									]
 								}
-							]
+							],
+							"id": "f5e52942-f10d-44be-8893-b791b7fc0520"
 						},
 						{
-							"name": "Pay Invoice By Account Number",
-							"id": "3a6937c6-f4bc-4d1f-8fcd-eb924aa68ffe",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n      \"business_id\": \"45ee9f61-dd52-4f51-bccb-8e594a711760\",\n      \"amount\": 1760,\n      \"transaction_ref\": \"tran_Q3dG0mIdH0x8j7y9U\",\n      \"account_number\": \"8880000586\",\n      \"account_ref\": \"act_do0ePtG9uXxZ\",\n      \"date\": \"2022-06-09T12:24:04.055Z\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+							"name": "Pay Invoice By account",
+							"item": [
+								{
+									"name": "Pay Invoice By Account Number",
+									"id": "3a6937c6-f4bc-4d1f-8fcd-eb924aa68ffe",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n      \"business_id\": \"45ee9f61-dd52-4f51-bccb-8e594a711760\",\n      \"amount\": 1760,\n      \"transaction_ref\": \"tran_Q3dG0mIdH0x8j7y9U\",\n      \"account_number\": \"8880000586\",\n      \"account_ref\": \"act_do0ePtG9uXxZ\",\n      \"date\": \"2022-06-09T12:24:04.055Z\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{app-gateway}}merchants/invoice/payment"
+									},
+									"response": [
+										{
+											"id": "29af0693-294d-4eec-abab-84ac0cff81ea",
+											"name": "Pay Invoice Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n      \"business_id\": \"cf8f8d0f-6150-492f-994f-95a32887337e\",\n      \"amount\": 5060,\n      \"transaction_ref\": \"tran_Q3dG0mIdH0x8\",\n      \"account_number\": \"8880000528\",\n      \"account_ref\": \"act_U3KoGX7OJCxQ\",\n      \"date\": \"2022-06-04T12:24:04.055Z\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{app-gateway}}merchants/invoice/payment"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"data\": {},\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
+										},
+										{
+											"id": "270e5370-f3e3-4b51-87f5-a42c8ce54be5",
+											"name": "Pay Invoice Error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n      \"business_id\": \"cf8f8d0f-6150-492f-994f-95a32887337e\",\n      \"amount\": 5060,\n      \"transaction_ref\": \"tran_Q3dG0mIdH0x8\",\n      \"account_number\": \"8880000528\",\n      \"account_ref\": \"act_U3KoGX7OJCxQ\",\n      \"date\": \"2022-06-04T12:24:04.055Z\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{app-gateway}}merchants/invoice/payment"
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"data\": {},\n    \"errors\": {},\n    \"message\": \"No invoice found for the account number, account ref and business ID supplied\"\n}"
 										}
-									}
-								},
-								"url": "{{app-gateway}}merchants/invoice/payment"
-							},
-							"response": [
-								{
-									"id": "29af0693-294d-4eec-abab-84ac0cff81ea",
-									"name": "Pay Invoice Success",
-									"originalRequest": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n      \"business_id\": \"cf8f8d0f-6150-492f-994f-95a32887337e\",\n      \"amount\": 5060,\n      \"transaction_ref\": \"tran_Q3dG0mIdH0x8\",\n      \"account_number\": \"8880000528\",\n      \"account_ref\": \"act_U3KoGX7OJCxQ\",\n      \"date\": \"2022-06-04T12:24:04.055Z\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{app-gateway}}merchants/invoice/payment"
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": null,
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"data\": {},\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
-								},
-								{
-									"id": "270e5370-f3e3-4b51-87f5-a42c8ce54be5",
-									"name": "Pay Invoice Error",
-									"originalRequest": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n      \"business_id\": \"cf8f8d0f-6150-492f-994f-95a32887337e\",\n      \"amount\": 5060,\n      \"transaction_ref\": \"tran_Q3dG0mIdH0x8\",\n      \"account_number\": \"8880000528\",\n      \"account_ref\": \"act_U3KoGX7OJCxQ\",\n      \"date\": \"2022-06-04T12:24:04.055Z\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{app-gateway}}merchants/invoice/payment"
-									},
-									"status": "Bad Request",
-									"code": 400,
-									"_postman_previewlanguage": "json",
-									"header": null,
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"data\": {},\n    \"errors\": {},\n    \"message\": \"No invoice found for the account number, account ref and business ID supplied\"\n}"
+									]
 								}
-							]
+							],
+							"id": "5d8444d9-0b62-45c5-b3e3-08428caf8572"
 						},
 						{
 							"name": "Send Invoice Reminder",
-							"id": "de9916da-1663-457b-8855-06ceb48345a3",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"url": "{{app-gateway}}merchants/send-invoice-reminders"
-							},
-							"response": [
+							"item": [
 								{
-									"id": "0e42bb4c-d040-4fd0-9d4c-38d2dd40320b",
-									"name": "Send Invoice Reminder Success",
-									"originalRequest": {
+									"name": "Send Invoice Reminder",
+									"id": "de9916da-1663-457b-8855-06ceb48345a3",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
 										"method": "POST",
 										"header": [],
 										"url": "{{app-gateway}}merchants/send-invoice-reminders"
 									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": null,
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"data\": {},\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
+									"response": [
+										{
+											"id": "0e42bb4c-d040-4fd0-9d4c-38d2dd40320b",
+											"name": "Send Invoice Reminder Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"url": "{{app-gateway}}merchants/send-invoice-reminders"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"data\": {},\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
+										}
+									]
 								}
-							]
+							],
+							"id": "c0c995eb-e623-4168-ad5a-6261a1dc41a9"
 						},
 						{
 							"name": "Fetch Invoice Details",
