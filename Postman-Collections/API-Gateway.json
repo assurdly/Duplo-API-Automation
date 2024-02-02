@@ -7649,6 +7649,51 @@
 							"item": [
 								{
 									"name": "Edit Invoice",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "35987470-9ba8-4251-b6fb-508b80ae0f12",
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});",
+													"",
+													"pm.test(\"Content type is application/json\", function () {",
+													"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+													"});",
+													"",
+													"pm.test(\"Response has data property\", function () {",
+													"    pm.expect(pm.response.json()).to.have.property('data');",
+													"});",
+													"",
+													"pm.test(\"Response has items array with name, total, quantity, and unit_price properties\", function () {",
+													"    pm.response.json().data.items.forEach(function(item) {",
+													"        pm.expect(item).to.have.property('name');",
+													"        pm.expect(item).to.have.property('total');",
+													"        pm.expect(item).to.have.property('quantity');",
+													"        pm.expect(item).to.have.property('unit_price');",
+													"    });",
+													"});",
+													"",
+													"pm.test(\"Response has account property with provider, account_ref, and account_number properties\", function () {",
+													"    pm.expect(pm.response.json().data).to.have.property('account');",
+													"    pm.expect(pm.response.json().data.account).to.have.property('provider');",
+													"    pm.expect(pm.response.json().data.account.provider).to.have.property('id');",
+													"    pm.expect(pm.response.json().data.account.provider).to.have.property('bank_code');",
+													"    pm.expect(pm.response.json().data.account.provider).to.have.property('bank_name');",
+													"    pm.expect(pm.response.json().data.account).to.have.property('account_ref');",
+													"    pm.expect(pm.response.json().data.account).to.have.property('account_number');",
+													"});",
+													"",
+													"pm.test(\"Response has payment property with status\", function () {",
+													"    pm.expect(pm.response.json().data.payment).to.have.property('status');",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"id": "6d6f1177-3083-4d5d-afc7-2b5d900480eb",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -7700,6 +7745,32 @@
 								},
 								{
 									"name": "Edit Invoice with invalid business_id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3cfc48b4-6d8e-4ab0-a2da-26a3ee1d1976",
+												"exec": [
+													"pm.test(\"Response status code is 400\", function () {",
+													"    pm.response.to.have.status(400);",
+													"});",
+													"",
+													"pm.test(\"Response is an object with data property\", function () {",
+													"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('data');",
+													"});",
+													"",
+													"pm.test(\"Response is an object with errors property\", function () {",
+													"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('errors');",
+													"});",
+													"",
+													"pm.test(\"Response is an object with message property\", function () {",
+													"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('message');",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"id": "6f83f527-68e0-48a0-8175-d445b3521b9d",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -7709,7 +7780,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n\"business_id\": \"e22609f0-827b-49a2-8ef4-dc393fde7070\",\n\"invoice_id\": \"8e49740e-b871-4ab0-b020-f3c6ba07b1ce\",\n \"invoice_number\": \"00000000002\", \n \"due_date\": \"2024-02-28\",\n \"items\": [\n    {\n    \"name\": \"Rice\",\n    \"quantity\": \"10\",\n    \"unit_price\": \"500\"\n    },\n    {\n    \"name\": \"Tomato\",\n    \"quantity\": \"10\",\n    \"unit_price\": \"100\"\n    }\n ],\n    \"shipping_fee\": \"100\",\n    \"discount\": {\n    \"type\": \"percentage\", \n    \"value\": \"10\" \n    },\n    \"tax\": {\n    \"description\" : \"Sample description\", \n    \"type\": \"amount\", \n    \"value\": \"10\"\n    },\n \"note\": \"A sample detailed note to ensure that the customer can make payment\", \n \"status\": \"invoice\"\n\n }",
+											"raw": "{\n\"business_id\": \"e22609f0-827b-49a2-8ef4-dc393fde7077\",\n\"invoice_id\": \"8e49740e-b871-4ab0-b020-f3c6ba07b1ce\",\n \"invoice_number\": \"00000000002\", \n \"due_date\": \"2024-02-28\",\n \"items\": [\n    {\n    \"name\": \"Rice\",\n    \"quantity\": \"10\",\n    \"unit_price\": \"500\"\n    },\n    {\n    \"name\": \"Tomato\",\n    \"quantity\": \"10\",\n    \"unit_price\": \"100\"\n    }\n ],\n    \"shipping_fee\": \"100\",\n    \"discount\": {\n    \"type\": \"percentage\", \n    \"value\": \"10\" \n    },\n    \"tax\": {\n    \"description\" : \"Sample description\", \n    \"type\": \"amount\", \n    \"value\": \"10\"\n    },\n \"note\": \"A sample detailed note to ensure that the customer can make payment\", \n \"status\": \"invoice\"\n\n }",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -7750,7 +7821,37 @@
 									]
 								},
 								{
-									"name": "Edit Invoice with invalid business_id Copy",
+									"name": "Edit Invoice with invalid invoice_id Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "144892ea-6138-4ae7-9a62-671f05e5db08",
+												"exec": [
+													"pm.test(\"Response status code is 400\", function () {",
+													"    pm.response.to.have.status(400);",
+													"});",
+													"",
+													"pm.test(\"Response is a valid JSON object\", function () {",
+													"    pm.response.to.have.jsonBody();",
+													"});",
+													"",
+													"pm.test(\"Response has data property\", function () {",
+													"    pm.expect(pm.response.json()).to.have.property('data');",
+													"});",
+													"",
+													"pm.test(\"Response has errors property\", function () {",
+													"    pm.expect(pm.response.json()).to.have.property('errors');",
+													"});",
+													"",
+													"pm.test(\"Response has message property\", function () {",
+													"    pm.expect(pm.response.json()).to.have.property('message');",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"id": "9ff55d81-8791-40e9-ab80-2f2d1b955b26",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -7760,7 +7861,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n\"business_id\": \"e22609f0-827b-49a2-8ef4-dc393fde7070\",\n\"invoice_id\": \"8e49740e-b871-4ab0-b020-f3c6ba07b1ce\",\n \"invoice_number\": \"00000000002\", \n \"due_date\": \"2024-02-28\",\n \"items\": [\n    {\n    \"name\": \"Rice\",\n    \"quantity\": \"10\",\n    \"unit_price\": \"500\"\n    },\n    {\n    \"name\": \"Tomato\",\n    \"quantity\": \"10\",\n    \"unit_price\": \"100\"\n    }\n ],\n    \"shipping_fee\": \"100\",\n    \"discount\": {\n    \"type\": \"percentage\", \n    \"value\": \"10\" \n    },\n    \"tax\": {\n    \"description\" : \"Sample description\", \n    \"type\": \"amount\", \n    \"value\": \"10\"\n    },\n \"note\": \"A sample detailed note to ensure that the customer can make payment\", \n \"status\": \"invoice\"\n\n }",
+											"raw": "{\n\"business_id\": \"e22609f0-827b-49a2-8ef4-dc393fde7070\",\n\"invoice_id\": \"8e49740e-b871-4ab0-b020-f3c6ba07b1c2\",\n \"invoice_number\": \"00000000002\", \n \"due_date\": \"2024-02-28\",\n \"items\": [\n    {\n    \"name\": \"Rice\",\n    \"quantity\": \"10\",\n    \"unit_price\": \"500\"\n    },\n    {\n    \"name\": \"Tomato\",\n    \"quantity\": \"10\",\n    \"unit_price\": \"100\"\n    }\n ],\n    \"shipping_fee\": \"100\",\n    \"discount\": {\n    \"type\": \"percentage\", \n    \"value\": \"10\" \n    },\n    \"tax\": {\n    \"description\" : \"Sample description\", \n    \"type\": \"amount\", \n    \"value\": \"10\"\n    },\n \"note\": \"A sample detailed note to ensure that the customer can make payment\", \n \"status\": \"invoice\"\n\n }",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -7787,6 +7888,75 @@
 										},
 										{
 											"id": "d9498b5f-04b3-4451-825e-eb46295c33d1",
+											"name": "Edit Invoice Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": []
+											},
+											"_postman_previewlanguage": null,
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": null
+										}
+									]
+								},
+								{
+									"name": "Edit Invoice with invalid invoice_inumber",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "d6f90c9d-98f9-4c31-8b19-45cbb4013f34",
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {",
+													"    pm.response.to.have.status(400);",
+													"});",
+													"",
+													"pm.test(\"Response is an object with data, errors, and message properties\", function () {",
+													"    pm.expect(pm.response.json()).to.be.an('object').that.has.all.keys('data', 'errors', 'message');",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "969e5b64-9485-4205-8748-e427165763ec",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\"business_id\": \"e22609f0-827b-49a2-8ef4-dc393fde7070\",\n\"invoice_id\": \"8e49740e-b871-4ab0-b020-f3c6ba07b1ce\",\n \"invoice_number\": \"000000000023\", \n \"due_date\": \"2024-02-28\",\n \"items\": [\n    {\n    \"name\": \"Rice\",\n    \"quantity\": \"10\",\n    \"unit_price\": \"500\"\n    },\n    {\n    \"name\": \"Tomato\",\n    \"quantity\": \"10\",\n    \"unit_price\": \"100\"\n    }\n ],\n    \"shipping_fee\": \"100\",\n    \"discount\": {\n    \"type\": \"percentage\", \n    \"value\": \"10\" \n    },\n    \"tax\": {\n    \"description\" : \"Sample description\", \n    \"type\": \"amount\", \n    \"value\": \"10\"\n    },\n \"note\": \"A sample detailed note to ensure that the customer can make payment\", \n \"status\": \"invoice\"\n\n }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{api-gateway-url}}merchants/invoice"
+									},
+									"response": [
+										{
+											"id": "fa0cdae7-5d6f-4830-8cd2-33fd6d2591cc",
+											"name": "Edit Invoice Failed",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": []
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"data\": {},\n    \"errors\": {\n        \"title\": \"title is not allowed\",\n        \"recipient\": \"recipient is not allowed\"\n    },\n    \"message\": \"Invalid requests\"\n}"
+										},
+										{
+											"id": "406c6f21-bfc6-4e28-b42f-f9e41024b47d",
 											"name": "Edit Invoice Success",
 											"originalRequest": {
 												"method": "PATCH",
@@ -7844,6 +8014,57 @@
 										},
 										{
 											"id": "39e0ca2a-6eab-4102-b294-7125ee8bfcb0",
+											"name": "Edit Invoice Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": []
+											},
+											"_postman_previewlanguage": null,
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": null
+										}
+									]
+								},
+								{
+									"name": "Edit Draft Invoice Copy",
+									"id": "41c8415b-7d9a-4029-bcc9-c71373d36aea",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"business_id\": \"80efed51-96fc-43c7-9075-9f78877d26bc\",\n    \"invoice_id\": \"7e39a65d-1009-40c5-ae60-b0ea57440a4c\",\n    \"invoice_number\": \"69691297835\",\n    \"recipient\": \"cus_Ml1o1ErokflR\",\n    \"title\": \"Another Tesst\",\n    \"status\": \"invoice\",\n    \"due_date\": \"2022-09-23\",\n    \"items\": [\n            {\n                \"name\": \"edited sample name\",\n                \"total\": 7510.5,\n                \"quantity\": 15,\n                \"unit_price\": 500.7\n            },\n            {\n                \"name\": \"edited sample name 2\",\n                \"total\": 3118.6,\n                \"quantity\": 31,\n                \"unit_price\": 100.6\n            },\n            {\n                \"name\": \"edited sample name 3\",\n                \"total\": 600.6,\n                \"quantity\": 2,\n                \"unit_price\": 20\n            }\n        ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{api-gateway-url}}merchants/invoice/draft"
+									},
+									"response": [
+										{
+											"id": "aa235486-465d-4417-aaee-6dffb109b4a5",
+											"name": "Edit Invoice Failed",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": []
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"data\": {},\n    \"errors\": {\n        \"title\": \"title is not allowed\",\n        \"recipient\": \"recipient is not allowed\"\n    },\n    \"message\": \"Invalid requests\"\n}"
+										},
+										{
+											"id": "9e948c93-312c-415e-b57a-e7fcb318bc3e",
 											"name": "Edit Invoice Success",
 											"originalRequest": {
 												"method": "PATCH",
