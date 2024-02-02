@@ -8409,6 +8409,26 @@
 								},
 								{
 									"name": "verify account number with invalid bank account_number",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "59b56e50-faa6-4eac-874e-11ab8992694c",
+												"exec": [
+													"pm.test(\"Response status code is 400\", function () {",
+													"    pm.response.to.have.status(400);",
+													"});",
+													"",
+													"pm.test(\"Response and errors should not be empty\", function () {",
+													"    var jsonData = pm.response.json();",
+													"    pm.expect(jsonData.data).to.not.be.empty;",
+													"    pm.expect(jsonData.errors).to.not.be.empty;",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"id": "a570eb50-c998-4c1b-a07d-334adfb4e569",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -8424,7 +8444,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"0694002924\",\n    \"bank_code\": \"044\"\n}",
+											"raw": "{\n    \"account_number\": \"0694002926\",\n    \"bank_code\": \"044\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
