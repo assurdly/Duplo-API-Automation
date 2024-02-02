@@ -7658,14 +7658,14 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n\"business_id\": \"45ee9f61-dd52-4f51-bccb-8e594a711760\",\n\"invoice_id\": \"396c513a-658d-4225-b367-7e121c88e87a\",\n \"invoice_number\": \"00000000012\", \n \"due_date\": \"2022-06-011\",\n \"items\": [\n    {\n    \"name\": \"Rice\",\n    \"quantity\": \"10\",\n    \"unit_price\": \"500\"\n    },\n    {\n    \"name\": \"Tomato\",\n    \"quantity\": \"10\",\n    \"unit_price\": \"100\"\n    }\n ],\n    \"shipping_fee\": \"100\",\n    \"discount\": {\n    \"type\": \"percentage\", \n    \"value\": \"10\" \n    },\n    \"tax\": {\n    \"description\" : \"Sample description\", \n    \"type\": \"amount\", \n    \"value\": \"10\"\n    },\n \"note\": \"A sample detailed note to ensure that the customer can make payment\", \n \"status\": \"invoice\"\n\n }",
+											"raw": "{\n\"business_id\": \"e22609f0-827b-49a2-8ef4-dc393fde7070\",\n\"invoice_id\": \"8e49740e-b871-4ab0-b020-f3c6ba07b1ce\",\n \"invoice_number\": \"00000000002\", \n \"due_date\": \"2024-02-28\",\n \"items\": [\n    {\n    \"name\": \"Rice\",\n    \"quantity\": \"10\",\n    \"unit_price\": \"500\"\n    },\n    {\n    \"name\": \"Tomato\",\n    \"quantity\": \"10\",\n    \"unit_price\": \"100\"\n    }\n ],\n    \"shipping_fee\": \"100\",\n    \"discount\": {\n    \"type\": \"percentage\", \n    \"value\": \"10\" \n    },\n    \"tax\": {\n    \"description\" : \"Sample description\", \n    \"type\": \"amount\", \n    \"value\": \"10\"\n    },\n \"note\": \"A sample detailed note to ensure that the customer can make payment\", \n \"status\": \"invoice\"\n\n }",
 											"options": {
 												"raw": {
 													"language": "json"
 												}
 											}
 										},
-										"url": "{{app-gateway}}merchants/invoice"
+										"url": "{{api-gateway-url}}merchants/invoice"
 									},
 									"response": [
 										{
@@ -7685,6 +7685,108 @@
 										},
 										{
 											"id": "a3dabe3e-a7d1-4765-8c4c-1ea4702864ea",
+											"name": "Edit Invoice Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": []
+											},
+											"_postman_previewlanguage": null,
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": null
+										}
+									]
+								},
+								{
+									"name": "Edit Invoice with invalid business_id",
+									"id": "6f83f527-68e0-48a0-8175-d445b3521b9d",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\"business_id\": \"e22609f0-827b-49a2-8ef4-dc393fde7070\",\n\"invoice_id\": \"8e49740e-b871-4ab0-b020-f3c6ba07b1ce\",\n \"invoice_number\": \"00000000002\", \n \"due_date\": \"2024-02-28\",\n \"items\": [\n    {\n    \"name\": \"Rice\",\n    \"quantity\": \"10\",\n    \"unit_price\": \"500\"\n    },\n    {\n    \"name\": \"Tomato\",\n    \"quantity\": \"10\",\n    \"unit_price\": \"100\"\n    }\n ],\n    \"shipping_fee\": \"100\",\n    \"discount\": {\n    \"type\": \"percentage\", \n    \"value\": \"10\" \n    },\n    \"tax\": {\n    \"description\" : \"Sample description\", \n    \"type\": \"amount\", \n    \"value\": \"10\"\n    },\n \"note\": \"A sample detailed note to ensure that the customer can make payment\", \n \"status\": \"invoice\"\n\n }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{api-gateway-url}}merchants/invoice"
+									},
+									"response": [
+										{
+											"id": "524d50b0-bdc6-4942-a136-70f5dc79f338",
+											"name": "Edit Invoice Failed",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": []
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"data\": {},\n    \"errors\": {\n        \"title\": \"title is not allowed\",\n        \"recipient\": \"recipient is not allowed\"\n    },\n    \"message\": \"Invalid requests\"\n}"
+										},
+										{
+											"id": "54678930-5d2d-4e40-905e-7bd05f50bce7",
+											"name": "Edit Invoice Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": []
+											},
+											"_postman_previewlanguage": null,
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": null
+										}
+									]
+								},
+								{
+									"name": "Edit Invoice with invalid business_id Copy",
+									"id": "9ff55d81-8791-40e9-ab80-2f2d1b955b26",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\"business_id\": \"e22609f0-827b-49a2-8ef4-dc393fde7070\",\n\"invoice_id\": \"8e49740e-b871-4ab0-b020-f3c6ba07b1ce\",\n \"invoice_number\": \"00000000002\", \n \"due_date\": \"2024-02-28\",\n \"items\": [\n    {\n    \"name\": \"Rice\",\n    \"quantity\": \"10\",\n    \"unit_price\": \"500\"\n    },\n    {\n    \"name\": \"Tomato\",\n    \"quantity\": \"10\",\n    \"unit_price\": \"100\"\n    }\n ],\n    \"shipping_fee\": \"100\",\n    \"discount\": {\n    \"type\": \"percentage\", \n    \"value\": \"10\" \n    },\n    \"tax\": {\n    \"description\" : \"Sample description\", \n    \"type\": \"amount\", \n    \"value\": \"10\"\n    },\n \"note\": \"A sample detailed note to ensure that the customer can make payment\", \n \"status\": \"invoice\"\n\n }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{api-gateway-url}}merchants/invoice"
+									},
+									"response": [
+										{
+											"id": "7ce850a0-089d-4fe0-86e4-345efbbdd910",
+											"name": "Edit Invoice Failed",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": []
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"data\": {},\n    \"errors\": {\n        \"title\": \"title is not allowed\",\n        \"recipient\": \"recipient is not allowed\"\n    },\n    \"message\": \"Invalid requests\"\n}"
+										},
+										{
+											"id": "d9498b5f-04b3-4451-825e-eb46295c33d1",
 											"name": "Edit Invoice Success",
 											"originalRequest": {
 												"method": "PATCH",
