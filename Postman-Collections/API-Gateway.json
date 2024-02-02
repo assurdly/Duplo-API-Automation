@@ -8272,6 +8272,48 @@
 					"item": [
 						{
 							"name": "generate checkout url",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "617b0228-eafa-4e22-a1bd-d0ea2d38d3d8",
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Response is an object with data property\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('data');",
+											"});",
+											"",
+											"pm.test(\"Data property has customer_firstname, customer_lastname, customer_email, customer_phone_number, currency, amount, fee, fee_bearer, preferred_payment_methods, is_active, created_at, updated_at, business_id, checkout_ref, reference, and checkout_url attributes\", function () {",
+											"    var data = pm.response.json().data;",
+											"    pm.expect(data).to.include.all.keys(['customer_firstname', 'customer_lastname', 'customer_email', 'customer_phone_number', 'currency', 'amount', 'fee', 'fee_bearer', 'preferred_payment_methods', 'is_active', 'created_at', 'updated_at', 'business_id', 'checkout_ref', 'reference', 'checkout_url']);",
+											"});",
+											"",
+											"pm.test(\"Data property has line_items, shipping_fee, discount, tax, redirect_url, and metadata attributes as arrays of objects\", function () {",
+											"    var data = pm.response.json().data;",
+											"    pm.expect(data).to.have.property('line_items').that.is.an('array')",
+											"    pm.expect(data).to.have.property('shipping_fee').that.is.an('array')",
+											"    pm.expect(data).to.have.property('discount').that.is.an('array')",
+											"    pm.expect(data).to.have.property('tax').that.is.an('array')",
+											"    pm.expect(data).to.have.property('redirect_url').that.is.an('array')",
+											"    pm.expect(data).to.have.property('metadata').that.is.an('array')",
+											"});",
+											"",
+											"pm.test(\"Errors property is an object\", function () {",
+											"    pm.expect(pm.response.json().errors).to.be.an('object');",
+											"});",
+											"",
+											"pm.test(\"Message property is a string\", function () {",
+											"    pm.expect(pm.response.json().message).to.be.a('string');",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"id": "dcf7e1f0-947e-4ee4-9772-4e147796bd4e",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -8294,7 +8336,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"business_id\": \"986acd67-b306-4642-87aa-99ba512b2601\",\n    \"customer_firstname\": \"Basirat\",\n    \"customer_lastname\": \"Aboyeji\",\n    \"customer_email\": \"naboyeji@bugfoo.com\",\n    \"customer_phone_number\": \"08075265428\",\n    \"amount\": \"45\",\n    \"fee_bearer\": \"customer\",\n    \"preferred_payment_methods\": \"pay-with-transfer\",\n    \"line_items\": [\n        {\n            \"name\": \"Bottle water\",\n            \"unit_price\": 30,\n            \"quantity\": 1\n        }\n    ],\n    \"shipping_fee\": 10,\n    \"discount\":\n        {\n            \"type\": \"percentage\",\n            \"value\": 0\n        }\n    ,\n    \"tax\":\n        {\n            \"type\": \"percentage\",\n            \"value\": 5,\n            \"description\": \"VAT\"\n        }\n    ,\n    \"redirect_url\": \"davidigbigbi.com\"\n}\n\n\n\n",
+									"raw": "{\n    \"business_id\": \"e22609f0-827b-49a2-8ef4-dc393fde7070\",\n    \"customer_firstname\": \"Basirat\",\n    \"customer_lastname\": \"Aboyeji\",\n    \"customer_email\": \"naboyeji@bugfoo.com\",\n    \"customer_phone_number\": \"08075265428\",\n    \"amount\": \"45\",\n    \"fee_bearer\": \"customer\",\n    \"preferred_payment_methods\": \"pay-with-transfer\",\n    \"line_items\": [\n        {\n            \"name\": \"Bottle water\",\n            \"unit_price\": 30,\n            \"quantity\": 1\n        }\n    ],\n    \"shipping_fee\": 10,\n    \"discount\":\n        {\n            \"type\": \"percentage\",\n            \"value\": 0\n        }\n    ,\n    \"tax\":\n        {\n            \"type\": \"percentage\",\n            \"value\": 5,\n            \"description\": \"VAT\"\n        }\n    ,\n    \"redirect_url\": \"davidigbigbi.com\"\n}\n\n\n\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -8473,6 +8515,329 @@
 								},
 								{
 									"id": "b498ac6d-752c-4c88-9e3b-022ee222add4",
+									"name": "success updated",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "dpmlekdno",
+												"value": "H9srym%je4t343643",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\",\n    \"customer_firstname\": \"Dammy\",\n    \"customer_lastname\": \"Bright\",\n    \"customer_email\": \"boluwatife@yopmail.com\",\n    \"customer_phone_number\": \"08022113915\",\n    \"amount\": \"1500\",\n    \"fee_bearer\": \"customer\",\n    \"preferred_payment_methods\": \"bank_transfer\",\n    \"line_items\": [\n        {\n            \"name\": \"1 carton of milo\",\n            \"unit_price\": 1500,\n            \"quantity\": 1\n        }\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{app-gateway}}checkout/"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-security-policy",
+											"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "x-dns-prefetch-control",
+											"value": "off"
+										},
+										{
+											"key": "expect-ct",
+											"value": "max-age=0"
+										},
+										{
+											"key": "x-frame-options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "strict-transport-security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "x-xss-protection",
+											"value": "0"
+										},
+										{
+											"key": "vary",
+											"value": "Origin"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "X-Cloud-Trace-Context",
+											"value": "2b037888bc356744a09e8f45f1aaccbc;o=1"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 06 Dec 2022 12:19:46 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Google Frontend"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1170"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"customer_firstname\": \"Boluwatife\",\n        \"customer_lastname\": \"Bright\",\n        \"customer_email\": \"boluwatife@yopmail.com\",\n        \"customer_phone_number\": \"08022223915\",\n        \"currency\": \"NGN\",\n        \"amount\": 1515,\n        \"fee\": 15,\n        \"fee_bearer\": \"customer\",\n        \"preferred_payment_methods\": \"bank_transfer\",\n        \"is_active\": true,\n        \"created_at\": \"2022-12-06T12:19:46.247Z\",\n        \"updated_at\": \"2022-12-06T12:19:46.247Z\",\n        \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\",\n        \"checkout_ref\": \"che_c12jImkfN86F\",\n        \"line_items\": [\n            {\n                \"name\": \"1 carton of milo\",\n                \"unit_price\": 1500,\n                \"quantity\": 1\n            }\n        ],\n        \"shipping_fee\": null,\n        \"discount\": [],\n        \"tax\": [],\n        \"redirect_url\": null,\n        \"reference\": \"CHEC12JIMKFN86F20221206121946\",\n        \"checkout_url\": \"http://sample.checkout.url?reference=13da781d7fc0fd5fd0a4f4d47b289795:rnebc6bc7dbb760d6c1d3dcdb3d683f12ff023e8d8aa56ffa7362ebf0b5fa1f8cf5bab9d000d46f396d1adb6c9312f034a9c4502d95bfc9c9eccbc09adf04dbe277d2f698aab208870b1095f7b3deb4674973e31f0e1c80257341f4ef2404277cd048f5ee17074954264025d4a9e73c390c8bbd46f78f99b14e6c7f772e2acac2ce9eb80c3c4d4a857c2cc485449115b65c9e1870ebbb3b9f39326135d1197408109bcbb43288cfd142d169ecb88ea3e5366c0b1ed018f74cc7deef0f41b4a4c1b42471bfb6b6fe902ec9454b726a365f0\"\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
+								}
+							]
+						},
+						{
+							"name": "generate checkout url with invalid business_id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "617b0228-eafa-4e22-a1bd-d0ea2d38d3d8",
+										"exec": [
+											"pm.test(\"Response status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"Response and errors should not be empty\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.data).to.not.be.empty;",
+											"    pm.expect(jsonData.errors).to.not.be.empty;",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "3845ae3a-3b9a-45c2-82b9-795764c1e58f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "dp_live_856879df3e6ecdb14a918e24bba6d480e0564a4eabfdba938fc23b820ac905e54bac25a71dbcdef66c97b8c72ca7e16cf03a576857261f2f16f5335ca5024620b14268823a7d78922cfdd97cefc61050139fd92a7a0c5840e016050552ccadbbec642d2ff8d35a09225c7ec4fd1e347b"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "dpmlekdno",
+										"value": "{{dpmlekdno}}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"business_id\": \"e22609f0-827b-49a2-8ef4-dc393fde7074\",\n    \"customer_firstname\": \"Basirat\",\n    \"customer_lastname\": \"Aboyeji\",\n    \"customer_email\": \"naboyeji@bugfoo.com\",\n    \"customer_phone_number\": \"08075265428\",\n    \"amount\": \"45\",\n    \"fee_bearer\": \"customer\",\n    \"preferred_payment_methods\": \"pay-with-transfer\",\n    \"line_items\": [\n        {\n            \"name\": \"Bottle water\",\n            \"unit_price\": 30,\n            \"quantity\": 1\n        }\n    ],\n    \"shipping_fee\": 10,\n    \"discount\":\n        {\n            \"type\": \"percentage\",\n            \"value\": 0\n        }\n    ,\n    \"tax\":\n        {\n            \"type\": \"percentage\",\n            \"value\": 5,\n            \"description\": \"VAT\"\n        }\n    ,\n    \"redirect_url\": \"davidigbigbi.com\"\n}\n\n\n\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{api-gateway-url}}checkout/"
+							},
+							"response": [
+								{
+									"id": "f3be78c3-ff50-46d6-982f-061937279a05",
+									"name": "error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "dpmlekdno",
+												"value": "{{dpmlekdno}}",
+												"type": "text"
+											}
+										],
+										"url": "{{app-gateway}}checkout/"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-DNS-Prefetch-Control",
+											"value": "off"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "content-length",
+											"value": "367"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 12 Sep 2022 23:14:48 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {},\n    \"errors\": {\n        \"business_id\": \"Business id is required\",\n        \"customer_name\": \"Customer name is required\",\n        \"customer_email\": \"Email is required\",\n        \"customer_phone_number\": \"Customer phone number is required\",\n        \"amount\": \"Amount is required\",\n        \"fee_bearer\": \"Fee bearer is required\",\n        \"preferred_payment_methods\": \"Preferred payment method is required\"\n    },\n    \"message\": \"Invalid requests\"\n}"
+								},
+								{
+									"id": "b78bc803-89e3-4512-a5a7-a64bf6c5ac1a",
+									"name": "success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "dpmlekdno",
+												"value": "{{dpmlekdno}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\",\n    \"customer_firstname\": \"Shen\",\n    \"customer_lastname\": \"Chen\",\n    \"customer_email\": \"shenchen@yopmail.com\",\n    \"customer_phone_number\": \"08011111945\",\n    \"amount\": \"2000\",\n    \"fee_bearer\": \"customer\",\n    \"preferred_payment_methods\": \"bank_transfer\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{app-gateway}}checkout/"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-DNS-Prefetch-Control",
+											"value": "off"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "content-length",
+											"value": "1027"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 11:46:07 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"customer_firstname\": \"Shen\",\n        \"customer_lastname\": \"Chen\",\n        \"customer_email\": \"shenchen@yopmail.com\",\n        \"customer_phone_number\": \"08011111945\",\n        \"currency\": \"NGN\",\n        \"amount\": 2000,\n        \"fee\": 0,\n        \"fee_bearer\": \"customer\",\n        \"preferred_payment_methods\": \"bank_transfer\",\n        \"is_active\": true,\n        \"created_at\": \"2022-09-15T11:46:07.425Z\",\n        \"updated_at\": \"2022-09-15T11:46:07.425Z\",\n        \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\",\n        \"checkout_ref\": \"che_PYS3Omy8Y9OW\",\n        \"reference\": \"CHEPYS3OMY8Y9OW20220915124607\",\n        \"checkout_url\": \"http://sample.checkout.url?reference=fe10925d4195796959ad95067cc2e333:rn3c4dec5fa0f289ff1793c3e4a20651b9f957b1392388b8fdf687bda1bed82d5c2d6812720d23ceb2b281ad0a8a31a6b47b143e044da8c206057bacf83f0f954507e240996ff665a56d0f04adb9649dcbf6f5aa525f951124cccafbbc129c120daa6f370a5755735008764cbab61f4027a95bfa2e0e0736a07b96786ec0eddf8b112b97408e7a5824afa65233d80349b103704cd22d4b5b8e0336bd3dcd05984d953d9c62b0ecb1477fb84aa2c9d95499dda05dcabaf9a93cf01ad19319a4b7c7814a2b2d19c469eb80aacfa35849fbdf\"\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
+								},
+								{
+									"id": "e2628643-d80d-491e-b042-3e6017e575c5",
 									"name": "success updated",
 									"originalRequest": {
 										"method": "POST",
