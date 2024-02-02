@@ -7726,7 +7726,553 @@
 						},
 						{
 							"name": "Fetch Invoice Details",
-							"id": "f13a40e7-67c0-4c5c-b725-f7f88cb0ca70",
+							"item": [
+								{
+									"name": "Fetch Invoice Details",
+									"id": "f13a40e7-67c0-4c5c-b725-f7f88cb0ca70",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "dp_live_856879df3e6ecdb14a918e24bba6d480e0564a4eabfdba938fc23b820ac905e54bac25a71dbcdef66c97b8c72ca7e16cf03a576857261f2f16f5335ca5024620b14268823a7d78922cfdd97cefc61050139fd92a7a0c5840e016050552ccadbbec642d2ff8d35a09225c7ec4fd1e347b"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{api-gateway-url}}merchants/invoice/4e557f3b-8659-4c07-a428-852908a8c68a/986acd67-b306-4642-87aa-99ba512b2601"
+									},
+									"response": [
+										{
+											"id": "d67af871-37ce-46a8-8a59-70b3d268054f",
+											"name": "Fetch Invoice Details",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{app-gateway}}merchants/invoice/c1f9df9b-8dd3-4b43-aee9-ecc5525d27a2/80efed51-96fc-43c7-9075-9f78877d26bc"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"data\": {\n        \"id\": \"c1f9df9b-8dd3-4b43-aee9-ecc5525d27a2\",\n        \"invoice_number\": \"78689936947\",\n        \"title\": \"Invoice for Mwenda Deno\",\n        \"recipient\": \"wal_ZKmo7StVZMrZ\",\n        \"due_date\": \"2022-05-25T00:00:00.000Z\",\n        \"items\": [\n            {\n                \"name\": \"sample name\",\n                \"total\": 7510.5,\n                \"quantity\": 15,\n                \"unit_price\": 500.7\n            },\n            {\n                \"name\": \"sample name 2\",\n                \"total\": 3118.6,\n                \"quantity\": 31,\n                \"unit_price\": 100.6\n            }\n        ],\n        \"shipping_fee\": 670.9,\n        \"discount\": {\n            \"type\": \"amount\",\n            \"value\": 400.5\n        },\n        \"tax\": {\n            \"type\": \"percentage\",\n            \"value\": 10.2,\n            \"description\": \"sample description\"\n        },\n        \"note\": \"sample note\",\n        \"status\": \"draft\",\n        \"public_id\": \"oXFpXwUQIwoF8zOabzKLjEHv4kZTydNb\",\n        \"account\": {\n            \"provider\": {\n                \"id\": \"wema\",\n                \"default\": true,\n                \"prefixes\": [\n                    \"222\",\n                    \"919\",\n                    \"888\"\n                ],\n                \"bank_code\": \"111\",\n                \"bank_name\": \"Wema Bank\",\n                \"is_prefix\": true,\n                \"credentials\": {}\n            },\n            \"account_ref\": \"act_MR1sJ8bh2YlK\",\n            \"account_number\": \"8880000363\"\n        },\n        \"payment\": null,\n        \"created_at\": \"2022-05-25T15:19:05.650Z\",\n        \"update_at\": \"2022-05-25T15:19:05.651Z\",\n        \"business_id\": \"80efed51-96fc-43c7-9075-9f78877d26bc\"\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
+										},
+										{
+											"id": "8ef34e75-7023-4deb-9bfe-ead321c79063",
+											"name": "Fetch Invoice Details Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{app-gateway}}merchants/invoice/c1f9df9b-8dd3-4b43-aee9-ecc5525d27a2/80efed51-96fc-43c7-9075-9f78877d26bc"
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"data\": {},\n    \"errors\": {},\n    \"message\": \"Invoice with provided invoice ID and business ID does not exist\"\n}"
+										}
+									]
+								}
+							],
+							"id": "5efe6fdb-936b-4400-8d0a-f508bae6fa9e"
+						},
+						{
+							"name": "Update invoice delivery",
+							"item": [
+								{
+									"name": "update invoice delivery status-api",
+									"id": "4d69141c-95be-449f-8f50-b75d42fd5c2a",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "dpmlekdno",
+												"value": "{{dpmlekdno}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"invoice_id\": \"4e557f3b-8659-4c07-a428-852908a8c68a\",\n    \"delivery_status\": \"delivered\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{app-gateway}}invoice/delivery-status"
+									},
+									"response": [
+										{
+											"id": "bd038939-0692-4032-9e2d-f46aec53c695",
+											"name": "success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"reason_cancelled\": \"Fruits damaged\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{app-gateway}}invoice/50ce5ff2-520a-4fba-a0f2-c43a51d84854/status/pending"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "Expect-CT",
+													"value": "max-age=0"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "vary",
+													"value": "Origin"
+												},
+												{
+													"key": "access-control-allow-credentials",
+													"value": "true"
+												},
+												{
+													"key": "access-control-expose-headers",
+													"value": "Access-Control-Allow-Origin"
+												},
+												{
+													"key": "set-cookie",
+													"value": "dpmlekdno=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT"
+												},
+												{
+													"key": "set-cookie",
+													"value": "dpmlekdno=a0c2c022a7727cb322d432024731b242%3Arnc7f6d06f9dd230d8d07f5c362c2f650ceba46d64cc6212605afdeae99106a1bed32f9de1c9b1635fc4a2117c25a2272c434bacdb930e64b1e49777d4f07ade12648609385a235e0034cee1c283e8def19843c25e486acddb1034a6a6ff4477c3688425cf14e29ffcf20c147f2f071eb57ae6386116685909a18f981cc3d346c6321b5d74f5498518d52799901fa42143383d6e353e13f8d256c335ab641e7f347c9f28220ce7d14964c17043042743e6b4f9a2ab3dc127357e34a2694962e8e8ae0e0c2b95c1d10ed0160cc7d8af7686398a3e02363a47f0a4ad7d61a602f3c884281036f4f2553b2dcd6e5d7827369af35977af21d420400b14111abe4dc8839279a612cc7f503398cca1768685e144341a423867d3a4423d14e7da35b49e91dd3d0927a9e4a31fd9d28d975fbe35cc0e38ad8ebc1584e82a3892f6f8c19f9e388c27c94c3921cd94c4a5e047db050fef5e5d44cdb486e02e9cadfbc9f6aef7d4755637b78bf1f94506a06424d38247; Domain=0.0.0.0; Path=/; Expires=Wed, 01 Feb 2023 19:37:12 GMT; HttpOnly; SameSite=Strict"
+												},
+												{
+													"key": "content-type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "content-length",
+													"value": "1335"
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 01 Feb 2023 19:07:13 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"data\": {\n        \"id\": \"50ce5ff2-520a-4fba-a0f2-c43a51d84854\",\n        \"invoice_number\": \"28093487062\",\n        \"title\": \"Invoice for Adetoun Ihaga\",\n        \"recipient\": \"cus_KY5nu3jtzkJ3\",\n        \"recipient_name\": \"Adetoun Ihaga\",\n        \"recipient_data\": {\n            \"__v\": 0,\n            \"_id\": \"62e1a16039f233000dbc5d78\",\n            \"email\": \"adetoun@yopmail.com\",\n            \"wallets\": [],\n            \"last_name\": \"Ihaga\",\n            \"created_at\": \"2022-07-27T20:34:40.600Z\",\n            \"first_name\": \"Adetoun\",\n            \"updated_at\": \"2022-07-27T20:34:40.600Z\",\n            \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\",\n            \"customer_ref\": \"cus_KY5nu3jtzkJ3\",\n            \"phone_number\": \"08078740878\"\n        },\n        \"due_date\": \"2023-02-02T00:00:00.000Z\",\n        \"items\": [\n            {\n                \"name\": \"Banana\",\n                \"total\": 900,\n                \"quantity\": 3,\n                \"unit_price\": 300\n            },\n            {\n                \"name\": \"Apple\",\n                \"total\": 600,\n                \"quantity\": 3,\n                \"unit_price\": 200\n            }\n        ],\n        \"shipping_fee\": 100,\n        \"discount\": null,\n        \"tax\": null,\n        \"total_invoice_amount\": \"1600.00\",\n        \"invoice_balance\": \"1600.00\",\n        \"overpayment_amount\": null,\n        \"note\": null,\n        \"status\": \"invoice\",\n        \"public_id\": \"k7fWd78byQOn4t0DtbzkL4bzp4MVIQGq\",\n        \"account\": {\n            \"provider\": {\n                \"id\": \"wema\",\n                \"bank_code\": \"111\",\n                \"bank_name\": \"Wema Bank\"\n            },\n            \"account_ref\": \"act_Rzw8ZAss7HDh\",\n            \"account_number\": \"8890000886\"\n        },\n        \"payment\": {\n            \"reason\": null,\n            \"status\": \"UNPAID\"\n        },\n        \"delivery_status\": \"pending\",\n        \"reason_for_cancelling\": \"Fruits damaged\",\n        \"created_at\": \"2023-02-01T18:39:45.717Z\",\n        \"update_at\": \"2023-02-01T19:07:12.376Z\",\n        \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\"\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
+										}
+									]
+								}
+							],
+							"id": "a942ae81-11b3-4f84-98ec-0b708608ea33"
+						},
+						{
+							"name": "List Banks",
+							"item": [
+								{
+									"name": "List banks",
+									"id": "1c4b4586-18cd-4c5e-99e5-4ac33b8bba73",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "dp_live_856879df3e6ecdb14a918e24bba6d480e0564a4eabfdba938fc23b820ac905e54bac25a71dbcdef66c97b8c72ca7e16cf03a576857261f2f16f5335ca5024620b14268823a7d78922cfdd97cefc61050139fd92a7a0c5840e016050552ccadbbec642d2ff8d35a09225c7ec4fd1e347b"
+											}
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer dp_test_aa96cfb22275bcb005a05c20094f6dbda4923bc3272b28be160a1973e6f0289ec83f5b9c0dbb5eff4a59b46b9035b0219433d3d588267653c10c9454a329afad3afd043106696238cca2226446b9c438db39a207fb60374a59a5f25a6a6ce62ed4566ace8b4fb8065eef38234d6cda9a",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"url": {
+											"raw": "{{api-gateway-url}}/merchants/utilities/banks/list?country=India",
+											"host": [
+												"{{api-gateway-url}}"
+											],
+											"path": [
+												"merchants",
+												"utilities",
+												"banks",
+												"list"
+											],
+											"query": [
+												{
+													"key": "country",
+													"value": "India"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "abba2ff5-10fa-41e2-a3d5-b06a8fe0d35c",
+											"name": "List banks - successful",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer dp_test_aa96cfb22275bcb005a05c20094f6dbda4923bc3272b28be160a1973e6f0289ec83f5b9c0dbb5eff4a59b46b9035b0219433d3d588267653c10c9454a329afad3afd043106696238cca2226446b9c438db39a207fb60374a59a5f25a6a6ce62ed4566ace8b4fb8065eef38234d6cda9a",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{api-gateway-url}}/merchants/utilities/banks/list?country=Nigeria",
+													"host": [
+														"{{api-gateway-url}}"
+													],
+													"path": [
+														"merchants",
+														"utilities",
+														"banks",
+														"list"
+													],
+													"query": [
+														{
+															"key": "country",
+															"value": "Nigeria"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "content-security-policy",
+													"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "x-dns-prefetch-control",
+													"value": "off"
+												},
+												{
+													"key": "expect-ct",
+													"value": "max-age=0"
+												},
+												{
+													"key": "x-frame-options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "strict-transport-security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "x-download-options",
+													"value": "noopen"
+												},
+												{
+													"key": "x-content-type-options",
+													"value": "nosniff"
+												},
+												{
+													"key": "x-permitted-cross-domain-policies",
+													"value": "none"
+												},
+												{
+													"key": "referrer-policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "x-xss-protection",
+													"value": "0"
+												},
+												{
+													"key": "vary",
+													"value": "Origin"
+												},
+												{
+													"key": "x-ratelimit-limit",
+													"value": "50"
+												},
+												{
+													"key": "x-ratelimit-remaining",
+													"value": "49"
+												},
+												{
+													"key": "x-ratelimit-reset",
+													"value": "60"
+												},
+												{
+													"key": "access-control-allow-credentials",
+													"value": "true"
+												},
+												{
+													"key": "content-type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "x-cloud-trace-context",
+													"value": "b4f0c94ddd2eb8238db79640dedbe0cc;o=1"
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 30 Mar 2022 13:13:45 GMT"
+												},
+												{
+													"key": "Server",
+													"value": "Google Frontend"
+												},
+												{
+													"key": "Content-Length",
+													"value": "16190"
+												}
+											],
+											"cookie": [
+												{
+													"expires": "Invalid Date"
+												}
+											],
+											"responseTime": null,
+											"body": "{\n    \"data\": [\n        {\n            \"name\": \"Abbey Mortgage Bank\",\n            \"slug\": \"abbey-mortgage-bank\",\n            \"code\": \"801\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 174,\n            \"createdAt\": \"2020-12-07T16:19:09.000Z\",\n            \"updatedAt\": \"2020-12-07T16:19:19.000Z\"\n        },\n        {\n            \"name\": \"Access Bank\",\n            \"slug\": \"access-bank\",\n            \"code\": \"044\",\n            \"longcode\": \"044150149\",\n            \"gateway\": \"emandate\",\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 1,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2020-02-18T08:06:44.000Z\"\n        },\n        {\n            \"name\": \"Access Bank (Diamond)\",\n            \"slug\": \"access-bank-diamond\",\n            \"code\": \"063\",\n            \"longcode\": \"063150162\",\n            \"gateway\": \"emandate\",\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 3,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2020-02-18T08:06:48.000Z\"\n        },\n        {\n            \"name\": \"ALAT by WEMA\",\n            \"slug\": \"alat-by-wema\",\n            \"code\": \"035A\",\n            \"longcode\": \"035150103\",\n            \"gateway\": \"emandate\",\n            \"pay_with_bank\": true,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 27,\n            \"createdAt\": \"2017-11-15T12:21:31.000Z\",\n            \"updatedAt\": \"2021-02-18T14:55:34.000Z\"\n        },\n        {\n            \"name\": \"Amju Unique MFB\",\n            \"slug\": \"amju-unique-mfb\",\n            \"code\": \"50926\",\n            \"longcode\": \"511080896\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 179,\n            \"createdAt\": \"2021-07-07T13:45:57.000Z\",\n            \"updatedAt\": \"2021-07-07T13:45:57.000Z\"\n        },\n        {\n            \"name\": \"ASO Savings and Loans\",\n            \"slug\": \"asosavings\",\n            \"code\": \"401\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 63,\n            \"createdAt\": \"2018-09-23T05:52:38.000Z\",\n            \"updatedAt\": \"2019-01-30T09:38:57.000Z\"\n        },\n        {\n            \"name\": \"Bowen Microfinance Bank\",\n            \"slug\": \"bowen-microfinance-bank\",\n            \"code\": \"50931\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 108,\n            \"createdAt\": \"2020-02-11T15:38:57.000Z\",\n            \"updatedAt\": \"2020-02-11T15:38:57.000Z\"\n        },\n        {\n            \"name\": \"CEMCS Microfinance Bank\",\n            \"slug\": \"cemcs-microfinance-bank\",\n            \"code\": \"50823\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 74,\n            \"createdAt\": \"2020-03-23T15:06:13.000Z\",\n            \"updatedAt\": \"2020-03-23T15:06:28.000Z\"\n        },\n        {\n            \"name\": \"Citibank Nigeria\",\n            \"slug\": \"citibank-nigeria\",\n            \"code\": \"023\",\n            \"longcode\": \"023150005\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 2,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2020-02-18T20:24:02.000Z\"\n        },\n        {\n            \"name\": \"Coronation Merchant Bank\",\n            \"slug\": \"coronation-merchant-bank\",\n            \"code\": \"559\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 173,\n            \"createdAt\": \"2020-11-24T10:25:07.000Z\",\n            \"updatedAt\": \"2020-11-24T10:25:07.000Z\"\n        },\n        {\n            \"name\": \"Ecobank Nigeria\",\n            \"slug\": \"ecobank-nigeria\",\n            \"code\": \"050\",\n            \"longcode\": \"050150010\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 4,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2020-02-18T20:23:53.000Z\"\n        },\n        {\n            \"name\": \"Ekondo Microfinance Bank\",\n            \"slug\": \"ekondo-microfinance-bank\",\n            \"code\": \"562\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 64,\n            \"createdAt\": \"2018-09-23T05:55:06.000Z\",\n            \"updatedAt\": \"2018-09-23T05:55:06.000Z\"\n        },\n        {\n            \"name\": \"Eyowo\",\n            \"slug\": \"eyowo\",\n            \"code\": \"50126\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 167,\n            \"createdAt\": \"2020-09-07T13:52:22.000Z\",\n            \"updatedAt\": \"2020-11-24T10:03:21.000Z\"\n        },\n        {\n            \"name\": \"Fidelity Bank\",\n            \"slug\": \"fidelity-bank\",\n            \"code\": \"070\",\n            \"longcode\": \"070150003\",\n            \"gateway\": \"emandate\",\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 6,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2020-02-18T07:25:19.000Z\"\n        },\n        {\n            \"name\": \"Firmus MFB\",\n            \"slug\": \"firmus-mfb\",\n            \"code\": \"51314\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 177,\n            \"createdAt\": \"2021-06-01T15:33:26.000Z\",\n            \"updatedAt\": \"2021-06-01T15:33:26.000Z\"\n        },\n        {\n            \"name\": \"First Bank of Nigeria\",\n            \"slug\": \"first-bank-of-nigeria\",\n            \"code\": \"011\",\n            \"longcode\": \"011151003\",\n            \"gateway\": \"ibank\",\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 7,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2021-03-25T14:22:52.000Z\"\n        },\n        {\n            \"name\": \"First City Monument Bank\",\n            \"slug\": \"first-city-monument-bank\",\n            \"code\": \"214\",\n            \"longcode\": \"214150018\",\n            \"gateway\": \"emandate\",\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 8,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2020-02-18T08:06:46.000Z\"\n        },\n        {\n            \"name\": \"FSDH Merchant Bank Limited\",\n            \"slug\": \"fsdh-merchant-bank-limited\",\n            \"code\": \"501\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 112,\n            \"createdAt\": \"2020-08-20T09:37:04.000Z\",\n            \"updatedAt\": \"2020-11-24T10:03:22.000Z\"\n        },\n        {\n            \"name\": \"Globus Bank\",\n            \"slug\": \"globus-bank\",\n            \"code\": \"00103\",\n            \"longcode\": \"103015001\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 70,\n            \"createdAt\": \"2020-02-11T15:38:57.000Z\",\n            \"updatedAt\": \"2020-02-11T15:38:57.000Z\"\n        },\n        {\n            \"name\": \"Guaranty Trust Bank\",\n            \"slug\": \"guaranty-trust-bank\",\n            \"code\": \"058\",\n            \"longcode\": \"058152036\",\n            \"gateway\": \"ibank\",\n            \"pay_with_bank\": true,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 9,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2021-01-01T11:22:11.000Z\"\n        },\n        {\n            \"name\": \"Hackman Microfinance Bank\",\n            \"slug\": \"hackman-microfinance-bank\",\n            \"code\": \"51251\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 111,\n            \"createdAt\": \"2020-08-20T09:32:48.000Z\",\n            \"updatedAt\": \"2020-11-24T10:03:24.000Z\"\n        },\n        {\n            \"name\": \"Hasal Microfinance Bank\",\n            \"slug\": \"hasal-microfinance-bank\",\n            \"code\": \"50383\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 81,\n            \"createdAt\": \"2020-02-11T15:38:57.000Z\",\n            \"updatedAt\": \"2020-02-11T15:38:57.000Z\"\n        },\n        {\n            \"name\": \"Heritage Bank\",\n            \"slug\": \"heritage-bank\",\n            \"code\": \"030\",\n            \"longcode\": \"030159992\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 10,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2020-02-18T20:24:23.000Z\"\n        },\n        {\n            \"name\": \"Ibile Microfinance Bank\",\n            \"slug\": \"ibile-mfb\",\n            \"code\": \"51244\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 168,\n            \"createdAt\": \"2020-10-21T10:54:20.000Z\",\n            \"updatedAt\": \"2020-10-21T10:54:33.000Z\"\n        },\n        {\n            \"name\": \"Infinity MFB\",\n            \"slug\": \"infinity-mfb\",\n            \"code\": \"50457\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 172,\n            \"createdAt\": \"2020-11-24T10:23:37.000Z\",\n            \"updatedAt\": \"2020-11-24T10:23:37.000Z\"\n        },\n        {\n            \"name\": \"Jaiz Bank\",\n            \"slug\": \"jaiz-bank\",\n            \"code\": \"301\",\n            \"longcode\": \"301080020\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 22,\n            \"createdAt\": \"2016-10-10T17:26:29.000Z\",\n            \"updatedAt\": \"2016-10-10T17:26:29.000Z\"\n        },\n        {\n            \"name\": \"Keystone Bank\",\n            \"slug\": \"keystone-bank\",\n            \"code\": \"082\",\n            \"longcode\": \"082150017\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 11,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2020-02-18T20:23:45.000Z\"\n        },\n        {\n            \"name\": \"Kuda Bank\",\n            \"slug\": \"kuda-bank\",\n            \"code\": \"50211\",\n            \"longcode\": \"\",\n            \"gateway\": \"digitalbankmandate\",\n            \"pay_with_bank\": true,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 67,\n            \"createdAt\": \"2019-11-15T17:06:54.000Z\",\n            \"updatedAt\": \"2020-07-01T15:05:18.000Z\"\n        },\n        {\n            \"name\": \"Lagos Building Investment Company Plc.\",\n            \"slug\": \"lbic-plc\",\n            \"code\": \"90052\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 109,\n            \"createdAt\": \"2020-08-10T15:07:44.000Z\",\n            \"updatedAt\": \"2020-08-10T15:07:44.000Z\"\n        },\n        {\n            \"name\": \"Mayfair MFB\",\n            \"slug\": \"mayfair-mfb\",\n            \"code\": \"50563\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 175,\n            \"createdAt\": \"2021-02-02T08:28:38.000Z\",\n            \"updatedAt\": \"2021-02-02T08:28:38.000Z\"\n        },\n        {\n            \"name\": \"Mint MFB\",\n            \"slug\": \"mint-mfb\",\n            \"code\": \"50304\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 178,\n            \"createdAt\": \"2021-06-01T16:07:29.000Z\",\n            \"updatedAt\": \"2021-06-01T16:07:29.000Z\"\n        },\n        {\n            \"name\": \"One Finance\",\n            \"slug\": \"one-finance\",\n            \"code\": \"565\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 82,\n            \"createdAt\": \"2020-06-16T08:15:31.000Z\",\n            \"updatedAt\": \"2020-06-16T08:15:31.000Z\"\n        },\n        {\n            \"name\": \"PalmPay\",\n            \"slug\": \"palmpay\",\n            \"code\": \"999991\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 169,\n            \"createdAt\": \"2020-11-24T09:58:37.000Z\",\n            \"updatedAt\": \"2020-11-24T10:03:19.000Z\"\n        },\n        {\n            \"name\": \"Parallex Bank\",\n            \"slug\": \"parallex-bank\",\n            \"code\": \"526\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 26,\n            \"createdAt\": \"2017-03-31T13:54:29.000Z\",\n            \"updatedAt\": \"2019-01-30T09:43:56.000Z\"\n        },\n        {\n            \"name\": \"Parkway - ReadyCash\",\n            \"slug\": \"parkway-ready-cash\",\n            \"code\": \"311\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 110,\n            \"createdAt\": \"2020-08-10T15:07:44.000Z\",\n            \"updatedAt\": \"2020-08-10T15:07:44.000Z\"\n        },\n        {\n            \"name\": \"Paycom\",\n            \"slug\": \"paycom\",\n            \"code\": \"999992\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 171,\n            \"createdAt\": \"2020-11-24T10:20:45.000Z\",\n            \"updatedAt\": \"2020-11-24T10:20:54.000Z\"\n        },\n        {\n            \"name\": \"Petra Mircofinance Bank Plc\",\n            \"slug\": \"petra-microfinance-bank-plc\",\n            \"code\": \"50746\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 170,\n            \"createdAt\": \"2020-11-24T10:03:06.000Z\",\n            \"updatedAt\": \"2020-11-24T10:03:06.000Z\"\n        },\n        {\n            \"name\": \"Polaris Bank\",\n            \"slug\": \"polaris-bank\",\n            \"code\": \"076\",\n            \"longcode\": \"076151006\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 13,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2016-07-14T10:04:29.000Z\"\n        },\n        {\n            \"name\": \"Providus Bank\",\n            \"slug\": \"providus-bank\",\n            \"code\": \"101\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 25,\n            \"createdAt\": \"2017-03-27T16:09:29.000Z\",\n            \"updatedAt\": \"2021-02-09T17:50:06.000Z\"\n        },\n        {\n            \"name\": \"Rand Merchant Bank\",\n            \"slug\": \"rand-merchant-bank\",\n            \"code\": \"502\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 176,\n            \"createdAt\": \"2021-02-11T17:33:20.000Z\",\n            \"updatedAt\": \"2021-02-11T17:33:20.000Z\"\n        },\n        {\n            \"name\": \"Rubies MFB\",\n            \"slug\": \"rubies-mfb\",\n            \"code\": \"125\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 69,\n            \"createdAt\": \"2020-01-25T09:49:59.000Z\",\n            \"updatedAt\": \"2020-01-25T09:49:59.000Z\"\n        },\n        {\n            \"name\": \"Sparkle Microfinance Bank\",\n            \"slug\": \"sparkle-microfinance-bank\",\n            \"code\": \"51310\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 72,\n            \"createdAt\": \"2020-02-11T18:43:14.000Z\",\n            \"updatedAt\": \"2020-02-11T18:43:14.000Z\"\n        },\n        {\n            \"name\": \"Stanbic IBTC Bank\",\n            \"slug\": \"stanbic-ibtc-bank\",\n            \"code\": \"221\",\n            \"longcode\": \"221159522\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 14,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2020-02-18T20:24:17.000Z\"\n        },\n        {\n            \"name\": \"Standard Chartered Bank\",\n            \"slug\": \"standard-chartered-bank\",\n            \"code\": \"068\",\n            \"longcode\": \"068150015\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 15,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2020-02-18T20:23:40.000Z\"\n        },\n        {\n            \"name\": \"Sterling Bank\",\n            \"slug\": \"sterling-bank\",\n            \"code\": \"232\",\n            \"longcode\": \"232150016\",\n            \"gateway\": \"emandate\",\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 16,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2021-04-28T09:58:56.000Z\"\n        },\n        {\n            \"name\": \"Suntrust Bank\",\n            \"slug\": \"suntrust-bank\",\n            \"code\": \"100\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 23,\n            \"createdAt\": \"2016-10-10T17:26:29.000Z\",\n            \"updatedAt\": \"2016-10-10T17:26:29.000Z\"\n        },\n        {\n            \"name\": \"TAJ Bank\",\n            \"slug\": \"taj-bank\",\n            \"code\": \"302\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 68,\n            \"createdAt\": \"2020-01-20T11:20:32.000Z\",\n            \"updatedAt\": \"2020-01-20T11:20:32.000Z\"\n        },\n        {\n            \"name\": \"TCF MFB\",\n            \"slug\": \"tcf-mfb\",\n            \"code\": \"51211\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 75,\n            \"createdAt\": \"2020-04-03T09:34:35.000Z\",\n            \"updatedAt\": \"2020-04-03T09:34:35.000Z\"\n        },\n        {\n            \"name\": \"Titan Bank\",\n            \"slug\": \"titan-bank\",\n            \"code\": \"102\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 73,\n            \"createdAt\": \"2020-03-10T11:41:36.000Z\",\n            \"updatedAt\": \"2020-03-23T15:06:29.000Z\"\n        },\n        {\n            \"name\": \"Union Bank of Nigeria\",\n            \"slug\": \"union-bank-of-nigeria\",\n            \"code\": \"032\",\n            \"longcode\": \"032080474\",\n            \"gateway\": \"emandate\",\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 17,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2020-02-18T20:22:54.000Z\"\n        },\n        {\n            \"name\": \"United Bank For Africa\",\n            \"slug\": \"united-bank-for-africa\",\n            \"code\": \"033\",\n            \"longcode\": \"033153513\",\n            \"gateway\": \"emandate\",\n            \"pay_with_bank\": true,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 18,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2021-06-19T09:49:44.000Z\"\n        },\n        {\n            \"name\": \"Unity Bank\",\n            \"slug\": \"unity-bank\",\n            \"code\": \"215\",\n            \"longcode\": \"215154097\",\n            \"gateway\": \"emandate\",\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 19,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2019-07-22T12:44:02.000Z\"\n        },\n        {\n            \"name\": \"VFD Microfinance Bank Limited\",\n            \"slug\": \"vfd\",\n            \"code\": \"566\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 71,\n            \"createdAt\": \"2020-02-11T15:44:11.000Z\",\n            \"updatedAt\": \"2020-10-28T09:42:08.000Z\"\n        },\n        {\n            \"name\": \"Wema Bank\",\n            \"slug\": \"wema-bank\",\n            \"code\": \"035\",\n            \"longcode\": \"035150103\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 20,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2021-02-09T17:49:59.000Z\"\n        },\n        {\n            \"name\": \"Zenith Bank\",\n            \"slug\": \"zenith-bank\",\n            \"code\": \"057\",\n            \"longcode\": \"057150013\",\n            \"gateway\": \"emandate\",\n            \"pay_with_bank\": true,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 21,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2021-06-01T11:01:30.000Z\"\n        }\n    ],\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
+										}
+									]
+								}
+							],
+							"id": "c188c56a-a4e7-47a2-96d6-ca945c4e99bc"
+						},
+						{
+							"name": "Verify Account Number",
+							"item": [
+								{
+									"name": "verify account number",
+									"id": "bafb40cd-e1d8-48c9-8641-b78e73f12be2",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "sk_test_gmbq9kxqr6bc9otiuk10n5tgzotkoiiq0vagf4y"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"account_number\": \"0694002924\",\n    \"bank_code\": \"044\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{api-gateway-url}}merchants/utilities/banks/verify"
+									},
+									"response": [
+										{
+											"id": "f3c164a0-ed3e-48b9-a156-602f07bce653",
+											"name": "verify account number",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"account_number\": \"0694002924\",\n    \"bank_code\": \"044\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{url}}/utilities/banks/verify"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "Expect-CT",
+													"value": "max-age=0"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "vary",
+													"value": "Origin"
+												},
+												{
+													"key": "access-control-allow-credentials",
+													"value": "true"
+												},
+												{
+													"key": "x-ratelimit-limit",
+													"value": "50"
+												},
+												{
+													"key": "x-ratelimit-remaining",
+													"value": "49"
+												},
+												{
+													"key": "x-ratelimit-reset",
+													"value": "60"
+												},
+												{
+													"key": "content-type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "content-length",
+													"value": "133"
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 07 Jul 2021 17:03:09 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"data\": {\n        \"account_number\": \"0694002924\",\n        \"account_name\": \"DAVID DANIEL IGBIGBI\",\n        \"bank_id\": 1\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
+										}
+									]
+								}
+							],
+							"id": "8f00b264-7ad1-4517-b2eb-3f96a7ad5d27"
+						}
+					],
+					"id": "3e8b06c6-1acc-4194-88f4-17bfa0337246",
+					"auth": {
+						"type": "bearer",
+						"bearer": {
+							"token": "dp_live_856879df3e6ecdb14a918e24bba6d480e0564a4eabfdba938fc23b820ac905e54bac25a71dbcdef66c97b8c72ca7e16cf03a576857261f2f16f5335ca5024620b14268823a7d78922cfdd97cefc61050139fd92a7a0c5840e016050552ccadbbec642d2ff8d35a09225c7ec4fd1e347b"
+						}
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "9ce9cb30-cb50-4177-8af4-2a0805aae2f5",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "3f318541-d024-40a7-856b-0e77eb91b0a5",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			],
+			"id": "1a848c20-9c0c-4df3-ace0-7214c2f7f305"
+		},
+		{
+			"name": "Checkout",
+			"item": [
+				{
+					"name": "Generate checkout url",
+					"item": [
+						{
+							"name": "generate checkout url",
+							"id": "dcf7e1f0-947e-4ee4-9772-4e147796bd4e",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -7737,88 +8283,128 @@
 										"token": "dp_live_856879df3e6ecdb14a918e24bba6d480e0564a4eabfdba938fc23b820ac905e54bac25a71dbcdef66c97b8c72ca7e16cf03a576857261f2f16f5335ca5024620b14268823a7d78922cfdd97cefc61050139fd92a7a0c5840e016050552ccadbbec642d2ff8d35a09225c7ec4fd1e347b"
 									}
 								},
-								"method": "GET",
-								"header": [],
-								"url": "{{api-gateway-url}}merchants/invoice/4e557f3b-8659-4c07-a428-852908a8c68a/986acd67-b306-4642-87aa-99ba512b2601"
-							},
-							"response": [
-								{
-									"id": "d67af871-37ce-46a8-8a59-70b3d268054f",
-									"name": "Fetch Invoice Details",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": "{{app-gateway}}merchants/invoice/c1f9df9b-8dd3-4b43-aee9-ecc5525d27a2/80efed51-96fc-43c7-9075-9f78877d26bc"
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": null,
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"data\": {\n        \"id\": \"c1f9df9b-8dd3-4b43-aee9-ecc5525d27a2\",\n        \"invoice_number\": \"78689936947\",\n        \"title\": \"Invoice for Mwenda Deno\",\n        \"recipient\": \"wal_ZKmo7StVZMrZ\",\n        \"due_date\": \"2022-05-25T00:00:00.000Z\",\n        \"items\": [\n            {\n                \"name\": \"sample name\",\n                \"total\": 7510.5,\n                \"quantity\": 15,\n                \"unit_price\": 500.7\n            },\n            {\n                \"name\": \"sample name 2\",\n                \"total\": 3118.6,\n                \"quantity\": 31,\n                \"unit_price\": 100.6\n            }\n        ],\n        \"shipping_fee\": 670.9,\n        \"discount\": {\n            \"type\": \"amount\",\n            \"value\": 400.5\n        },\n        \"tax\": {\n            \"type\": \"percentage\",\n            \"value\": 10.2,\n            \"description\": \"sample description\"\n        },\n        \"note\": \"sample note\",\n        \"status\": \"draft\",\n        \"public_id\": \"oXFpXwUQIwoF8zOabzKLjEHv4kZTydNb\",\n        \"account\": {\n            \"provider\": {\n                \"id\": \"wema\",\n                \"default\": true,\n                \"prefixes\": [\n                    \"222\",\n                    \"919\",\n                    \"888\"\n                ],\n                \"bank_code\": \"111\",\n                \"bank_name\": \"Wema Bank\",\n                \"is_prefix\": true,\n                \"credentials\": {}\n            },\n            \"account_ref\": \"act_MR1sJ8bh2YlK\",\n            \"account_number\": \"8880000363\"\n        },\n        \"payment\": null,\n        \"created_at\": \"2022-05-25T15:19:05.650Z\",\n        \"update_at\": \"2022-05-25T15:19:05.651Z\",\n        \"business_id\": \"80efed51-96fc-43c7-9075-9f78877d26bc\"\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
-								},
-								{
-									"id": "8ef34e75-7023-4deb-9bfe-ead321c79063",
-									"name": "Fetch Invoice Details Error",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": "{{app-gateway}}merchants/invoice/c1f9df9b-8dd3-4b43-aee9-ecc5525d27a2/80efed51-96fc-43c7-9075-9f78877d26bc"
-									},
-									"status": "Bad Request",
-									"code": 400,
-									"_postman_previewlanguage": "json",
-									"header": null,
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"data\": {},\n    \"errors\": {},\n    \"message\": \"Invoice with provided invoice ID and business ID does not exist\"\n}"
-								}
-							]
-						},
-						{
-							"name": "update invoice delivery status-api",
-							"id": "4d69141c-95be-449f-8f50-b75d42fd5c2a",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "PATCH",
+								"method": "POST",
 								"header": [
 									{
 										"key": "dpmlekdno",
 										"value": "{{dpmlekdno}}",
-										"type": "text"
+										"type": "text",
+										"disabled": true
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"invoice_id\": \"4e557f3b-8659-4c07-a428-852908a8c68a\",\n    \"delivery_status\": \"delivered\"\n}",
+									"raw": "{\n    \"business_id\": \"986acd67-b306-4642-87aa-99ba512b2601\",\n    \"customer_firstname\": \"Basirat\",\n    \"customer_lastname\": \"Aboyeji\",\n    \"customer_email\": \"naboyeji@bugfoo.com\",\n    \"customer_phone_number\": \"08075265428\",\n    \"amount\": \"45\",\n    \"fee_bearer\": \"customer\",\n    \"preferred_payment_methods\": \"pay-with-transfer\",\n    \"line_items\": [\n        {\n            \"name\": \"Bottle water\",\n            \"unit_price\": 30,\n            \"quantity\": 1\n        }\n    ],\n    \"shipping_fee\": 10,\n    \"discount\":\n        {\n            \"type\": \"percentage\",\n            \"value\": 0\n        }\n    ,\n    \"tax\":\n        {\n            \"type\": \"percentage\",\n            \"value\": 5,\n            \"description\": \"VAT\"\n        }\n    ,\n    \"redirect_url\": \"davidigbigbi.com\"\n}\n\n\n\n",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "{{app-gateway}}invoice/delivery-status"
+								"url": "{{api-gateway-url}}checkout/"
 							},
 							"response": [
 								{
-									"id": "bd038939-0692-4032-9e2d-f46aec53c695",
+									"id": "3022af06-34cb-42be-b27c-cae5586b41b6",
+									"name": "error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "dpmlekdno",
+												"value": "{{dpmlekdno}}",
+												"type": "text"
+											}
+										],
+										"url": "{{app-gateway}}checkout/"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-DNS-Prefetch-Control",
+											"value": "off"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "content-length",
+											"value": "367"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 12 Sep 2022 23:14:48 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {},\n    \"errors\": {\n        \"business_id\": \"Business id is required\",\n        \"customer_name\": \"Customer name is required\",\n        \"customer_email\": \"Email is required\",\n        \"customer_phone_number\": \"Customer phone number is required\",\n        \"amount\": \"Amount is required\",\n        \"fee_bearer\": \"Fee bearer is required\",\n        \"preferred_payment_methods\": \"Preferred payment method is required\"\n    },\n    \"message\": \"Invalid requests\"\n}"
+								},
+								{
+									"id": "24230c0c-345a-48db-8dce-a73642ae3bb7",
 									"name": "success",
 									"originalRequest": {
-										"method": "PATCH",
-										"header": [],
+										"method": "POST",
+										"header": [
+											{
+												"key": "dpmlekdno",
+												"value": "{{dpmlekdno}}",
+												"type": "text"
+											}
+										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"reason_cancelled\": \"Fruits damaged\"\n}",
+											"raw": "{\n    \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\",\n    \"customer_firstname\": \"Shen\",\n    \"customer_lastname\": \"Chen\",\n    \"customer_email\": \"shenchen@yopmail.com\",\n    \"customer_phone_number\": \"08011111945\",\n    \"amount\": \"2000\",\n    \"fee_bearer\": \"customer\",\n    \"preferred_payment_methods\": \"bank_transfer\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
 												}
 											}
 										},
-										"url": "{{app-gateway}}invoice/50ce5ff2-520a-4fba-a0f2-c43a51d84854/status/pending"
+										"url": "{{app-gateway}}checkout/"
 									},
 									"status": "OK",
 									"code": 200,
@@ -7861,36 +8447,16 @@
 											"value": "0"
 										},
 										{
-											"key": "vary",
-											"value": "Origin"
-										},
-										{
-											"key": "access-control-allow-credentials",
-											"value": "true"
-										},
-										{
-											"key": "access-control-expose-headers",
-											"value": "Access-Control-Allow-Origin"
-										},
-										{
-											"key": "set-cookie",
-											"value": "dpmlekdno=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT"
-										},
-										{
-											"key": "set-cookie",
-											"value": "dpmlekdno=a0c2c022a7727cb322d432024731b242%3Arnc7f6d06f9dd230d8d07f5c362c2f650ceba46d64cc6212605afdeae99106a1bed32f9de1c9b1635fc4a2117c25a2272c434bacdb930e64b1e49777d4f07ade12648609385a235e0034cee1c283e8def19843c25e486acddb1034a6a6ff4477c3688425cf14e29ffcf20c147f2f071eb57ae6386116685909a18f981cc3d346c6321b5d74f5498518d52799901fa42143383d6e353e13f8d256c335ab641e7f347c9f28220ce7d14964c17043042743e6b4f9a2ab3dc127357e34a2694962e8e8ae0e0c2b95c1d10ed0160cc7d8af7686398a3e02363a47f0a4ad7d61a602f3c884281036f4f2553b2dcd6e5d7827369af35977af21d420400b14111abe4dc8839279a612cc7f503398cca1768685e144341a423867d3a4423d14e7da35b49e91dd3d0927a9e4a31fd9d28d975fbe35cc0e38ad8ebc1584e82a3892f6f8c19f9e388c27c94c3921cd94c4a5e047db050fef5e5d44cdb486e02e9cadfbc9f6aef7d4755637b78bf1f94506a06424d38247; Domain=0.0.0.0; Path=/; Expires=Wed, 01 Feb 2023 19:37:12 GMT; HttpOnly; SameSite=Strict"
-										},
-										{
 											"key": "content-type",
 											"value": "application/json; charset=utf-8"
 										},
 										{
 											"key": "content-length",
-											"value": "1335"
+											"value": "1027"
 										},
 										{
 											"key": "Date",
-											"value": "Wed, 01 Feb 2023 19:07:13 GMT"
+											"value": "Thu, 15 Sep 2022 11:46:07 GMT"
 										},
 										{
 											"key": "Connection",
@@ -7903,1031 +8469,507 @@
 									],
 									"cookie": [],
 									"responseTime": null,
-									"body": "{\n    \"data\": {\n        \"id\": \"50ce5ff2-520a-4fba-a0f2-c43a51d84854\",\n        \"invoice_number\": \"28093487062\",\n        \"title\": \"Invoice for Adetoun Ihaga\",\n        \"recipient\": \"cus_KY5nu3jtzkJ3\",\n        \"recipient_name\": \"Adetoun Ihaga\",\n        \"recipient_data\": {\n            \"__v\": 0,\n            \"_id\": \"62e1a16039f233000dbc5d78\",\n            \"email\": \"adetoun@yopmail.com\",\n            \"wallets\": [],\n            \"last_name\": \"Ihaga\",\n            \"created_at\": \"2022-07-27T20:34:40.600Z\",\n            \"first_name\": \"Adetoun\",\n            \"updated_at\": \"2022-07-27T20:34:40.600Z\",\n            \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\",\n            \"customer_ref\": \"cus_KY5nu3jtzkJ3\",\n            \"phone_number\": \"08078740878\"\n        },\n        \"due_date\": \"2023-02-02T00:00:00.000Z\",\n        \"items\": [\n            {\n                \"name\": \"Banana\",\n                \"total\": 900,\n                \"quantity\": 3,\n                \"unit_price\": 300\n            },\n            {\n                \"name\": \"Apple\",\n                \"total\": 600,\n                \"quantity\": 3,\n                \"unit_price\": 200\n            }\n        ],\n        \"shipping_fee\": 100,\n        \"discount\": null,\n        \"tax\": null,\n        \"total_invoice_amount\": \"1600.00\",\n        \"invoice_balance\": \"1600.00\",\n        \"overpayment_amount\": null,\n        \"note\": null,\n        \"status\": \"invoice\",\n        \"public_id\": \"k7fWd78byQOn4t0DtbzkL4bzp4MVIQGq\",\n        \"account\": {\n            \"provider\": {\n                \"id\": \"wema\",\n                \"bank_code\": \"111\",\n                \"bank_name\": \"Wema Bank\"\n            },\n            \"account_ref\": \"act_Rzw8ZAss7HDh\",\n            \"account_number\": \"8890000886\"\n        },\n        \"payment\": {\n            \"reason\": null,\n            \"status\": \"UNPAID\"\n        },\n        \"delivery_status\": \"pending\",\n        \"reason_for_cancelling\": \"Fruits damaged\",\n        \"created_at\": \"2023-02-01T18:39:45.717Z\",\n        \"update_at\": \"2023-02-01T19:07:12.376Z\",\n        \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\"\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
+									"body": "{\n    \"data\": {\n        \"customer_firstname\": \"Shen\",\n        \"customer_lastname\": \"Chen\",\n        \"customer_email\": \"shenchen@yopmail.com\",\n        \"customer_phone_number\": \"08011111945\",\n        \"currency\": \"NGN\",\n        \"amount\": 2000,\n        \"fee\": 0,\n        \"fee_bearer\": \"customer\",\n        \"preferred_payment_methods\": \"bank_transfer\",\n        \"is_active\": true,\n        \"created_at\": \"2022-09-15T11:46:07.425Z\",\n        \"updated_at\": \"2022-09-15T11:46:07.425Z\",\n        \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\",\n        \"checkout_ref\": \"che_PYS3Omy8Y9OW\",\n        \"reference\": \"CHEPYS3OMY8Y9OW20220915124607\",\n        \"checkout_url\": \"http://sample.checkout.url?reference=fe10925d4195796959ad95067cc2e333:rn3c4dec5fa0f289ff1793c3e4a20651b9f957b1392388b8fdf687bda1bed82d5c2d6812720d23ceb2b281ad0a8a31a6b47b143e044da8c206057bacf83f0f954507e240996ff665a56d0f04adb9649dcbf6f5aa525f951124cccafbbc129c120daa6f370a5755735008764cbab61f4027a95bfa2e0e0736a07b96786ec0eddf8b112b97408e7a5824afa65233d80349b103704cd22d4b5b8e0336bd3dcd05984d953d9c62b0ecb1477fb84aa2c9d95499dda05dcabaf9a93cf01ad19319a4b7c7814a2b2d19c469eb80aacfa35849fbdf\"\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
+								},
+								{
+									"id": "b498ac6d-752c-4c88-9e3b-022ee222add4",
+									"name": "success updated",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "dpmlekdno",
+												"value": "H9srym%je4t343643",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\",\n    \"customer_firstname\": \"Dammy\",\n    \"customer_lastname\": \"Bright\",\n    \"customer_email\": \"boluwatife@yopmail.com\",\n    \"customer_phone_number\": \"08022113915\",\n    \"amount\": \"1500\",\n    \"fee_bearer\": \"customer\",\n    \"preferred_payment_methods\": \"bank_transfer\",\n    \"line_items\": [\n        {\n            \"name\": \"1 carton of milo\",\n            \"unit_price\": 1500,\n            \"quantity\": 1\n        }\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{app-gateway}}checkout/"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-security-policy",
+											"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "x-dns-prefetch-control",
+											"value": "off"
+										},
+										{
+											"key": "expect-ct",
+											"value": "max-age=0"
+										},
+										{
+											"key": "x-frame-options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "strict-transport-security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "x-xss-protection",
+											"value": "0"
+										},
+										{
+											"key": "vary",
+											"value": "Origin"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "X-Cloud-Trace-Context",
+											"value": "2b037888bc356744a09e8f45f1aaccbc;o=1"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 06 Dec 2022 12:19:46 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Google Frontend"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1170"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"customer_firstname\": \"Boluwatife\",\n        \"customer_lastname\": \"Bright\",\n        \"customer_email\": \"boluwatife@yopmail.com\",\n        \"customer_phone_number\": \"08022223915\",\n        \"currency\": \"NGN\",\n        \"amount\": 1515,\n        \"fee\": 15,\n        \"fee_bearer\": \"customer\",\n        \"preferred_payment_methods\": \"bank_transfer\",\n        \"is_active\": true,\n        \"created_at\": \"2022-12-06T12:19:46.247Z\",\n        \"updated_at\": \"2022-12-06T12:19:46.247Z\",\n        \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\",\n        \"checkout_ref\": \"che_c12jImkfN86F\",\n        \"line_items\": [\n            {\n                \"name\": \"1 carton of milo\",\n                \"unit_price\": 1500,\n                \"quantity\": 1\n            }\n        ],\n        \"shipping_fee\": null,\n        \"discount\": [],\n        \"tax\": [],\n        \"redirect_url\": null,\n        \"reference\": \"CHEC12JIMKFN86F20221206121946\",\n        \"checkout_url\": \"http://sample.checkout.url?reference=13da781d7fc0fd5fd0a4f4d47b289795:rnebc6bc7dbb760d6c1d3dcdb3d683f12ff023e8d8aa56ffa7362ebf0b5fa1f8cf5bab9d000d46f396d1adb6c9312f034a9c4502d95bfc9c9eccbc09adf04dbe277d2f698aab208870b1095f7b3deb4674973e31f0e1c80257341f4ef2404277cd048f5ee17074954264025d4a9e73c390c8bbd46f78f99b14e6c7f772e2acac2ce9eb80c3c4d4a857c2cc485449115b65c9e1870ebbb3b9f39326135d1197408109bcbb43288cfd142d169ecb88ea3e5366c0b1ed018f74cc7deef0f41b4a4c1b42471bfb6b6fe902ec9454b726a365f0\"\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
 								}
 							]
 						}
 					],
-					"id": "3e8b06c6-1acc-4194-88f4-17bfa0337246",
-					"auth": {
-						"type": "bearer",
-						"bearer": {
-							"token": "dp_live_856879df3e6ecdb14a918e24bba6d480e0564a4eabfdba938fc23b820ac905e54bac25a71dbcdef66c97b8c72ca7e16cf03a576857261f2f16f5335ca5024620b14268823a7d78922cfdd97cefc61050139fd92a7a0c5840e016050552ccadbbec642d2ff8d35a09225c7ec4fd1e347b"
-						}
-					},
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "9ce9cb30-cb50-4177-8af4-2a0805aae2f5",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "3f318541-d024-40a7-856b-0e77eb91b0a5",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					]
+					"id": "79516649-0527-41c6-bf06-9f7b0a356e77"
 				},
 				{
-					"name": "List banks",
-					"id": "1c4b4586-18cd-4c5e-99e5-4ac33b8bba73",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "dp_live_856879df3e6ecdb14a918e24bba6d480e0564a4eabfdba938fc23b820ac905e54bac25a71dbcdef66c97b8c72ca7e16cf03a576857261f2f16f5335ca5024620b14268823a7d78922cfdd97cefc61050139fd92a7a0c5840e016050552ccadbbec642d2ff8d35a09225c7ec4fd1e347b"
-							}
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer dp_test_aa96cfb22275bcb005a05c20094f6dbda4923bc3272b28be160a1973e6f0289ec83f5b9c0dbb5eff4a59b46b9035b0219433d3d588267653c10c9454a329afad3afd043106696238cca2226446b9c438db39a207fb60374a59a5f25a6a6ce62ed4566ace8b4fb8065eef38234d6cda9a",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "{{api-gateway-url}}/merchants/utilities/banks/list?country=India",
-							"host": [
-								"{{api-gateway-url}}"
-							],
-							"path": [
-								"merchants",
-								"utilities",
-								"banks",
-								"list"
-							],
-							"query": [
+					"name": "Verify checkout reference",
+					"item": [
+						{
+							"name": "verify checkout reference",
+							"id": "8161fc34-4a35-45d1-8918-ad1516f01aa0",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "dpmlekdno",
+										"value": "{{dpmlekdno}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"checkout_reference\": \"02c0a1b3f56e7eb5a99f506351889e94:rn0bff9d9fec9bf691f4dc1906b3819fe9882bf08405be82807b50b0723f8d2f5387588a11b5f46b782d42c669580dc8974b817a734512c9b5cb411d14cc6f963821543c8fdb0c2dce2b88bf92f18be229deb7904873be5d8babf044722ab678b130d767d817611d092ae3d45834c59132ba8858f46bd5b045f04e3356a27725000bf516d0791bd4e3d29a19efcdc886de11c639afe005c4f9267a3df009d8a3af58e06a1a3abf0e77073259b4575d742163d52994e59c0716038e40ac3219aab9df8ea7d601d3726bd15a475e2b6733db\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{api-gateway-url}}checkout/verify-reference"
+							},
+							"response": [
 								{
-									"key": "country",
-									"value": "India"
+									"id": "b77df9ef-ab24-48b8-9025-121584ff5081",
+									"name": "success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "dpmlekdno",
+												"value": "{{dpmlekdno}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"checkout_reference\": \"1e4ffeb425228b203aa30f5d30885612:rn1c60fb51554ea1f4b2cb85811bc884d32c6cebfb945ca3284ef01ec10972bd2404cf8143ecb937008459d23ae6214d5acd5289a9f1168351f53bcb09ec4b115c96ea40322a80401be6fa5956a2f38eaa6ce647c868695ea67eb622e9ff5e291fef566d76ed235c491939ecb2dfa1e30ea20a87fb467f7595092a15a3668830ba41e72f8348f5034443b99b42fbee97faa3024e540dd1a55babc0a073d2c033f0c68d3bcc0455eb5684fd2211b24b96cd4064da7bf71d291b43c0ad8fb155f438\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{app-gateway}}checkout/verify-reference"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-DNS-Prefetch-Control",
+											"value": "off"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "content-length",
+											"value": "1115"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 16:14:41 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"checkout_details\": {\n            \"currency\": \"NGN\",\n            \"is_active\": true,\n            \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\",\n            \"customer_firstname\": \"Bode\",\n            \"customer_lastname\": \"George\",\n            \"customer_email\": \"bodey@gmail.com\",\n            \"customer_phone_number\": \"08011179945\",\n            \"amount\": 1000,\n            \"fee_bearer\": \"customer\",\n            \"preferred_payment_methods\": \"bank_transfer\",\n            \"fee\": 0,\n            \"account\": {\n                \"single_use\": true,\n                \"metadata\": \"{}\",\n                \"provider\": {\n                    \"id\": \"wema\",\n                    \"bank_code\": \"111\",\n                    \"bank_name\": \"Wema Bank\",\n                    \"is_prefix\": true,\n                    \"requires_bvn\": false,\n                    \"prefixes\": [\n                        \"222\",\n                        \"919\",\n                        \"888\"\n                    ],\n                    \"fixed_amount_prefixes\": [\n                        \"889\"\n                    ],\n                    \"default\": true\n                },\n                \"email\": \"bodey@gmail.com\",\n                \"purpose\": \"For one-time use only\",\n                \"is_permanent\": false,\n                \"amount\": 1000,\n                \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\",\n                \"account_number\": \"8890000048\",\n                \"account_name\": \"Bode George\",\n                \"account_ref\": \"act_n5HJAIIb4h3Y\",\n                \"created_at\": \"2022-09-13T13:52:16.000Z\",\n                \"status\": \"active\",\n                \"updated_at\": \"2022-09-13T13:52:16.000Z\"\n            },\n            \"checkout_ref\": \"che_FB6D58K1Fo3R\",\n            \"reference\": \"che_FB6D58K1Fo3R;20220913;14:52:19\",\n            \"created_at\": \"2022-09-13T13:52:19.858Z\",\n            \"updated_at\": \"2022-09-13T13:52:19.858Z\"\n        }\n    },\n    \"errors\": {},\n    \"message\": \"Checkout link is valid\"\n}"
+								},
+								{
+									"id": "02f4ab1a-412c-4946-9859-256dd5a9856a",
+									"name": "error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "dpmlekdno",
+												"value": "{{dpmlekdno}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"checkout_reference\": \"1e4ffeb425228b203aa30f5d30885612:rn1c60fb51554ea1f4b2cb85811bc884d32c6cebfb945ca3284ef01ec10972bd2404cf8143ecb937008459d23ae6214d5acd5289a9f1168351f53bcb09ec4b115c96ea40322a80401be6fa5956a2f38eaa6ce647c868695ea67eb622e9ff5e291fef566d76ed235c491939ecb2dfa1e30ea20a87fb467f7595092a15a3668830ba41e72f8348f5034443b99b42fbee97faa3024e540dd1a55babc0a073d2c033f0c68d3bcc0455eb5684fd2211b24b96cd4064da7bf71d291b43c0ad8fb155f43888\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{app-gateway}}checkout/verify-reference"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-DNS-Prefetch-Control",
+											"value": "off"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "content-length",
+											"value": "53"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 16:17:36 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {},\n    \"errors\": {},\n    \"message\": \"Bad checkout link\"\n}"
 								}
 							]
 						}
-					},
-					"response": [
+					],
+					"id": "7bf1cb4e-5b07-485b-9017-0162e136c158"
+				},
+				{
+					"name": "Verify checkout transaction",
+					"item": [
 						{
-							"id": "abba2ff5-10fa-41e2-a3d5-b06a8fe0d35c",
-							"name": "List banks - successful",
-							"originalRequest": {
+							"name": "verify checkout transaction",
+							"id": "ec1e0205-9f7c-45bc-a410-722253ba4e72",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
 								"method": "GET",
 								"header": [
 									{
-										"key": "Authorization",
-										"value": "Bearer dp_test_aa96cfb22275bcb005a05c20094f6dbda4923bc3272b28be160a1973e6f0289ec83f5b9c0dbb5eff4a59b46b9035b0219433d3d588267653c10c9454a329afad3afd043106696238cca2226446b9c438db39a207fb60374a59a5f25a6a6ce62ed4566ace8b4fb8065eef38234d6cda9a",
+										"key": "dpmlekdno",
+										"value": "{{dpmlekdno}}",
 										"type": "text"
 									}
 								],
-								"url": {
-									"raw": "{{api-gateway-url}}/merchants/utilities/banks/list?country=Nigeria",
-									"host": [
-										"{{api-gateway-url}}"
-									],
-									"path": [
-										"merchants",
-										"utilities",
-										"banks",
-										"list"
-									],
-									"query": [
+								"url": "{{api-gateway-url}}checkout/verify-transaction/che_x1dTNLy5wJor"
+							},
+							"response": [
+								{
+									"id": "520cd392-94e4-43b9-89a7-708a0229698b",
+									"name": "error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "dpmlekdno",
+												"value": "{{dpmlekdno}}",
+												"type": "text"
+											}
+										],
+										"url": "{{app-gateway}}checkout/verify-transaction/che_igdOMXRCwW1G"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
 										{
-											"key": "country",
-											"value": "Nigeria"
+											"key": "X-DNS-Prefetch-Control",
+											"value": "off"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "content-length",
+											"value": "74"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 06:35:20 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
 										}
-									]
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {},\n    \"errors\": {},\n    \"message\": \"No payment was found for this checkout\"\n}"
+								},
+								{
+									"id": "008867de-8f42-48c4-b246-8ce3ed8f5f25",
+									"name": "success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "dpmlekdno",
+												"value": "{{dpmlekdno}}",
+												"type": "text"
+											}
+										],
+										"url": "{{app-gateway}}checkout/verify-transaction/che_igdOMXRCwW1G"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-DNS-Prefetch-Control",
+											"value": "off"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "content-length",
+											"value": "1031"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 07:01:25 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"checkout_transaction_details\": {\n            \"source_details\": {\n                \"bank_name\": \"wema\",\n                \"account_name\": \"Duplo\",\n                \"account_number\": \"7219000007\"\n            },\n            \"receiver_details\": {\n                \"bank_name\": \"Wema Bank\",\n                \"account_name\": \"Daniel Doe\",\n                \"account_number\": \"8890000062\"\n            },\n            \"_id\": \"6322c9ff39f6f6000dc44299\",\n            \"currency\": \"NGN\",\n            \"created_at\": \"2022-09-15T07:45:18.953Z\",\n            \"updated_at\": \"2022-09-15T07:45:18.953Z\",\n            \"new_balance\": \"14750\",\n            \"account_number\": \"8890000062\",\n            \"session_id\": \"87883723808723606234664390001888004118416997121\",\n            \"provider_ref_id\": \"199971142384749099704008266091707899121010\",\n            \"type\": \"credit\",\n            \"channel\": \"nip\",\n            \"description\": \"PURCHASE DEPOSIT FOR XOA\",\n            \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\",\n            \"account\": \"632251552d96e7000d597681\",\n            \"account_ref\": \"act_aO7yrjAIHnIy\",\n            \"wallet_ref\": \"wal_eV9nNyLc54oO\",\n            \"status\": \"successful\",\n            \"transaction_ref\": \"tran_IwUsE63IwOIT\",\n            \"fee_amount\": \"0\",\n            \"settled_amount\": \"1200\",\n            \"amount\": \"1200\",\n            \"date\": \"2022-09-15T07:45:18.953Z\",\n            \"category\": \"bank_transfer\",\n            \"multiple_source_details\": [],\n            \"__v\": 0\n        }\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
 								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "content-security-policy",
-									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
-								},
-								{
-									"key": "x-dns-prefetch-control",
-									"value": "off"
-								},
-								{
-									"key": "expect-ct",
-									"value": "max-age=0"
-								},
-								{
-									"key": "x-frame-options",
-									"value": "SAMEORIGIN"
-								},
-								{
-									"key": "strict-transport-security",
-									"value": "max-age=15552000; includeSubDomains"
-								},
-								{
-									"key": "x-download-options",
-									"value": "noopen"
-								},
-								{
-									"key": "x-content-type-options",
-									"value": "nosniff"
-								},
-								{
-									"key": "x-permitted-cross-domain-policies",
-									"value": "none"
-								},
-								{
-									"key": "referrer-policy",
-									"value": "no-referrer"
-								},
-								{
-									"key": "x-xss-protection",
-									"value": "0"
-								},
-								{
-									"key": "vary",
-									"value": "Origin"
-								},
-								{
-									"key": "x-ratelimit-limit",
-									"value": "50"
-								},
-								{
-									"key": "x-ratelimit-remaining",
-									"value": "49"
-								},
-								{
-									"key": "x-ratelimit-reset",
-									"value": "60"
-								},
-								{
-									"key": "access-control-allow-credentials",
-									"value": "true"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "x-cloud-trace-context",
-									"value": "b4f0c94ddd2eb8238db79640dedbe0cc;o=1"
-								},
-								{
-									"key": "Date",
-									"value": "Wed, 30 Mar 2022 13:13:45 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "Google Frontend"
-								},
-								{
-									"key": "Content-Length",
-									"value": "16190"
-								}
-							],
-							"cookie": [
-								{
-									"expires": "Invalid Date"
-								}
-							],
-							"responseTime": null,
-							"body": "{\n    \"data\": [\n        {\n            \"name\": \"Abbey Mortgage Bank\",\n            \"slug\": \"abbey-mortgage-bank\",\n            \"code\": \"801\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 174,\n            \"createdAt\": \"2020-12-07T16:19:09.000Z\",\n            \"updatedAt\": \"2020-12-07T16:19:19.000Z\"\n        },\n        {\n            \"name\": \"Access Bank\",\n            \"slug\": \"access-bank\",\n            \"code\": \"044\",\n            \"longcode\": \"044150149\",\n            \"gateway\": \"emandate\",\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 1,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2020-02-18T08:06:44.000Z\"\n        },\n        {\n            \"name\": \"Access Bank (Diamond)\",\n            \"slug\": \"access-bank-diamond\",\n            \"code\": \"063\",\n            \"longcode\": \"063150162\",\n            \"gateway\": \"emandate\",\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 3,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2020-02-18T08:06:48.000Z\"\n        },\n        {\n            \"name\": \"ALAT by WEMA\",\n            \"slug\": \"alat-by-wema\",\n            \"code\": \"035A\",\n            \"longcode\": \"035150103\",\n            \"gateway\": \"emandate\",\n            \"pay_with_bank\": true,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 27,\n            \"createdAt\": \"2017-11-15T12:21:31.000Z\",\n            \"updatedAt\": \"2021-02-18T14:55:34.000Z\"\n        },\n        {\n            \"name\": \"Amju Unique MFB\",\n            \"slug\": \"amju-unique-mfb\",\n            \"code\": \"50926\",\n            \"longcode\": \"511080896\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 179,\n            \"createdAt\": \"2021-07-07T13:45:57.000Z\",\n            \"updatedAt\": \"2021-07-07T13:45:57.000Z\"\n        },\n        {\n            \"name\": \"ASO Savings and Loans\",\n            \"slug\": \"asosavings\",\n            \"code\": \"401\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 63,\n            \"createdAt\": \"2018-09-23T05:52:38.000Z\",\n            \"updatedAt\": \"2019-01-30T09:38:57.000Z\"\n        },\n        {\n            \"name\": \"Bowen Microfinance Bank\",\n            \"slug\": \"bowen-microfinance-bank\",\n            \"code\": \"50931\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 108,\n            \"createdAt\": \"2020-02-11T15:38:57.000Z\",\n            \"updatedAt\": \"2020-02-11T15:38:57.000Z\"\n        },\n        {\n            \"name\": \"CEMCS Microfinance Bank\",\n            \"slug\": \"cemcs-microfinance-bank\",\n            \"code\": \"50823\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 74,\n            \"createdAt\": \"2020-03-23T15:06:13.000Z\",\n            \"updatedAt\": \"2020-03-23T15:06:28.000Z\"\n        },\n        {\n            \"name\": \"Citibank Nigeria\",\n            \"slug\": \"citibank-nigeria\",\n            \"code\": \"023\",\n            \"longcode\": \"023150005\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 2,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2020-02-18T20:24:02.000Z\"\n        },\n        {\n            \"name\": \"Coronation Merchant Bank\",\n            \"slug\": \"coronation-merchant-bank\",\n            \"code\": \"559\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 173,\n            \"createdAt\": \"2020-11-24T10:25:07.000Z\",\n            \"updatedAt\": \"2020-11-24T10:25:07.000Z\"\n        },\n        {\n            \"name\": \"Ecobank Nigeria\",\n            \"slug\": \"ecobank-nigeria\",\n            \"code\": \"050\",\n            \"longcode\": \"050150010\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 4,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2020-02-18T20:23:53.000Z\"\n        },\n        {\n            \"name\": \"Ekondo Microfinance Bank\",\n            \"slug\": \"ekondo-microfinance-bank\",\n            \"code\": \"562\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 64,\n            \"createdAt\": \"2018-09-23T05:55:06.000Z\",\n            \"updatedAt\": \"2018-09-23T05:55:06.000Z\"\n        },\n        {\n            \"name\": \"Eyowo\",\n            \"slug\": \"eyowo\",\n            \"code\": \"50126\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 167,\n            \"createdAt\": \"2020-09-07T13:52:22.000Z\",\n            \"updatedAt\": \"2020-11-24T10:03:21.000Z\"\n        },\n        {\n            \"name\": \"Fidelity Bank\",\n            \"slug\": \"fidelity-bank\",\n            \"code\": \"070\",\n            \"longcode\": \"070150003\",\n            \"gateway\": \"emandate\",\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 6,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2020-02-18T07:25:19.000Z\"\n        },\n        {\n            \"name\": \"Firmus MFB\",\n            \"slug\": \"firmus-mfb\",\n            \"code\": \"51314\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 177,\n            \"createdAt\": \"2021-06-01T15:33:26.000Z\",\n            \"updatedAt\": \"2021-06-01T15:33:26.000Z\"\n        },\n        {\n            \"name\": \"First Bank of Nigeria\",\n            \"slug\": \"first-bank-of-nigeria\",\n            \"code\": \"011\",\n            \"longcode\": \"011151003\",\n            \"gateway\": \"ibank\",\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 7,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2021-03-25T14:22:52.000Z\"\n        },\n        {\n            \"name\": \"First City Monument Bank\",\n            \"slug\": \"first-city-monument-bank\",\n            \"code\": \"214\",\n            \"longcode\": \"214150018\",\n            \"gateway\": \"emandate\",\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 8,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2020-02-18T08:06:46.000Z\"\n        },\n        {\n            \"name\": \"FSDH Merchant Bank Limited\",\n            \"slug\": \"fsdh-merchant-bank-limited\",\n            \"code\": \"501\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 112,\n            \"createdAt\": \"2020-08-20T09:37:04.000Z\",\n            \"updatedAt\": \"2020-11-24T10:03:22.000Z\"\n        },\n        {\n            \"name\": \"Globus Bank\",\n            \"slug\": \"globus-bank\",\n            \"code\": \"00103\",\n            \"longcode\": \"103015001\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 70,\n            \"createdAt\": \"2020-02-11T15:38:57.000Z\",\n            \"updatedAt\": \"2020-02-11T15:38:57.000Z\"\n        },\n        {\n            \"name\": \"Guaranty Trust Bank\",\n            \"slug\": \"guaranty-trust-bank\",\n            \"code\": \"058\",\n            \"longcode\": \"058152036\",\n            \"gateway\": \"ibank\",\n            \"pay_with_bank\": true,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 9,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2021-01-01T11:22:11.000Z\"\n        },\n        {\n            \"name\": \"Hackman Microfinance Bank\",\n            \"slug\": \"hackman-microfinance-bank\",\n            \"code\": \"51251\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 111,\n            \"createdAt\": \"2020-08-20T09:32:48.000Z\",\n            \"updatedAt\": \"2020-11-24T10:03:24.000Z\"\n        },\n        {\n            \"name\": \"Hasal Microfinance Bank\",\n            \"slug\": \"hasal-microfinance-bank\",\n            \"code\": \"50383\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 81,\n            \"createdAt\": \"2020-02-11T15:38:57.000Z\",\n            \"updatedAt\": \"2020-02-11T15:38:57.000Z\"\n        },\n        {\n            \"name\": \"Heritage Bank\",\n            \"slug\": \"heritage-bank\",\n            \"code\": \"030\",\n            \"longcode\": \"030159992\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 10,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2020-02-18T20:24:23.000Z\"\n        },\n        {\n            \"name\": \"Ibile Microfinance Bank\",\n            \"slug\": \"ibile-mfb\",\n            \"code\": \"51244\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 168,\n            \"createdAt\": \"2020-10-21T10:54:20.000Z\",\n            \"updatedAt\": \"2020-10-21T10:54:33.000Z\"\n        },\n        {\n            \"name\": \"Infinity MFB\",\n            \"slug\": \"infinity-mfb\",\n            \"code\": \"50457\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 172,\n            \"createdAt\": \"2020-11-24T10:23:37.000Z\",\n            \"updatedAt\": \"2020-11-24T10:23:37.000Z\"\n        },\n        {\n            \"name\": \"Jaiz Bank\",\n            \"slug\": \"jaiz-bank\",\n            \"code\": \"301\",\n            \"longcode\": \"301080020\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 22,\n            \"createdAt\": \"2016-10-10T17:26:29.000Z\",\n            \"updatedAt\": \"2016-10-10T17:26:29.000Z\"\n        },\n        {\n            \"name\": \"Keystone Bank\",\n            \"slug\": \"keystone-bank\",\n            \"code\": \"082\",\n            \"longcode\": \"082150017\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 11,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2020-02-18T20:23:45.000Z\"\n        },\n        {\n            \"name\": \"Kuda Bank\",\n            \"slug\": \"kuda-bank\",\n            \"code\": \"50211\",\n            \"longcode\": \"\",\n            \"gateway\": \"digitalbankmandate\",\n            \"pay_with_bank\": true,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 67,\n            \"createdAt\": \"2019-11-15T17:06:54.000Z\",\n            \"updatedAt\": \"2020-07-01T15:05:18.000Z\"\n        },\n        {\n            \"name\": \"Lagos Building Investment Company Plc.\",\n            \"slug\": \"lbic-plc\",\n            \"code\": \"90052\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 109,\n            \"createdAt\": \"2020-08-10T15:07:44.000Z\",\n            \"updatedAt\": \"2020-08-10T15:07:44.000Z\"\n        },\n        {\n            \"name\": \"Mayfair MFB\",\n            \"slug\": \"mayfair-mfb\",\n            \"code\": \"50563\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 175,\n            \"createdAt\": \"2021-02-02T08:28:38.000Z\",\n            \"updatedAt\": \"2021-02-02T08:28:38.000Z\"\n        },\n        {\n            \"name\": \"Mint MFB\",\n            \"slug\": \"mint-mfb\",\n            \"code\": \"50304\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 178,\n            \"createdAt\": \"2021-06-01T16:07:29.000Z\",\n            \"updatedAt\": \"2021-06-01T16:07:29.000Z\"\n        },\n        {\n            \"name\": \"One Finance\",\n            \"slug\": \"one-finance\",\n            \"code\": \"565\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 82,\n            \"createdAt\": \"2020-06-16T08:15:31.000Z\",\n            \"updatedAt\": \"2020-06-16T08:15:31.000Z\"\n        },\n        {\n            \"name\": \"PalmPay\",\n            \"slug\": \"palmpay\",\n            \"code\": \"999991\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 169,\n            \"createdAt\": \"2020-11-24T09:58:37.000Z\",\n            \"updatedAt\": \"2020-11-24T10:03:19.000Z\"\n        },\n        {\n            \"name\": \"Parallex Bank\",\n            \"slug\": \"parallex-bank\",\n            \"code\": \"526\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 26,\n            \"createdAt\": \"2017-03-31T13:54:29.000Z\",\n            \"updatedAt\": \"2019-01-30T09:43:56.000Z\"\n        },\n        {\n            \"name\": \"Parkway - ReadyCash\",\n            \"slug\": \"parkway-ready-cash\",\n            \"code\": \"311\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 110,\n            \"createdAt\": \"2020-08-10T15:07:44.000Z\",\n            \"updatedAt\": \"2020-08-10T15:07:44.000Z\"\n        },\n        {\n            \"name\": \"Paycom\",\n            \"slug\": \"paycom\",\n            \"code\": \"999992\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 171,\n            \"createdAt\": \"2020-11-24T10:20:45.000Z\",\n            \"updatedAt\": \"2020-11-24T10:20:54.000Z\"\n        },\n        {\n            \"name\": \"Petra Mircofinance Bank Plc\",\n            \"slug\": \"petra-microfinance-bank-plc\",\n            \"code\": \"50746\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 170,\n            \"createdAt\": \"2020-11-24T10:03:06.000Z\",\n            \"updatedAt\": \"2020-11-24T10:03:06.000Z\"\n        },\n        {\n            \"name\": \"Polaris Bank\",\n            \"slug\": \"polaris-bank\",\n            \"code\": \"076\",\n            \"longcode\": \"076151006\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 13,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2016-07-14T10:04:29.000Z\"\n        },\n        {\n            \"name\": \"Providus Bank\",\n            \"slug\": \"providus-bank\",\n            \"code\": \"101\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 25,\n            \"createdAt\": \"2017-03-27T16:09:29.000Z\",\n            \"updatedAt\": \"2021-02-09T17:50:06.000Z\"\n        },\n        {\n            \"name\": \"Rand Merchant Bank\",\n            \"slug\": \"rand-merchant-bank\",\n            \"code\": \"502\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 176,\n            \"createdAt\": \"2021-02-11T17:33:20.000Z\",\n            \"updatedAt\": \"2021-02-11T17:33:20.000Z\"\n        },\n        {\n            \"name\": \"Rubies MFB\",\n            \"slug\": \"rubies-mfb\",\n            \"code\": \"125\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 69,\n            \"createdAt\": \"2020-01-25T09:49:59.000Z\",\n            \"updatedAt\": \"2020-01-25T09:49:59.000Z\"\n        },\n        {\n            \"name\": \"Sparkle Microfinance Bank\",\n            \"slug\": \"sparkle-microfinance-bank\",\n            \"code\": \"51310\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 72,\n            \"createdAt\": \"2020-02-11T18:43:14.000Z\",\n            \"updatedAt\": \"2020-02-11T18:43:14.000Z\"\n        },\n        {\n            \"name\": \"Stanbic IBTC Bank\",\n            \"slug\": \"stanbic-ibtc-bank\",\n            \"code\": \"221\",\n            \"longcode\": \"221159522\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 14,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2020-02-18T20:24:17.000Z\"\n        },\n        {\n            \"name\": \"Standard Chartered Bank\",\n            \"slug\": \"standard-chartered-bank\",\n            \"code\": \"068\",\n            \"longcode\": \"068150015\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 15,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2020-02-18T20:23:40.000Z\"\n        },\n        {\n            \"name\": \"Sterling Bank\",\n            \"slug\": \"sterling-bank\",\n            \"code\": \"232\",\n            \"longcode\": \"232150016\",\n            \"gateway\": \"emandate\",\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 16,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2021-04-28T09:58:56.000Z\"\n        },\n        {\n            \"name\": \"Suntrust Bank\",\n            \"slug\": \"suntrust-bank\",\n            \"code\": \"100\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 23,\n            \"createdAt\": \"2016-10-10T17:26:29.000Z\",\n            \"updatedAt\": \"2016-10-10T17:26:29.000Z\"\n        },\n        {\n            \"name\": \"TAJ Bank\",\n            \"slug\": \"taj-bank\",\n            \"code\": \"302\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 68,\n            \"createdAt\": \"2020-01-20T11:20:32.000Z\",\n            \"updatedAt\": \"2020-01-20T11:20:32.000Z\"\n        },\n        {\n            \"name\": \"TCF MFB\",\n            \"slug\": \"tcf-mfb\",\n            \"code\": \"51211\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 75,\n            \"createdAt\": \"2020-04-03T09:34:35.000Z\",\n            \"updatedAt\": \"2020-04-03T09:34:35.000Z\"\n        },\n        {\n            \"name\": \"Titan Bank\",\n            \"slug\": \"titan-bank\",\n            \"code\": \"102\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 73,\n            \"createdAt\": \"2020-03-10T11:41:36.000Z\",\n            \"updatedAt\": \"2020-03-23T15:06:29.000Z\"\n        },\n        {\n            \"name\": \"Union Bank of Nigeria\",\n            \"slug\": \"union-bank-of-nigeria\",\n            \"code\": \"032\",\n            \"longcode\": \"032080474\",\n            \"gateway\": \"emandate\",\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 17,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2020-02-18T20:22:54.000Z\"\n        },\n        {\n            \"name\": \"United Bank For Africa\",\n            \"slug\": \"united-bank-for-africa\",\n            \"code\": \"033\",\n            \"longcode\": \"033153513\",\n            \"gateway\": \"emandate\",\n            \"pay_with_bank\": true,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 18,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2021-06-19T09:49:44.000Z\"\n        },\n        {\n            \"name\": \"Unity Bank\",\n            \"slug\": \"unity-bank\",\n            \"code\": \"215\",\n            \"longcode\": \"215154097\",\n            \"gateway\": \"emandate\",\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 19,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2019-07-22T12:44:02.000Z\"\n        },\n        {\n            \"name\": \"VFD Microfinance Bank Limited\",\n            \"slug\": \"vfd\",\n            \"code\": \"566\",\n            \"longcode\": \"\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": false,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 71,\n            \"createdAt\": \"2020-02-11T15:44:11.000Z\",\n            \"updatedAt\": \"2020-10-28T09:42:08.000Z\"\n        },\n        {\n            \"name\": \"Wema Bank\",\n            \"slug\": \"wema-bank\",\n            \"code\": \"035\",\n            \"longcode\": \"035150103\",\n            \"gateway\": null,\n            \"pay_with_bank\": false,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 20,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2021-02-09T17:49:59.000Z\"\n        },\n        {\n            \"name\": \"Zenith Bank\",\n            \"slug\": \"zenith-bank\",\n            \"code\": \"057\",\n            \"longcode\": \"057150013\",\n            \"gateway\": \"emandate\",\n            \"pay_with_bank\": true,\n            \"active\": true,\n            \"is_deleted\": null,\n            \"country\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"type\": \"nuban\",\n            \"id\": 21,\n            \"createdAt\": \"2016-07-14T10:04:29.000Z\",\n            \"updatedAt\": \"2021-06-01T11:01:30.000Z\"\n        }\n    ],\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
+							]
 						}
-					]
-				},
-				{
-					"name": "verify account number",
-					"id": "bafb40cd-e1d8-48c9-8641-b78e73f12be2",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "sk_test_gmbq9kxqr6bc9otiuk10n5tgzotkoiiq0vagf4y"
-							}
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"account_number\": \"0694002924\",\n    \"bank_code\": \"044\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{api-gateway-url}}merchants/utilities/banks/verify"
-					},
-					"response": [
-						{
-							"id": "f3c164a0-ed3e-48b9-a156-602f07bce653",
-							"name": "verify account number",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"account_number\": \"0694002924\",\n    \"bank_code\": \"044\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{url}}/utilities/banks/verify"
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-DNS-Prefetch-Control",
-									"value": "off"
-								},
-								{
-									"key": "Expect-CT",
-									"value": "max-age=0"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "SAMEORIGIN"
-								},
-								{
-									"key": "Strict-Transport-Security",
-									"value": "max-age=15552000; includeSubDomains"
-								},
-								{
-									"key": "X-Download-Options",
-									"value": "noopen"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "X-Permitted-Cross-Domain-Policies",
-									"value": "none"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "no-referrer"
-								},
-								{
-									"key": "X-XSS-Protection",
-									"value": "0"
-								},
-								{
-									"key": "vary",
-									"value": "Origin"
-								},
-								{
-									"key": "access-control-allow-credentials",
-									"value": "true"
-								},
-								{
-									"key": "x-ratelimit-limit",
-									"value": "50"
-								},
-								{
-									"key": "x-ratelimit-remaining",
-									"value": "49"
-								},
-								{
-									"key": "x-ratelimit-reset",
-									"value": "60"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "content-length",
-									"value": "133"
-								},
-								{
-									"key": "Date",
-									"value": "Wed, 07 Jul 2021 17:03:09 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"data\": {\n        \"account_number\": \"0694002924\",\n        \"account_name\": \"DAVID DANIEL IGBIGBI\",\n        \"bank_id\": 1\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
-						}
-					]
-				}
-			],
-			"id": "1a848c20-9c0c-4df3-ace0-7214c2f7f305"
-		},
-		{
-			"name": "Checkout",
-			"item": [
-				{
-					"name": "generate checkout url",
-					"id": "dcf7e1f0-947e-4ee4-9772-4e147796bd4e",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "dp_live_856879df3e6ecdb14a918e24bba6d480e0564a4eabfdba938fc23b820ac905e54bac25a71dbcdef66c97b8c72ca7e16cf03a576857261f2f16f5335ca5024620b14268823a7d78922cfdd97cefc61050139fd92a7a0c5840e016050552ccadbbec642d2ff8d35a09225c7ec4fd1e347b"
-							}
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "dpmlekdno",
-								"value": "{{dpmlekdno}}",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"business_id\": \"986acd67-b306-4642-87aa-99ba512b2601\",\n    \"customer_firstname\": \"Basirat\",\n    \"customer_lastname\": \"Aboyeji\",\n    \"customer_email\": \"naboyeji@bugfoo.com\",\n    \"customer_phone_number\": \"08075265428\",\n    \"amount\": \"45\",\n    \"fee_bearer\": \"customer\",\n    \"preferred_payment_methods\": \"pay-with-transfer\",\n    \"line_items\": [\n        {\n            \"name\": \"Bottle water\",\n            \"unit_price\": 30,\n            \"quantity\": 1\n        }\n    ],\n    \"shipping_fee\": 10,\n    \"discount\":\n        {\n            \"type\": \"percentage\",\n            \"value\": 0\n        }\n    ,\n    \"tax\":\n        {\n            \"type\": \"percentage\",\n            \"value\": 5,\n            \"description\": \"VAT\"\n        }\n    ,\n    \"redirect_url\": \"davidigbigbi.com\"\n}\n\n\n\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{api-gateway-url}}checkout/"
-					},
-					"response": [
-						{
-							"id": "3022af06-34cb-42be-b27c-cae5586b41b6",
-							"name": "error",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "dpmlekdno",
-										"value": "{{dpmlekdno}}",
-										"type": "text"
-									}
-								],
-								"url": "{{app-gateway}}checkout/"
-							},
-							"status": "Bad Request",
-							"code": 400,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-DNS-Prefetch-Control",
-									"value": "off"
-								},
-								{
-									"key": "Expect-CT",
-									"value": "max-age=0"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "SAMEORIGIN"
-								},
-								{
-									"key": "Strict-Transport-Security",
-									"value": "max-age=15552000; includeSubDomains"
-								},
-								{
-									"key": "X-Download-Options",
-									"value": "noopen"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "X-Permitted-Cross-Domain-Policies",
-									"value": "none"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "no-referrer"
-								},
-								{
-									"key": "X-XSS-Protection",
-									"value": "0"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "content-length",
-									"value": "367"
-								},
-								{
-									"key": "Date",
-									"value": "Mon, 12 Sep 2022 23:14:48 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"data\": {},\n    \"errors\": {\n        \"business_id\": \"Business id is required\",\n        \"customer_name\": \"Customer name is required\",\n        \"customer_email\": \"Email is required\",\n        \"customer_phone_number\": \"Customer phone number is required\",\n        \"amount\": \"Amount is required\",\n        \"fee_bearer\": \"Fee bearer is required\",\n        \"preferred_payment_methods\": \"Preferred payment method is required\"\n    },\n    \"message\": \"Invalid requests\"\n}"
-						},
-						{
-							"id": "24230c0c-345a-48db-8dce-a73642ae3bb7",
-							"name": "success",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "dpmlekdno",
-										"value": "{{dpmlekdno}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\",\n    \"customer_firstname\": \"Shen\",\n    \"customer_lastname\": \"Chen\",\n    \"customer_email\": \"shenchen@yopmail.com\",\n    \"customer_phone_number\": \"08011111945\",\n    \"amount\": \"2000\",\n    \"fee_bearer\": \"customer\",\n    \"preferred_payment_methods\": \"bank_transfer\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{app-gateway}}checkout/"
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-DNS-Prefetch-Control",
-									"value": "off"
-								},
-								{
-									"key": "Expect-CT",
-									"value": "max-age=0"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "SAMEORIGIN"
-								},
-								{
-									"key": "Strict-Transport-Security",
-									"value": "max-age=15552000; includeSubDomains"
-								},
-								{
-									"key": "X-Download-Options",
-									"value": "noopen"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "X-Permitted-Cross-Domain-Policies",
-									"value": "none"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "no-referrer"
-								},
-								{
-									"key": "X-XSS-Protection",
-									"value": "0"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "content-length",
-									"value": "1027"
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 15 Sep 2022 11:46:07 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"data\": {\n        \"customer_firstname\": \"Shen\",\n        \"customer_lastname\": \"Chen\",\n        \"customer_email\": \"shenchen@yopmail.com\",\n        \"customer_phone_number\": \"08011111945\",\n        \"currency\": \"NGN\",\n        \"amount\": 2000,\n        \"fee\": 0,\n        \"fee_bearer\": \"customer\",\n        \"preferred_payment_methods\": \"bank_transfer\",\n        \"is_active\": true,\n        \"created_at\": \"2022-09-15T11:46:07.425Z\",\n        \"updated_at\": \"2022-09-15T11:46:07.425Z\",\n        \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\",\n        \"checkout_ref\": \"che_PYS3Omy8Y9OW\",\n        \"reference\": \"CHEPYS3OMY8Y9OW20220915124607\",\n        \"checkout_url\": \"http://sample.checkout.url?reference=fe10925d4195796959ad95067cc2e333:rn3c4dec5fa0f289ff1793c3e4a20651b9f957b1392388b8fdf687bda1bed82d5c2d6812720d23ceb2b281ad0a8a31a6b47b143e044da8c206057bacf83f0f954507e240996ff665a56d0f04adb9649dcbf6f5aa525f951124cccafbbc129c120daa6f370a5755735008764cbab61f4027a95bfa2e0e0736a07b96786ec0eddf8b112b97408e7a5824afa65233d80349b103704cd22d4b5b8e0336bd3dcd05984d953d9c62b0ecb1477fb84aa2c9d95499dda05dcabaf9a93cf01ad19319a4b7c7814a2b2d19c469eb80aacfa35849fbdf\"\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
-						},
-						{
-							"id": "b498ac6d-752c-4c88-9e3b-022ee222add4",
-							"name": "success updated",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "dpmlekdno",
-										"value": "H9srym%je4t343643",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\",\n    \"customer_firstname\": \"Dammy\",\n    \"customer_lastname\": \"Bright\",\n    \"customer_email\": \"boluwatife@yopmail.com\",\n    \"customer_phone_number\": \"08022113915\",\n    \"amount\": \"1500\",\n    \"fee_bearer\": \"customer\",\n    \"preferred_payment_methods\": \"bank_transfer\",\n    \"line_items\": [\n        {\n            \"name\": \"1 carton of milo\",\n            \"unit_price\": 1500,\n            \"quantity\": 1\n        }\n    ]\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{app-gateway}}checkout/"
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "content-security-policy",
-									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
-								},
-								{
-									"key": "x-dns-prefetch-control",
-									"value": "off"
-								},
-								{
-									"key": "expect-ct",
-									"value": "max-age=0"
-								},
-								{
-									"key": "x-frame-options",
-									"value": "SAMEORIGIN"
-								},
-								{
-									"key": "strict-transport-security",
-									"value": "max-age=15552000; includeSubDomains"
-								},
-								{
-									"key": "x-download-options",
-									"value": "noopen"
-								},
-								{
-									"key": "x-content-type-options",
-									"value": "nosniff"
-								},
-								{
-									"key": "x-permitted-cross-domain-policies",
-									"value": "none"
-								},
-								{
-									"key": "referrer-policy",
-									"value": "no-referrer"
-								},
-								{
-									"key": "x-xss-protection",
-									"value": "0"
-								},
-								{
-									"key": "vary",
-									"value": "Origin"
-								},
-								{
-									"key": "access-control-allow-credentials",
-									"value": "true"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "X-Cloud-Trace-Context",
-									"value": "2b037888bc356744a09e8f45f1aaccbc;o=1"
-								},
-								{
-									"key": "Date",
-									"value": "Tue, 06 Dec 2022 12:19:46 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "Google Frontend"
-								},
-								{
-									"key": "Content-Length",
-									"value": "1170"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"data\": {\n        \"customer_firstname\": \"Boluwatife\",\n        \"customer_lastname\": \"Bright\",\n        \"customer_email\": \"boluwatife@yopmail.com\",\n        \"customer_phone_number\": \"08022223915\",\n        \"currency\": \"NGN\",\n        \"amount\": 1515,\n        \"fee\": 15,\n        \"fee_bearer\": \"customer\",\n        \"preferred_payment_methods\": \"bank_transfer\",\n        \"is_active\": true,\n        \"created_at\": \"2022-12-06T12:19:46.247Z\",\n        \"updated_at\": \"2022-12-06T12:19:46.247Z\",\n        \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\",\n        \"checkout_ref\": \"che_c12jImkfN86F\",\n        \"line_items\": [\n            {\n                \"name\": \"1 carton of milo\",\n                \"unit_price\": 1500,\n                \"quantity\": 1\n            }\n        ],\n        \"shipping_fee\": null,\n        \"discount\": [],\n        \"tax\": [],\n        \"redirect_url\": null,\n        \"reference\": \"CHEC12JIMKFN86F20221206121946\",\n        \"checkout_url\": \"http://sample.checkout.url?reference=13da781d7fc0fd5fd0a4f4d47b289795:rnebc6bc7dbb760d6c1d3dcdb3d683f12ff023e8d8aa56ffa7362ebf0b5fa1f8cf5bab9d000d46f396d1adb6c9312f034a9c4502d95bfc9c9eccbc09adf04dbe277d2f698aab208870b1095f7b3deb4674973e31f0e1c80257341f4ef2404277cd048f5ee17074954264025d4a9e73c390c8bbd46f78f99b14e6c7f772e2acac2ce9eb80c3c4d4a857c2cc485449115b65c9e1870ebbb3b9f39326135d1197408109bcbb43288cfd142d169ecb88ea3e5366c0b1ed018f74cc7deef0f41b4a4c1b42471bfb6b6fe902ec9454b726a365f0\"\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
-						}
-					]
-				},
-				{
-					"name": "verify checkout reference",
-					"id": "8161fc34-4a35-45d1-8918-ad1516f01aa0",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "dpmlekdno",
-								"value": "{{dpmlekdno}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"checkout_reference\": \"02c0a1b3f56e7eb5a99f506351889e94:rn0bff9d9fec9bf691f4dc1906b3819fe9882bf08405be82807b50b0723f8d2f5387588a11b5f46b782d42c669580dc8974b817a734512c9b5cb411d14cc6f963821543c8fdb0c2dce2b88bf92f18be229deb7904873be5d8babf044722ab678b130d767d817611d092ae3d45834c59132ba8858f46bd5b045f04e3356a27725000bf516d0791bd4e3d29a19efcdc886de11c639afe005c4f9267a3df009d8a3af58e06a1a3abf0e77073259b4575d742163d52994e59c0716038e40ac3219aab9df8ea7d601d3726bd15a475e2b6733db\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{api-gateway-url}}checkout/verify-reference"
-					},
-					"response": [
-						{
-							"id": "b77df9ef-ab24-48b8-9025-121584ff5081",
-							"name": "success",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "dpmlekdno",
-										"value": "{{dpmlekdno}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"checkout_reference\": \"1e4ffeb425228b203aa30f5d30885612:rn1c60fb51554ea1f4b2cb85811bc884d32c6cebfb945ca3284ef01ec10972bd2404cf8143ecb937008459d23ae6214d5acd5289a9f1168351f53bcb09ec4b115c96ea40322a80401be6fa5956a2f38eaa6ce647c868695ea67eb622e9ff5e291fef566d76ed235c491939ecb2dfa1e30ea20a87fb467f7595092a15a3668830ba41e72f8348f5034443b99b42fbee97faa3024e540dd1a55babc0a073d2c033f0c68d3bcc0455eb5684fd2211b24b96cd4064da7bf71d291b43c0ad8fb155f438\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{app-gateway}}checkout/verify-reference"
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-DNS-Prefetch-Control",
-									"value": "off"
-								},
-								{
-									"key": "Expect-CT",
-									"value": "max-age=0"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "SAMEORIGIN"
-								},
-								{
-									"key": "Strict-Transport-Security",
-									"value": "max-age=15552000; includeSubDomains"
-								},
-								{
-									"key": "X-Download-Options",
-									"value": "noopen"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "X-Permitted-Cross-Domain-Policies",
-									"value": "none"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "no-referrer"
-								},
-								{
-									"key": "X-XSS-Protection",
-									"value": "0"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "content-length",
-									"value": "1115"
-								},
-								{
-									"key": "Date",
-									"value": "Wed, 14 Sep 2022 16:14:41 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"data\": {\n        \"checkout_details\": {\n            \"currency\": \"NGN\",\n            \"is_active\": true,\n            \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\",\n            \"customer_firstname\": \"Bode\",\n            \"customer_lastname\": \"George\",\n            \"customer_email\": \"bodey@gmail.com\",\n            \"customer_phone_number\": \"08011179945\",\n            \"amount\": 1000,\n            \"fee_bearer\": \"customer\",\n            \"preferred_payment_methods\": \"bank_transfer\",\n            \"fee\": 0,\n            \"account\": {\n                \"single_use\": true,\n                \"metadata\": \"{}\",\n                \"provider\": {\n                    \"id\": \"wema\",\n                    \"bank_code\": \"111\",\n                    \"bank_name\": \"Wema Bank\",\n                    \"is_prefix\": true,\n                    \"requires_bvn\": false,\n                    \"prefixes\": [\n                        \"222\",\n                        \"919\",\n                        \"888\"\n                    ],\n                    \"fixed_amount_prefixes\": [\n                        \"889\"\n                    ],\n                    \"default\": true\n                },\n                \"email\": \"bodey@gmail.com\",\n                \"purpose\": \"For one-time use only\",\n                \"is_permanent\": false,\n                \"amount\": 1000,\n                \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\",\n                \"account_number\": \"8890000048\",\n                \"account_name\": \"Bode George\",\n                \"account_ref\": \"act_n5HJAIIb4h3Y\",\n                \"created_at\": \"2022-09-13T13:52:16.000Z\",\n                \"status\": \"active\",\n                \"updated_at\": \"2022-09-13T13:52:16.000Z\"\n            },\n            \"checkout_ref\": \"che_FB6D58K1Fo3R\",\n            \"reference\": \"che_FB6D58K1Fo3R;20220913;14:52:19\",\n            \"created_at\": \"2022-09-13T13:52:19.858Z\",\n            \"updated_at\": \"2022-09-13T13:52:19.858Z\"\n        }\n    },\n    \"errors\": {},\n    \"message\": \"Checkout link is valid\"\n}"
-						},
-						{
-							"id": "02f4ab1a-412c-4946-9859-256dd5a9856a",
-							"name": "error",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "dpmlekdno",
-										"value": "{{dpmlekdno}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"checkout_reference\": \"1e4ffeb425228b203aa30f5d30885612:rn1c60fb51554ea1f4b2cb85811bc884d32c6cebfb945ca3284ef01ec10972bd2404cf8143ecb937008459d23ae6214d5acd5289a9f1168351f53bcb09ec4b115c96ea40322a80401be6fa5956a2f38eaa6ce647c868695ea67eb622e9ff5e291fef566d76ed235c491939ecb2dfa1e30ea20a87fb467f7595092a15a3668830ba41e72f8348f5034443b99b42fbee97faa3024e540dd1a55babc0a073d2c033f0c68d3bcc0455eb5684fd2211b24b96cd4064da7bf71d291b43c0ad8fb155f43888\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{app-gateway}}checkout/verify-reference"
-							},
-							"status": "Bad Request",
-							"code": 400,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-DNS-Prefetch-Control",
-									"value": "off"
-								},
-								{
-									"key": "Expect-CT",
-									"value": "max-age=0"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "SAMEORIGIN"
-								},
-								{
-									"key": "Strict-Transport-Security",
-									"value": "max-age=15552000; includeSubDomains"
-								},
-								{
-									"key": "X-Download-Options",
-									"value": "noopen"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "X-Permitted-Cross-Domain-Policies",
-									"value": "none"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "no-referrer"
-								},
-								{
-									"key": "X-XSS-Protection",
-									"value": "0"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "content-length",
-									"value": "53"
-								},
-								{
-									"key": "Date",
-									"value": "Wed, 14 Sep 2022 16:17:36 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"data\": {},\n    \"errors\": {},\n    \"message\": \"Bad checkout link\"\n}"
-						}
-					]
-				},
-				{
-					"name": "verify checkout transaction",
-					"id": "ec1e0205-9f7c-45bc-a410-722253ba4e72",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "dpmlekdno",
-								"value": "{{dpmlekdno}}",
-								"type": "text"
-							}
-						],
-						"url": "{{api-gateway-url}}checkout/verify-transaction/che_x1dTNLy5wJor"
-					},
-					"response": [
-						{
-							"id": "520cd392-94e4-43b9-89a7-708a0229698b",
-							"name": "error",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "dpmlekdno",
-										"value": "{{dpmlekdno}}",
-										"type": "text"
-									}
-								],
-								"url": "{{app-gateway}}checkout/verify-transaction/che_igdOMXRCwW1G"
-							},
-							"status": "Bad Request",
-							"code": 400,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-DNS-Prefetch-Control",
-									"value": "off"
-								},
-								{
-									"key": "Expect-CT",
-									"value": "max-age=0"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "SAMEORIGIN"
-								},
-								{
-									"key": "Strict-Transport-Security",
-									"value": "max-age=15552000; includeSubDomains"
-								},
-								{
-									"key": "X-Download-Options",
-									"value": "noopen"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "X-Permitted-Cross-Domain-Policies",
-									"value": "none"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "no-referrer"
-								},
-								{
-									"key": "X-XSS-Protection",
-									"value": "0"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "content-length",
-									"value": "74"
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 15 Sep 2022 06:35:20 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"data\": {},\n    \"errors\": {},\n    \"message\": \"No payment was found for this checkout\"\n}"
-						},
-						{
-							"id": "008867de-8f42-48c4-b246-8ce3ed8f5f25",
-							"name": "success",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "dpmlekdno",
-										"value": "{{dpmlekdno}}",
-										"type": "text"
-									}
-								],
-								"url": "{{app-gateway}}checkout/verify-transaction/che_igdOMXRCwW1G"
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-DNS-Prefetch-Control",
-									"value": "off"
-								},
-								{
-									"key": "Expect-CT",
-									"value": "max-age=0"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "SAMEORIGIN"
-								},
-								{
-									"key": "Strict-Transport-Security",
-									"value": "max-age=15552000; includeSubDomains"
-								},
-								{
-									"key": "X-Download-Options",
-									"value": "noopen"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "X-Permitted-Cross-Domain-Policies",
-									"value": "none"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "no-referrer"
-								},
-								{
-									"key": "X-XSS-Protection",
-									"value": "0"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "content-length",
-									"value": "1031"
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 15 Sep 2022 07:01:25 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"data\": {\n        \"checkout_transaction_details\": {\n            \"source_details\": {\n                \"bank_name\": \"wema\",\n                \"account_name\": \"Duplo\",\n                \"account_number\": \"7219000007\"\n            },\n            \"receiver_details\": {\n                \"bank_name\": \"Wema Bank\",\n                \"account_name\": \"Daniel Doe\",\n                \"account_number\": \"8890000062\"\n            },\n            \"_id\": \"6322c9ff39f6f6000dc44299\",\n            \"currency\": \"NGN\",\n            \"created_at\": \"2022-09-15T07:45:18.953Z\",\n            \"updated_at\": \"2022-09-15T07:45:18.953Z\",\n            \"new_balance\": \"14750\",\n            \"account_number\": \"8890000062\",\n            \"session_id\": \"87883723808723606234664390001888004118416997121\",\n            \"provider_ref_id\": \"199971142384749099704008266091707899121010\",\n            \"type\": \"credit\",\n            \"channel\": \"nip\",\n            \"description\": \"PURCHASE DEPOSIT FOR XOA\",\n            \"business_id\": \"8ed10fcc-1e1c-4ad1-9ed8-e870d6543349\",\n            \"account\": \"632251552d96e7000d597681\",\n            \"account_ref\": \"act_aO7yrjAIHnIy\",\n            \"wallet_ref\": \"wal_eV9nNyLc54oO\",\n            \"status\": \"successful\",\n            \"transaction_ref\": \"tran_IwUsE63IwOIT\",\n            \"fee_amount\": \"0\",\n            \"settled_amount\": \"1200\",\n            \"amount\": \"1200\",\n            \"date\": \"2022-09-15T07:45:18.953Z\",\n            \"category\": \"bank_transfer\",\n            \"multiple_source_details\": [],\n            \"__v\": 0\n        }\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
-						}
-					]
+					],
+					"id": "da9fab8d-b7c3-46bb-b2ce-f698d2816f39"
 				}
 			],
 			"id": "3fad06cd-a2ca-42df-b113-743f114a89ba",
