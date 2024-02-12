@@ -1,5 +1,5 @@
 {
-	"id": "32567541-a5049c3a-da49-4970-ab94-3f23f5df0a4a",
+	"id": "a5049c3a-da49-4970-ab94-3f23f5df0a4a",
 	"name": "QA Environment",
 	"values": [
 		{
@@ -9,7 +9,7 @@
 			"enabled": true
 		}
 	],
-	"_postman_variable_scope": "environment",
+	"_postman_variable_scope": "collection variables",
 	"_postman_exported_at": "2024-01-29T07:07:05.449Z",
 	"_postman_exported_using": "Postman/10.22.6-240122-0621"
 }
