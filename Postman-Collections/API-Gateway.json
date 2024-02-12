@@ -7086,6 +7086,135 @@
 							"body": "{\n    \"message\": \"07-invalid account number\"\n}"
 						}
 					]
+				},
+				{
+					"name": "wallet summary Copy",
+					"id": "04c58ebb-d9b4-4ee9-bc28-30e5ff929701",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "dpmlekdno",
+								"value": "H9srym%je4t343643",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{app-gateway}}wallets/summary?business_id=b8cd7bdc-7b80-4534-b714-0228b0551079",
+							"host": [
+								"{{app-gateway}}wallets"
+							],
+							"path": [
+								"summary"
+							],
+							"query": [
+								{
+									"key": "business_id",
+									"value": "b8cd7bdc-7b80-4534-b714-0228b0551079"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "85524b30-d2d3-4419-8e18-2ed321aef87d",
+							"name": "wallet summary",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}wallets/summary?business_id=d6ac4ef5-9679-48ab-ab9f-7502043f59f9",
+									"host": [
+										"{{url}}wallets"
+									],
+									"path": [
+										"summary"
+									],
+									"query": [
+										{
+											"key": "business_id",
+											"value": "d6ac4ef5-9679-48ab-ab9f-7502043f59f9"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "5504"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Mar 2022 11:21:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"data\": {\n        \"masterWalletBalance\": {\n            \"available_balance\": 4435,\n            \"ledger_balance\": 3302\n        },\n        \"totalNumberOfWallet\": 4,\n        \"totalNumberOfTransactions\": 28,\n        \"paymentVolume\": [\n            {\n                \"_id\": \"d6ac4ef5-9679-48ab-ab9f-7502043f59f9\",\n                \"total\": 4895\n            }\n        ],\n        \"debits\": [\n            {\n                \"_id\": \"d6ac4ef5-9679-48ab-ab9f-7502043f59f9\",\n                \"total\": 7605\n            }\n        ],\n        \"credits\": [\n            {\n                \"_id\": \"d6ac4ef5-9679-48ab-ab9f-7502043f59f9\",\n                \"total\": 36000\n            }\n        ],\n        \"mostActiveWallets\": [\n            {\n                \"_id\": \"wal_bYGPEcLO36ej\",\n                \"total_transactions\": 4\n            },\n            {\n                \"_id\": null,\n                \"total_transactions\": 1\n            },\n            {\n                \"_id\": \"wal_OjZ9dB7d7d66\",\n                \"total_transactions\": 1\n            }\n        ],\n        \"topWallets\": [\n            {\n                \"ledger_balance\": 8000,\n                \"available_balance\": 8000,\n                \"is_master\": false,\n                \"bank_accounts\": [\n                    {\n                        \"transactions\": [],\n                        \"single_use\": false,\n                        \"_id\": \"61fbb0d0c631e0000d52b2a7\",\n                        \"email\": \"dpbusiness@yopmail.com\",\n                        \"bvn\": \"01234567891\",\n                        \"business_id\": \"d6ac4ef5-9679-48ab-ab9f-7502043f59f9\",\n                        \"last_name\": \"Test\",\n                        \"first_name\": \"Test\",\n                        \"is_permanent\": true,\n                        \"account_name\": \"Test Account\",\n                        \"account_number\": \"d1643884752073\",\n                        \"account_ref\": \"act_v77oowwDzZDv\",\n                        \"provider\": {\n                            \"bank_code\": \"101\",\n                            \"bank_name\": \"Providus\",\n                            \"id\": \"providus\"\n                        },\n                        \"created_at\": \"2022-02-03T10:39:12.076Z\",\n                        \"updated_at\": \"2022-02-03T10:39:12.076Z\",\n                        \"__v\": 0\n                    }\n                ],\n                \"_id\": \"61fbb0d0c631e0000d52b2a9\",\n                \"wallet_ref\": \"wal_OjZ9dB7d7d66\"\n            },\n            {\n                \"ledger_balance\": 5960,\n                \"available_balance\": 5960,\n                \"is_master\": false,\n                \"bank_accounts\": [\n                    {\n                        \"transactions\": [],\n                        \"single_use\": false,\n                        \"_id\": \"620e2722ca2772000d852195\",\n                        \"provider\": {\n                            \"bank_code\": \"101\",\n                            \"bank_name\": \"Providus\",\n                            \"id\": \"providus\",\n                            \"default\": true\n                        },\n                        \"first_name\": \"Lovely\",\n                        \"last_name\": \"Grace\",\n                        \"email\": \"moreala@yopmail.com\",\n                        \"phone_number\": \"09898776657\",\n                        \"is_permanent\": true,\n                        \"business_id\": \"d6ac4ef5-9679-48ab-ab9f-7502043f59f9\",\n                        \"account_ref\": \"act_mQcr0qBgadtL\",\n                        \"created_at\": \"2022-02-17T10:44:50.000Z\",\n                        \"status\": \"active\",\n                        \"account_name\": \"MERCHANT(Lovely Grace)\",\n                        \"account_number\": \"9978598508\",\n                        \"bvn\": \"34543212345\",\n                        \"updated_at\": \"2022-02-17T10:44:50.233Z\",\n                        \"__v\": 0,\n                        \"wallet\": \"620e272281d065000d8f3c33\"\n                    }\n                ],\n                \"_id\": \"620e272281d065000d8f3c33\",\n                \"wallet_ref\": \"wal_bYGPEcLO36ej\"\n            },\n            {\n                \"ledger_balance\": 0,\n                \"available_balance\": 0,\n                \"is_master\": false,\n                \"bank_accounts\": [\n                    {\n                        \"transactions\": [],\n                        \"single_use\": false,\n                        \"_id\": \"620ebadc5678b2000d10c981\",\n                        \"provider\": {\n                            \"bank_code\": \"111\",\n                            \"bank_name\": \"Wema Bank\",\n                            \"id\": \"wema\",\n                            \"prefixes\": \"222,919,888\",\n                            \"is_prefix\": true\n                        },\n                        \"first_name\": \"Grace\",\n                        \"last_name\": \"Alayande\",\n                        \"email\": \"adeola@tryduplo.com\",\n                        \"phone_number\": \"09809887767\",\n                        \"is_permanent\": true,\n                        \"business_id\": \"d6ac4ef5-9679-48ab-ab9f-7502043f59f9\",\n                        \"account_number\": \"8880000017\",\n                        \"account_name\": \"Grace Alayande\",\n                        \"account_metadata\": {\n                            \"prefix_code\": \"888\",\n                            \"counter\": 17\n                        },\n                        \"account_ref\": \"act_FX7nKjT2UF5c\",\n                        \"created_at\": \"2022-02-17T21:15:08.000Z\",\n                        \"status\": \"active\",\n                        \"updated_at\": \"2022-02-17T21:15:08.954Z\",\n                        \"__v\": 0,\n                        \"wallet\": \"620ebadc8e1076000d4924d0\"\n                    }\n                ],\n                \"_id\": \"620ebadc8e1076000d4924d0\",\n                \"wallet_ref\": \"wal_LtN23h9Qr86K\"\n            },\n            {\n                \"ledger_balance\": 0,\n                \"available_balance\": 0,\n                \"is_master\": false,\n                \"bank_accounts\": [\n                    {\n                        \"transactions\": [],\n                        \"single_use\": false,\n                        \"_id\": \"620ccf36ca2772000d852165\",\n                        \"provider\": {\n                            \"bank_code\": \"101\",\n                            \"bank_name\": \"Providus\",\n                            \"id\": \"providus\",\n                            \"default\": true\n                        },\n                        \"first_name\": \"More\",\n                        \"last_name\": \"Grace\",\n                        \"email\": \"grace@yopmail.com\",\n                        \"phone_number\": \"08976554456\",\n                        \"is_permanent\": true,\n                        \"business_id\": \"d6ac4ef5-9679-48ab-ab9f-7502043f59f9\",\n                        \"account_ref\": \"act_Kx3xMSUOpK6K\",\n                        \"created_at\": \"2022-02-16T10:17:26.000Z\",\n                        \"status\": \"active\",\n                        \"account_name\": \"MERCHANT(More Grace)\",\n                        \"account_number\": \"9978596360\",\n                        \"bvn\": \"12343212345\",\n                        \"updated_at\": \"2022-02-16T10:17:26.200Z\",\n                        \"__v\": 0,\n                        \"wallet\": \"620ccf36128dab000d2cc5b0\"\n                    }\n                ],\n                \"_id\": \"620ccf36128dab000d2cc5b0\",\n                \"wallet_ref\": \"wal_zcp2DD0s2PB9\"\n            }\n        ],\n        \"transactionForLastThirtyDays\": [\n            {\n                \"day\": \"21\",\n                \"month\": \"02\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"22\",\n                \"month\": \"02\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"23\",\n                \"month\": \"02\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"24\",\n                \"month\": \"02\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"25\",\n                \"month\": \"02\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"26\",\n                \"month\": \"02\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"27\",\n                \"month\": \"02\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"28\",\n                \"month\": \"02\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"01\",\n                \"month\": \"03\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"02\",\n                \"month\": \"03\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"03\",\n                \"month\": \"03\",\n                \"total_transactions\": 4,\n                \"total_amount\": 3698\n            },\n            {\n                \"day\": \"04\",\n                \"month\": \"03\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"05\",\n                \"month\": \"03\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"06\",\n                \"month\": \"03\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"07\",\n                \"month\": \"03\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"08\",\n                \"month\": \"03\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"09\",\n                \"month\": \"03\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"10\",\n                \"month\": \"03\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"11\",\n                \"month\": \"03\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"12\",\n                \"month\": \"03\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"13\",\n                \"month\": \"03\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"14\",\n                \"month\": \"03\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"15\",\n                \"month\": \"03\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"16\",\n                \"month\": \"03\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"17\",\n                \"month\": \"03\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"18\",\n                \"month\": \"03\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"19\",\n                \"month\": \"03\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"20\",\n                \"month\": \"03\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"21\",\n                \"month\": \"03\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            },\n            {\n                \"day\": \"22\",\n                \"month\": \"03\",\n                \"total_transactions\": 0,\n                \"total_amount\": 0\n            }\n        ]\n    },\n    \"errors\": {},\n    \"message\": \"Request successful\"\n}"
+						}
+					]
 				}
 			],
 			"id": "cb783506-f95f-4304-ae07-78261af818a8",
