@@ -7088,7 +7088,7 @@
 					]
 				},
 				{
-					"name": "wallet summary Copy",
+					"name": "wallet summary",
 					"id": "04c58ebb-d9b4-4ee9-bc28-30e5ff929701",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -7099,15 +7099,17 @@
 							{
 								"key": "dpmlekdno",
 								"value": "H9srym%je4t343643",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"url": {
-							"raw": "{{app-gateway}}wallets/summary?business_id=b8cd7bdc-7b80-4534-b714-0228b0551079",
+							"raw": "{{api-gateway-url}}/wallets/summary?business_id=b8cd7bdc-7b80-4534-b714-0228b0551079",
 							"host": [
-								"{{app-gateway}}wallets"
+								"{{api-gateway-url}}"
 							],
 							"path": [
+								"wallets",
 								"summary"
 							],
 							"query": [
